@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   get '/brands/:brand_id/locations/:id/edit' => 'locations#edit', as: 'brand_location_edit'
   get '/brands/:id/edit' => 'brands#edit'
 
-  patch '/brands/:brand_id/locations/:id' => 'locations#update'
-  patch '/brands/:id' => 'brands#update'
+  patch '/brands/:brand_id/locations/:id' => 'locations#update', as: 'brand_location_update'
+  patch '/brands/:id' => 'brands#update', as: 'brand_update'
 
   delete '/brands/:brand_id/locations/:id' => 'locations#destroy', as: 'brand_location_delete'
   delete '/brands/:id' => 'brands#destroy'

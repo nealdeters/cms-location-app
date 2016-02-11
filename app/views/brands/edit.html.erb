@@ -1,1 +1,72 @@
-edit.html.erb
+<div class="col-md-12">
+  <h1>Edit Location  <span style="display: inline-block; font-size: 24px;">: <%= @brand.brand_name %></span></h1>
+
+  <%= form_tag brand_update_path, method: :patch do %>
+  
+ <table class="table table-hover">
+      <tbody>  
+          <tr>
+            <tr>
+              <td>
+                <td><%= label_tag :name %></td>
+                <td><%= text_field_tag :brand_name, @brand.brand_name %></td>
+              </td>
+              <td>
+                  <td><%= label_tag :phone_number %></td>
+                  <td><%= text_field_tag :brand_phone_number, @brand.brand_phone_number %></td>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <td><%= label_tag :address_1 %></td>
+                <td><%= text_field_tag :brand_address_1, @brand.brand_address_1 %></td>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <td><%= label_tag :address_2 %></td>
+                <td><%= text_field_tag :brand_address_2, @brand.brand_address_2 %></td>
+              </td>
+              <td>
+                  <td></td>
+                  <td></td>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <td><%= label_tag :city %></td>
+                <td><%= text_field_tag :brand_city, @brand.brand_city %></td>
+              </td>
+              <td>
+                  <td></td>
+                  <td></td>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <td><%= label_tag :state %></td>
+                <td><%= text_field_tag :brand_state, @brand.brand_state %></td>
+              </td>
+              <td>
+                  <td></td>
+                  <td></td>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <td><%= label_tag :zipcode %></td>
+                <td><%= text_field_tag :brand_zipcode, @brand.brand_zipcode %></td>
+              </td>
+              <td>
+                  <td></td>
+                  <td></td>
+              </td>
+            </tr>
+        </tr>
+      </tbody>
+    </table>
+
+  <%= submit_tag 'Update Location', class: "btn btn-default"%>
+
+  <% end %>
+</div>  

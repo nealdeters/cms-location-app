@@ -97,6 +97,10 @@ class LocationsController < ApplicationController
     render :index
   end
 
+  def directory
+    @locations = @brand.locations.all
+  end
+
   private
 
   def load_brand

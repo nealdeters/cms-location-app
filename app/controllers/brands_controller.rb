@@ -31,7 +31,7 @@ class BrandsController < ApplicationController
     
     flash[:success] = "New Brand Created"
 
-    redirect_to "/brands"
+    redirect_to brand_path
   end
 
   def show
@@ -48,7 +48,9 @@ class BrandsController < ApplicationController
   end
 
   def update
-    @brand = Brand.update({ 
+    @brand = Brand.find(params[:id])
+
+    @brand.update({ 
       brand_name: params[:brand_name],
       brand_address_1: params[:brand_address_1],
       brand_address_2: params[:brand_address_2],
@@ -63,7 +65,7 @@ class BrandsController < ApplicationController
     
     flash[:info] = "Brand Updated"
 
-    redirect_to "/brands"
+    redirect_to brand_path
   end
 
   def destroy
@@ -72,7 +74,7 @@ class BrandsController < ApplicationController
 
     flash[:danger] = "Brand Deleted"
 
-    redirect_to '/brands'
+    redirect_to brand_path
   end
 
   def search
