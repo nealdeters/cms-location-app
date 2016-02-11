@@ -1,10 +1,13 @@
 class LocationsController < ApplicationController
 
   before_action :authenticate_user!
-  layout "cms_layout"
+  before_filter :load_brand
+  layout "cms_locations_layout"
 
   def index
-    @locations = Location.all
+    # @locations = Location.all
+    # @locations = current_user.locations.all
+    @locations = @brand.locations.all
 
     if params[:filter] && params[:filter_order]
       @locations = Location.order(params[:filter] => params[:filter_order])
@@ -16,7 +19,7 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = Location.create({ 
+    @location = @brand.locations.create({ 
       business_name: params[:business_name],
       address_1: params[:address_1],
       address_2: params[:address_2],
@@ -38,21 +41,21 @@ class LocationsController < ApplicationController
     
     flash[:success] = "New Location Created"
 
-    redirect_to "/locations"
+    redirect_to brand_location_path
   end
 
   def show
-    @location = Location.find(params[:id])
+    @location = @brand.locations.find(params[:id])
 
     render :layout => 'webpage'
   end
 
   def edit
-    @location = Location.find(params[:id])
+    @location = @brand.locations.find(params[:id])
   end
 
   def update
-    @location = Location.find(params[:id])
+    @location = @brand.locations.find(params[:id])
 
     @location.update({ 
       business_name: params[:business_name],
@@ -76,21 +79,28 @@ class LocationsController < ApplicationController
 
     flash[:info] = "Location Updated"
 
-    redirect_to "/locations"
+    redirect_to brand_location_path
   end
 
   def destroy
-    @location = Location.find(params[:id])
+    @location = @brand.locations.find(params[:id])
     @location.destroy
 
     flash[:danger] = "Location Deleted"
 
-    redirect_to '/locations'
+    redirect_to brand_location_path
   end
 
   def search
-    @locations = Location.where("business_name LIKE ? OR city LIKE ? OR state LIKE ? OR id LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+    @locations = @brand.locations.where("business_name LIKE ? OR city LIKE ? OR state LIKE ? OR id LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
 
     render :index
   end
+
+  private
+
+  def load_brand
+    @brand = Brand.find(params[:brand_id])
+  end
+
 end

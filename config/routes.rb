@@ -2,21 +2,28 @@ Rails.application.routes.draw do
   devise_for :users
 
   # get '/' => 'locations#index'
-  get '/locations' => 'locations#index', as: 'location'
+  get '/brands/:brand_id/locations' => 'locations#index', as: 'brand_location'
+  get '/brands' => 'brands#index', as: 'brand'
 
-  get '/locations/new' => 'locations#new', as: 'location_new'
+  get '/brands/:brand_id/locations/new' => 'locations#new', as: 'brand_location_new'
+  get '/brands/new' => 'brands#new'
 
-  post '/locations' => 'locations#create', as: 'location_create'
+  post '/brands/:brand_id/locations' => 'locations#create'
+  post '/brands' => 'brands#create'
 
-  get '/locations/:id' => 'locations#show', as: 'location_show'
+  get '/brands/:brand_id/locations/:id' => 'locations#show', as: 'brand_location_show'
+  get '/brands/:id' => 'brands#show'
 
-  get '/locations/:id/edit' => 'locations#edit', as: 'location_edit'
+  get '/brands/:brand_id/locations/:id/edit' => 'locations#edit', as: 'brand_location_edit'
+  get '/brands/:id/edit' => 'brands#edit'
 
-  patch '/locations/:id' => 'locations#update', as: 'location_update'
+  patch '/brands/:brand_id/locations/:id' => 'locations#update'
+  patch '/brands/:id' => 'brands#update'
 
-  delete '/locations/:id' => 'locations#destroy', as: 'location_destroy'
+  delete '/brands/:brand_id/locations/:id' => 'locations#destroy', as: 'brand_location_delete'
+  delete '/brands/:id' => 'brands#destroy'
 
-  post '/search' => 'locations#search', as: 'location_search'
+  post '/brands/:brand_id/search' => 'locations#search', as: 'brand_location_search'
 
   #static pages
   root "pages#show", page: "home", as: 'home'

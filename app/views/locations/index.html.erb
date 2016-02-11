@@ -3,8 +3,8 @@
     Filter by City <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-    <li><a href="/locations?filter=city&filter_order=asc">By Name Ascending</a>
-    <li><a href="/locations?filter=city&filter_order=desc">By Name Descending</a> 
+    <li><a href="<%= brand_location_path %>?filter=city&filter_order=asc">By Name Ascending</a>
+    <li><a href="<%= brand_location_path %>?filter=city&filter_order=desc">By Name Descending</a> 
   </ul>
 </div>
 
@@ -13,8 +13,8 @@
     Filter by State <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-    <li><a href="/locations?filter=state&filter_order=asc">By Name Ascending</a>
-    <li><a href="/locations?filter=state&filter_order=desc">By Name Descending</a> 
+    <li><a href="<%= brand_location_path %>?filter=state&filter_order=asc">By Name Ascending</a>
+    <li><a href="<%= brand_location_path %>?filter=state&filter_order=desc">By Name Descending</a> 
   </ul>
 </div>
 
@@ -42,17 +42,17 @@
       <td><%= location.updated_at %></td>
       <td><%= location.created_at %></td>
       <td>
-        <%= link_to "View", "/locations/#{location.id}", class: "btn btn-default" %>
+        <%= link_to "View", "/brands/#{location.brand_id}/locations/#{location.id}", class: "btn btn-default" %>
       </td>
       <td>
-        <%= link_to "Edit", "/locations/#{location.id}/edit", class: "btn btn-info" %>
+        <%= link_to "Edit", "/brands/#{location.brand_id}/locations/#{location.id}/edit", class: "btn btn-info" %>
       </td> 
       <td>
-        <%= link_to "Delete", "/locations/#{location.id}", method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"}  %>
+        <%= link_to "Delete", "/brands/#{location.brand_id}/locations/#{location.id}", method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"}  %>
       </td>  
     </tr>
   </tbody>
   <br>
 <% end %>
 </table>
-<%= link_to "Add new location", "/locations/new", class: "btn btn-default" %>
+<%= link_to "Add new location", brand_location_new_path(@brand), class: "btn btn-default" %>
