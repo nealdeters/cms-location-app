@@ -1,4 +1,8 @@
 class LocationsController < ApplicationController
+
+  before_action :authenticate_user!
+  layout "cms_layout"
+
   def index
     @locations = Location.all
 
@@ -34,7 +38,7 @@ class LocationsController < ApplicationController
     
     flash[:success] = "New Location Created"
 
-    redirect_to "/"
+    redirect_to "/locations"
   end
 
   def show
@@ -72,7 +76,7 @@ class LocationsController < ApplicationController
 
     flash[:info] = "Location Updated"
 
-    redirect_to "/"
+    redirect_to "/locations"
   end
 
   def destroy
@@ -81,7 +85,7 @@ class LocationsController < ApplicationController
 
     flash[:danger] = "Location Deleted"
 
-    redirect_to '/'
+    redirect_to '/locations'
   end
 
   def search
