@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211014030) do
+ActiveRecord::Schema.define(version: 20160211023622) do
 
   create_table "brand_users", force: :cascade do |t|
     t.datetime "created_at",           null: false
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20160211014030) do
     t.string   "meta_keywords",        limit: 255
     t.string   "meta_title",           limit: 255
     t.string   "meta_url",             limit: 255
+    t.string   "phone_number",         limit: 255
   end
 
   create_table "users", force: :cascade do |t|
