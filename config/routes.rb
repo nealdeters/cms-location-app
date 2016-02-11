@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'locations#index'
+  
+  #static pages
+  root "pages#show", page: "home"
+  get "/*page" => "pages#show"
+
   # get '/' => 'locations#index'
   get '/locations' => 'locations#index'
 
