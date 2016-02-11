@@ -11,7 +11,68 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211003626) do
+ActiveRecord::Schema.define(version: 20160211014030) do
+
+  create_table "brand_users", force: :cascade do |t|
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "brand_id",   limit: 4
+    t.integer  "user_id",    limit: 4
+  end
+
+  create_table "brands", force: :cascade do |t|
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "brand_name",                 limit: 255
+    t.string   "brand_address_1",            limit: 255
+    t.string   "brand_address_2",            limit: 255
+    t.string   "brand_city",                 limit: 255
+    t.string   "brand_state",                limit: 255
+    t.string   "brand_zipcode",              limit: 255
+    t.string   "brand_phone_number",         limit: 255
+    t.text     "brand_business_description", limit: 65535
+    t.text     "brand_service_description",  limit: 65535
+    t.string   "brand_industry",             limit: 255
+  end
+
+  create_table "contents", force: :cascade do |t|
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "content_name",     limit: 255
+    t.string   "content_category", limit: 255
+    t.integer  "contentable_id",   limit: 4
+    t.string   "contentable_type", limit: 255
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "imageable_id",   limit: 4
+    t.string   "imageable_type", limit: 255
+    t.string   "image_name",     limit: 255
+    t.string   "image_category", limit: 255
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "business_name",        limit: 255
+    t.string   "address_1",            limit: 255
+    t.string   "address_2",            limit: 255
+    t.string   "city",                 limit: 255
+    t.string   "state",                limit: 255
+    t.string   "zipcode",              limit: 255
+    t.string   "hours_of_operation",   limit: 255
+    t.text     "business_description", limit: 65535
+    t.text     "service_description",  limit: 65535
+    t.string   "areas_served",         limit: 255
+    t.string   "zipcodes_served",      limit: 255
+    t.string   "languages",            limit: 255
+    t.string   "meta_description",     limit: 255
+    t.string   "meta_keywords",        limit: 255
+    t.string   "meta_title",           limit: 255
+    t.string   "meta_url",             limit: 255
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
