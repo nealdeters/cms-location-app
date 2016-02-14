@@ -42,17 +42,16 @@
       <td><%= location.updated_at %></td>
       <td><%= location.created_at %></td>
       <td>
-        <%= link_to "View", "/brands/#{location.brand_id}/locations/#{location.id}", class: "btn btn-default" %>
+        <%= link_to "View", brand_location_show_path(:id => location.id), class: "btn btn-default" %>
       </td>
       <td>
-        <%= link_to "Edit", "/brands/#{location.brand_id}/locations/#{location.id}/edit", class: "btn btn-info" %>
+        <%= link_to "Edit", brand_location_edit_path(:id => location.id), class: "btn btn-info" %>
       </td> 
       <td>
-        <%= link_to "Delete", "/brands/#{location.brand_id}/locations/#{location.id}", method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"}  %>
+        <%= link_to "Delete", brand_location_delete_path(:id => location.id), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"}  %>
       </td>  
     </tr>
   </tbody>
-  <br>
 <% end %>
 </table>
 <%= link_to "Add new location", brand_location_new_path(@brand), class: "btn btn-default" %>

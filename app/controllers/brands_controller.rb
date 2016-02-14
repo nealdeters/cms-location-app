@@ -5,8 +5,6 @@ class BrandsController < ApplicationController
 
   def index
     @brands = current_user.brands.all
-    #Find all brands associated to a specific user
-    # @brands = current_user.brands.all
   end
 
   def new
@@ -14,7 +12,7 @@ class BrandsController < ApplicationController
   end
 
   def create
-    @brand = Brand.create({ 
+    @brand = Brand.new({ 
       brand_name: params[:brand_name],
       brand_address_1: params[:brand_address_1],
       brand_address_2: params[:brand_address_2],
@@ -26,12 +24,16 @@ class BrandsController < ApplicationController
       brand_service_description: params[:brand_service_description],
       brand_industry: params[:brand_industry],
       })
+ 
+    if @brand.save
+      flash[:success] = "New Brand Created"
 
-    BrandUser.create(user_id: current_user.id, brand_id: @brand.id)
-    
-    flash[:success] = "New Brand Created"
+      BrandUser.new(user_id: current_user.id, brand_id: @brand.id)
 
-    redirect_to brand_path
+      redirect_to brand_path
+    else
+      render :new
+    end
   end
 
   def show

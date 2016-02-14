@@ -1,0 +1,76 @@
+class ContentsController < ApplicationController
+  before_action :authenticate_user!
+  before_filter :load_brand
+  layout "cms_locations_layout"
+
+  def index
+    if current_user.brands.exists?(params[:brand_id])
+      @contents = @brand.contents.all
+    else
+      redirect_to "/"
+    end
+
+    # if params[:filter] && params[:filter_order]
+    #   @locations = Location.order(params[:filter] => params[:filter_order])
+    # end
+  end
+
+  def new
+
+  end
+
+  def create
+    @content = @brand.contents.create({ 
+      content_name: params[:content_name],
+      content_category: params[:content_category],
+      content_field: params[:content_field]
+      })
+    
+    flash[:success] = "New Content Created"
+
+    redirect_to brand_content_path
+  end
+
+  def show
+    @content = @brand.contents.find(params[:id])
+  end
+
+  def edit
+    @content = @brand.contents.find(params[:id])
+  end
+
+  def update
+    @content = @brand.contents.find(params[:id])
+
+    @content.update({ 
+      content_name: params[:content_name],
+      content_category: params[:content_category],
+      content_field: params[:content_field]
+      })
+
+    flash[:info] = "Content Updated"
+
+    redirect_to brand_content_path
+  end
+
+  def destroy
+    @content = @brand.contents.find(params[:id])
+    @content.destroy
+
+    flash[:danger] = "Content Deleted"
+
+    redirect_to brand_content_path
+  end
+
+  def search
+    @contents = @brand.contents.where("business_name LIKE ?", "%#{params[:search]}%")
+
+    render :index
+  end
+
+  private
+
+  def load_brand
+    @brand = Brand.find(params[:brand_id])
+  end
+end

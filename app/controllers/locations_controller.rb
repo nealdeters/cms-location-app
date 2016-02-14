@@ -5,9 +5,11 @@ class LocationsController < ApplicationController
   layout "cms_locations_layout"
 
   def index
-    # @locations = Location.all
-    # @locations = current_user.locations.all
-    @locations = @brand.locations.all
+    if current_user.brands.exists?(params[:brand_id])
+      @locations = @brand.locations.all
+    else
+      redirect_to "/"
+    end
 
     if params[:filter] && params[:filter_order]
       @locations = Location.order(params[:filter] => params[:filter_order])

@@ -4,4 +4,7 @@ class Brand < ActiveRecord::Base
   has_many :contents, as: :contentable
   has_many :images, as: :imageable
   has_many :locations
+
+  validates :brand_name, presence: true
+
 end

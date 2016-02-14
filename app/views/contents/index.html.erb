@@ -1,0 +1,35 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Content ID</th>
+      <th>Content Name</th>
+      <th>Content Category</th>
+      <th>Updated at</th>
+      <th>Created at</th>
+      <th>View</th> 
+      <th>Edit</th>
+      <th>Delete</th>  
+    </tr>
+  </thead>
+<% @contents.each do |content| %>
+  <tbody>
+    <tr>
+      <td><%= content.id %></td>
+      <td><%= content.content_name %></td>
+      <td><%= content.content_category %></td>
+      <td><%= content.updated_at %></td>
+      <td><%= content.created_at %></td>
+      <td>
+        <%= link_to "View", brand_content_show_path(:id => content.id), class: "btn btn-default" %>
+      </td>
+      <td>
+        <%= link_to "Edit", brand_content_edit_path(:id => content.id), class: "btn btn-info" %>
+      </td> 
+      <td>
+        <%= link_to "Delete", brand_content_delete_path(:id => content.id), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"}  %>
+      </td>  
+    </tr>
+  </tbody>
+<% end %>
+</table>
+<%= link_to "Add new content", brand_content_new_path(@brand), class: "btn btn-default" %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211083831) do
+ActiveRecord::Schema.define(version: 20160214200016) do
 
   create_table "brand_users", force: :cascade do |t|
     t.datetime "created_at",           null: false
@@ -36,12 +36,13 @@ ActiveRecord::Schema.define(version: 20160211083831) do
   end
 
   create_table "contents", force: :cascade do |t|
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "content_name",     limit: 255
     t.string   "content_category", limit: 255
     t.integer  "contentable_id",   limit: 4
     t.string   "contentable_type", limit: 255
+    t.text     "content_field",    limit: 65535
   end
 
   create_table "images", force: :cascade do |t|
