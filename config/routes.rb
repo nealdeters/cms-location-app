@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # get '/' => 'locations#index'
   get '/brands/:brand_id/locations' => 'locations#index', as: 'brand_location'
   get '/brands/:brand_id/contents' => 'contents#index', as: 'brand_content'
+  get '/brands/:brand_id/images' => 'images#index', as: 'brand_image'
   get '/brands' => 'brands#index', as: 'brand'
 
   get '/brands/:brand_id/locations/new' => 'locations#new', as: 'brand_location_new'
