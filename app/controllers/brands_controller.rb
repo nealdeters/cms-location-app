@@ -6,7 +6,11 @@ class BrandsController < ApplicationController
   def index
     @brands = current_user.brands.all
 
-    # @brands.search(params[:search])
+    if params[:search]
+      @brands = current_user.brands.search(params[:search])
+    else
+      @brands = current_user.brands.all
+    end
 
     if params[:filter] && params[:filter_order]
         @brands = @brands.order(params[:filter] => params[:filter_order])
@@ -84,11 +88,5 @@ class BrandsController < ApplicationController
     flash[:danger] = "Brand Deleted"
 
     redirect_to brand_path
-  end
-
-  def search
-    @brands = Brand.where("id LIKE ? OR brand_name LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
-
-    render :index
   end
 end

@@ -6,6 +6,12 @@ class ContentsController < ApplicationController
   def index
     if current_user.brands.exists?(params[:brand_id])
       @contents = @brand.contents.all
+
+      if params[:search]
+        @contents = @brand.contents.search(params[:search])
+      else
+        @contents = @brand.contents.all
+      end
     else
       redirect_to "/"
     end
@@ -60,12 +66,6 @@ class ContentsController < ApplicationController
     flash[:danger] = "Content Deleted"
 
     redirect_to brand_content_path
-  end
-
-  def search
-    @contents = @brand.contents.where("business_name LIKE ?", "%#{params[:search]}%")
-
-    render :index
   end
 
   private

@@ -11,11 +11,7 @@ class Brand < ActiveRecord::Base
     locations.count
   end
 
-  # def self.search(search)
-  #   if search
-  #     find(:all, :conditions => ['brand_name LIKE ?', "%#{search}%"])
-  #   # else
-  #   #   find(:all)
-  #   end
-  # end
+  def self.search(search)
+    where("brand_id LIKE ? OR brand_name LIKE ?", "%#{search}%", "%#{search}%") 
+  end
 end

@@ -34,9 +34,21 @@
           <li><%= link_to "Sign Out", "/users/sign_out", method: :delete if user_signed_in? %></li>
         </ul>
 
-        <%= form_tag "/search", class: "navbar-form navbar-right" do %>
-          <%= text_field_tag :search, nil, placeholder: "Search Locations", class: "form-control" %>
-          <%= submit_tag "Search", class: "btn btn-default" %>
+        <% if current_page?(brand_location_path) %>
+          <%= form_tag brand_location_path, method: :get, class: "navbar-form navbar-right" do %>
+            <%= text_field_tag :search, nil, placeholder: "Search Locations", class: "form-control" %>
+            <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+          <% end %>
+        <% elsif current_page?(brand_image_path) %>
+          <%= form_tag brand_image_path, method: :get, class: "navbar-form navbar-right" do %>
+            <%= text_field_tag :search, nil, placeholder: "Search Images", class: "form-control" %>
+            <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+          <% end %>
+        <% elsif current_page?(brand_content_path) %>
+          <%= form_tag brand_content_path, method: :get, class: "navbar-form navbar-right" do %>
+            <%= text_field_tag :search, nil, placeholder: "Search Content", class: "form-control" %>
+            <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+          <% end %>
         <% end %>
 
         

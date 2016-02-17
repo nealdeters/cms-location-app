@@ -8,6 +8,12 @@ class LocationsController < ApplicationController
     if current_user.brands.exists?(params[:brand_id])
       @locations = @brand.locations.all
 
+      if params[:search]
+        @locations = @brand.locations.search(params[:search])
+      else
+        @locations = @brand.locations.all
+      end
+
       if params[:filter] && params[:filter_order]
         @locations = @locations.order(params[:filter] => params[:filter_order])
       end
@@ -91,12 +97,6 @@ class LocationsController < ApplicationController
     flash[:danger] = "Location Deleted"
 
     redirect_to brand_location_path
-  end
-
-  def search
-    @locations = @brand.locations.where("business_name LIKE ? OR city LIKE ? OR state LIKE ? OR id LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
-
-    render :index
   end
 
   def directory

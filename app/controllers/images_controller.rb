@@ -6,6 +6,12 @@ class ImagesController < ApplicationController
   def index
     if current_user.brands.exists?(params[:brand_id])
       @images = @brand.images.all
+
+      if params[:search]
+        @images = @brand.images.search(params[:search])
+      else
+        @images = @brand.images.all
+      end
     else
       redirect_to "/"
     end
@@ -54,12 +60,6 @@ class ImagesController < ApplicationController
     flash[:danger] = "Image Deleted"
 
     redirect_to brand_image_path
-  end
-
-  def search
-    @images = @brand.images.where("image_name LIKE ?", "%#{params[:search]}%")
-
-    render :index
   end
 
   private

@@ -22,11 +22,6 @@
 
       <div class="collapse navbar-collapse" id="mobilenav">
         <ul class="nav navbar-nav">
-<!--           <li><a href="/locations">Locations</a></li>
-          <li><a href="/images">Images</a></li>
-          <li><a href="/content">Content</a></li>
-          <li><a href="/brand">Brand</a></li>
-          <li><a href="/users">Users</a></li> -->
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
@@ -34,6 +29,11 @@
           <li><%= link_to "Sign Out", "/users/sign_out", method: :delete if user_signed_in? %></li>
         </ul>
 
+        
+        <%= form_tag brand_path, method: :get, class: "navbar-form navbar-right" do %>
+          <%= text_field_tag :search, nil, placeholder: "Search Brands", class: "form-control" %>
+          <%= submit_tag "Search", name: nil,class: "btn btn-default" %>
+        <% end %>
         
 
       </div><!-- /.navbar-collapse -->

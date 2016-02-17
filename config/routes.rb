@@ -37,9 +37,6 @@ Rails.application.routes.draw do
   delete '/brands/:brand_id/images/:id' => 'images#destroy', as: 'brand_image_delete'
   delete '/brands/:id' => 'brands#destroy'
 
-  # post '/brands/:brand_id/search' => 'locations#search', as: 'brand_location_search'
-  # post '/brands/search' => 'brands#search', as: 'brand_search'
-
   #static pages
   root "pages#show", page: "home", as: 'home'
   get "/*page" => "pages#show"
