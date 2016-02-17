@@ -7,4 +7,15 @@ class Brand < ActiveRecord::Base
 
   validates :brand_name, :brand_address_1, presence: true
 
+  def location_count
+    locations.count
+  end
+
+  # def self.search(search)
+  #   if search
+  #     find(:all, :conditions => ['brand_name LIKE ?', "%#{search}%"])
+  #   # else
+  #   #   find(:all)
+  #   end
+  # end
 end

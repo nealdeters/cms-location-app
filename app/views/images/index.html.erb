@@ -1,3 +1,25 @@
+<!-- <div class="btn-group">
+  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Filter by City <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="<%= brand_location_path %>?filter=city&filter_order=asc">By Name Ascending</a>
+    <li><a href="<%= brand_location_path %>?filter=city&filter_order=desc">By Name Descending</a> 
+  </ul>
+</div>
+
+<div class="btn-group">
+  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Filter by State <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="<%= brand_location_path %>?filter=state&filter_order=asc">By Name Ascending</a>
+    <li><a href="<%= brand_location_path %>?filter=state&filter_order=desc">By Name Descending</a> 
+  </ul>
+</div> -->
+
+<%= link_to "Add new image", brand_image_new_path(@brand), class: "btn btn-default navbar-right" %>
+
 <table class="table table-hover">
   <thead>
     <tr>
@@ -18,16 +40,15 @@
       <td><%= image.updated_at %></td>
       <td><%= image.created_at %></td>
       <td>
-        <%= link_to "View", brand_content_show_path(:id => content.id), class: "btn btn-default" %>
+        <%= link_to "View", brand_image_show_path(:id => image.id), class: "btn btn-default" %>
       </td>
       <td>
-        <%= link_to "Edit", brand_content_edit_path(:id => content.id), class: "btn btn-info" %>
+        <%= link_to "Edit", brand_image_edit_path(:id => image.id), class: "btn btn-info" %>
       </td> 
       <td>
-        <%= link_to "Delete", brand_content_delete_path(:id => content.id), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"}  %>
+        <%= link_to "Delete", brand_image_delete_path(:id => image.id), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"}  %>
       </td>  
     </tr>
   </tbody>
 <% end %>
 </table>
-<%= link_to "Add new content", brand_content_new_path(@brand), class: "btn btn-default" %>

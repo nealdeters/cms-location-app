@@ -1,0 +1,25 @@
+<div class="col-md-12">
+  <h1>Add Image</h1>
+
+  <%= form_tag brand_image_path, method: :post do %>
+
+    <table class="table table-hover">
+      <tbody>  
+          <tr>
+            <tr>
+              <td>
+                <td><%= label_tag :name %></td>
+                <td><%= text_field_tag :image_name %></td>
+              </td>
+              <td>
+                  <td><%= label_tag :category %></td>
+                  <td><%= text_field_tag :image_category %></td>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+  <%= submit_tag 'Add Image', class: "btn btn-default"%>
+
+  <% end %>
+</div>  

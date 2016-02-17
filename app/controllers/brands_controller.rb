@@ -5,6 +5,13 @@ class BrandsController < ApplicationController
 
   def index
     @brands = current_user.brands.all
+
+    # @brands.search(params[:search])
+
+    if params[:filter] && params[:filter_order]
+        @brands = @brands.order(params[:filter] => params[:filter_order])
+    end
+
   end
 
   def new
@@ -80,7 +87,7 @@ class BrandsController < ApplicationController
   end
 
   def search
-    @brands = Brand.where("brand_name LIKE ?", "%#{params[:search]}%")
+    @brands = Brand.where("id LIKE ? OR brand_name LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
 
     render :index
   end

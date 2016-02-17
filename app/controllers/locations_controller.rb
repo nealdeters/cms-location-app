@@ -7,12 +7,12 @@ class LocationsController < ApplicationController
   def index
     if current_user.brands.exists?(params[:brand_id])
       @locations = @brand.locations.all
+
+      if params[:filter] && params[:filter_order]
+        @locations = @locations.order(params[:filter] => params[:filter_order])
+      end
     else
       redirect_to "/"
-    end
-
-    if params[:filter] && params[:filter_order]
-      @locations = Location.order(params[:filter] => params[:filter_order])
     end
   end
 

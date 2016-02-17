@@ -11,6 +11,57 @@ class ImagesController < ApplicationController
     end
   end
 
+  def new
+
+  end
+
+  def create
+    @image = @brand.images.create({ 
+      image_name: params[:image_name],
+      image_category: params[:image_category]
+      })
+    
+    flash[:success] = "New Image Created"
+
+    redirect_to brand_image_path
+  end
+
+  def show
+    @image = @brand.images.find(params[:id])
+  end
+
+  def edit
+    @image = @brand.images.find(params[:id])
+  end
+
+  def update
+    @image = @brand.images.find(params[:id])
+
+    @image.update({ 
+      image_name: params[:image_name],
+      image_category: params[:image_category]
+      })
+
+    flash[:info] = "Image Updated"
+
+    redirect_to brand_image_path
+  end
+
+  def destroy
+    @image = @brand.images.find(params[:id])
+    @image.destroy
+
+    flash[:danger] = "Image Deleted"
+
+    redirect_to brand_image_path
+  end
+
+  def search
+    @images = @brand.images.where("image_name LIKE ?", "%#{params[:search]}%")
+
+    render :index
+  end
+
   private
 
   def load_brand
