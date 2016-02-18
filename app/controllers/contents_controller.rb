@@ -12,6 +12,10 @@ class ContentsController < ApplicationController
       else
         @contents = @brand.contents.all
       end
+
+      if params[:filter] && params[:filter_order]
+        @contents = @contents.order(params[:filter] => params[:filter_order])
+      end
     else
       redirect_to "/"
     end

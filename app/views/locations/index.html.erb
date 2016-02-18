@@ -13,8 +13,8 @@
     Filter by Created At <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-    <li><a href="/brands/<%= @brand.id %>/locations?filter=created_at&filter_order=asc">By Creation Ascending</a>
-    <li><a href="/brands/<%= @brand.id %>/locations?filter=created_at&filter_order=desc">By Creation Descending</a> 
+    <li><a href="/brands/<%= @brand.id %>/contents?filter=created_at&filter_order=desc">Recently Created</a>
+    <li><a href="/brands/<%= @brand.id %>/contents?filter=created_at&filter_order=asc">Oldest Creation</a> 
   </ul>
 </div>
 

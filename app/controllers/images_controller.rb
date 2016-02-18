@@ -12,6 +12,10 @@ class ImagesController < ApplicationController
       else
         @images = @brand.images.all
       end
+
+      if params[:filter] && params[:filter_order]
+        @images = @images.order(params[:filter] => params[:filter_order])
+      end
     else
       redirect_to "/"
     end
