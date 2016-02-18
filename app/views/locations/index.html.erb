@@ -1,10 +1,10 @@
-<!-- <div class="btn-group">
+<div class="btn-group">
   <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Filter by Name <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-    <li><a href="/brands/#{@brand.id}/locations?filter=business_name&filter_order=asc">By Name Ascending</a>
-    <li><a href="/brands/#{@brand.id}/locations?filter=business_name&filter_order=desc">By Name Descending</a> 
+    <li><a href="/brands/<%= @brand.id %>/locations?filter=business_name&filter_order=asc">By Name Ascending</a>
+    <li><a href="/brands/<%= @brand.id %>/locations?filter=business_name&filter_order=desc">By Name Descending</a> 
   </ul>
 </div>
 
@@ -13,8 +13,8 @@
     Filter by Created At <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-    <li><a href="/brands/#{@brand.id}/locations?filter=created_at&filter_order=asc">By Creation Ascending</a>
-    <li><a href="/brands/#{@brand.id}/locations?filter=created_at&filter_order=desc">By Creation Descending</a> 
+    <li><a href="/brands/<%= @brand.id %>/locations?filter=created_at&filter_order=asc">By Creation Ascending</a>
+    <li><a href="/brands/<%= @brand.id %>/locations?filter=created_at&filter_order=desc">By Creation Descending</a> 
   </ul>
 </div>
 
@@ -23,10 +23,10 @@
     Filter by Updated At <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-    <li><a href="/brands/#{@brand.id}/locations?filter=updated_at&filter_order=asc">By Creation Ascending</a>
-    <li><a href="/brands/#{@brand.id}/locations?filter=updated_at&filter_order=desc">By Creation Descending</a> 
+    <li><a href="/brands/<%= @brand.id %>/locations?filter=updated_at&filter_order=desc">Recently Updated</a>
+    <li><a href="/brands/<%= @brand.id %>/locations?filter=updated_at&filter_order=asc">Never Updated</a> 
   </ul>
-</div> -->
+</div>
 
 <%= link_to "Add new location", brand_location_new_path(@brand), class: "btn btn-default navbar-right" %>
 
