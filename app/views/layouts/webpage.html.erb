@@ -102,7 +102,8 @@
           <div class="col-md-6">
             <div class="bCard2-map">
               <!-- #Google Maps API -->
-              <div id="map-canvas1" class="map-height"><a data-sim-tracklabel="map get directions" href=""></a></div>
+              <div id="map"></div>
+              <!-- <div id="map-canvas1" class="map-height"><a data-sim-tracklabel="map get directions" href=""></a></div> -->
               <div class="clear"></div>
             </div>
           </div>
@@ -203,6 +204,17 @@
         <!-- <p class="pull-right"><a href="#">Back to top</a></p> -->
         <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
+
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd76lTv9KHdaq36yYuMsxAWo_PPGRy6Nk"></script>
+
+      <script type="text/javascript">
+        var obj = {
+          lat: <%= @location.latitude %>,
+          long: <%= @location.longitude %>
+        }
+        var manager = new MapManager
+        manager.initMap(obj)
+      </script>
 
     </div><!-- /.container -->
   </body>

@@ -6,40 +6,40 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body id="dashboard">
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mobilenav" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/brands">BrandZ</a>
-      </div>
+<body class="home-page">
+  <div class="wrapper">
+  <header id="header" class="header">  
+      <div class="container">            
+          <h1 class="logo pull-left">
+              <a href="/brands">
+                  <span class="logo-title">Brandz</span>
+              </a>
+          </h1><!--//logo-->              
+          <nav id="main-nav" class="main-nav navbar-right" role="navigation">
+              <div class="navbar-header">
+                  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button><!--//nav-toggle-->
+              </div><!--//navbar-header-->            
+              <div class="navbar-collapse collapse" id="navbar-collapse">
+                  <ul class="nav navbar-nav">                         
 
-      <div class="collapse navbar-collapse" id="mobilenav">
-        <ul class="nav navbar-nav">
-        </ul>
+                    <%= form_tag brand_path, method: :get, class: "navbar-form navbar-right" do %>
+                      <%= text_field_tag :search, nil, placeholder: "Search Brands", class: "form-control" %>
+                      <%= submit_tag "Search", name: nil,class: "btn btn-default" %>
+                    <% end %>
 
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Sign In", "/users/sign_in", method: :get if !user_signed_in? %></li>
-          <li><%= link_to "Sign Out", "/users/sign_out", method: :delete if user_signed_in? %></li>
-        </ul>
+                    <li class="nav-item"><%= link_to "Sign In", "/users/sign_in", method: :get if !user_signed_in? %></li>
+                    <li class="nav-item"><%= link_to "Sign Out", "/users/sign_out", method: :delete if user_signed_in? %></li>
 
-        
-        <%= form_tag brand_path, method: :get, class: "navbar-form navbar-right" do %>
-          <%= text_field_tag :search, nil, placeholder: "Search Brands", class: "form-control" %>
-          <%= submit_tag "Search", name: nil,class: "btn btn-default" %>
-        <% end %>
-        
-
-      </div><!-- /.navbar-collapse -->
-
-    </div><!-- /.container -->
-  </nav>
+                  </ul><!--//nav-->
+              </div><!--//navabr-collapse-->
+          </nav><!--//main-nav-->           
+      </div><!--//container-->
+  </header><!--//header-->
 
   <div class="container">
 

@@ -3,7 +3,14 @@ class Location < ActiveRecord::Base
   has_many :images, as: :imageable
   has_many :contents, as: :contentable
 
+  geocoded_by :full_address
+  after_validation :geocode
+
   def self.search(search)
     where("business_name LIKE ? OR id LIKE ?", "%#{search}%", "%#{search}%") 
+  end
+
+  def full_address
+    "#{address_1}, #{city}, #{state} #{zipcode}"
   end
 end
