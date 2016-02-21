@@ -19,5 +19,4 @@
 //= require theme/map
 //= require theme/main-ck
 //= require theme/vimeo
-//= require map_manager
 //= require_tree .
