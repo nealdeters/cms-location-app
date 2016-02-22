@@ -6,9 +6,14 @@ gem 'rails', '4.2.5'
 # Use mysql as the database for Active Record
 # gem 'mysql2', '>= 0.3.13', '< 0.5'
 gem 'mysql2', '~> 0.3.20'
+#gem for adding theme to app
 gem 'thematic'
+#gem for font awesome
 gem 'font-awesome-rails'
+#gem for converting address to geo coordinates
 gem 'geocoder'
+#gem for uploading images
+gem 'carrierwave'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'

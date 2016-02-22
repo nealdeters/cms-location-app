@@ -19,4 +19,5 @@
 //= require theme/map
 //= require theme/main-ck
 //= require theme/vimeo
+//= require theme/isMobile
 //= require_tree .

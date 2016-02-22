@@ -11,6 +11,11 @@ class ApplicationController < ActionController::Base
     home_path
   end
 
+  # def brand_authentication
+  #   flash[:error] = "You don't have access to this section."
+  #   redirect_to :back
+  # end
+
   # def authenticate_admin!
   #   redirect_to "/" unless current_user && current_user.admin
   # end

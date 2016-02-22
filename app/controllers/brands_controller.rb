@@ -48,10 +48,7 @@ class BrandsController < ApplicationController
   end
 
   def show
-    #need to search for the brand and go to it's locations index
     @brand = Brand.find(params[:id])
-
-    # @location = Location.find(params[:id])
 
     redirect_to "brands/#{@brand.id}/locations"
   end
