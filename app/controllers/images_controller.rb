@@ -28,7 +28,8 @@ class ImagesController < ApplicationController
   def create
     @image = @brand.images.create({ 
       image_name: params[:image_name],
-      image_category: params[:image_category]
+      image_category: params[:image_category],
+      image_path: params[:image_path]
       })
     
     flash[:success] = "New Image Created"
@@ -49,7 +50,8 @@ class ImagesController < ApplicationController
 
     @image.update({ 
       image_name: params[:image_name],
-      image_category: params[:image_category]
+      image_category: params[:image_category],
+      image_path: params[:image_path]
       })
 
     flash[:info] = "Image Updated"

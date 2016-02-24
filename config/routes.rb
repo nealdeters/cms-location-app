@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
 
-
-  trace
   # get '/' => 'locations#index'
   get '/brands/:brand_id/locations' => 'locations#index', as: 'brand_location'
   get '/brands/:brand_id/contents' => 'contents#index', as: 'brand_content'

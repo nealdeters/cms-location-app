@@ -9,6 +9,8 @@ gem 'mysql2', '~> 0.3.20'
 gem 'thematic'
 gem 'font-awesome-rails'
 gem 'geocoder'
+gem 'carrierwave'
+gem 'rmagick'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
