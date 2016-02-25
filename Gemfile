@@ -10,7 +10,7 @@ gem 'thematic'
 gem 'font-awesome-rails'
 gem 'geocoder'
 gem 'carrierwave'
-gem 'rmagick'
+gem 'mini_magick'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'

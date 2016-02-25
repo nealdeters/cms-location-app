@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get '/brands/:brand_id/images/:id' => 'images#show', as: 'brand_image_show'
   get '/brands/:id' => 'brands#show'
 
-  get '/brands/:brand_id/locations/:id/edit' => 'locations#edit', as: 'brand_location_edit'
+  get '/locations/:id/edit' => 'locations#edit', as: 'brand_location_edit'
   get '/brands/:brand_id/contents/:id/edit' => 'contents#edit', as: 'brand_content_edit'
   get '/brands/:brand_id/images/:id/edit' => 'images#edit', as: 'brand_image_edit'
   get '/brands/:id/edit' => 'brands#edit', as: 'brand_edit'

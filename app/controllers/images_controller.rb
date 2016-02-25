@@ -29,9 +29,10 @@ class ImagesController < ApplicationController
     @image = @brand.images.create({ 
       image_name: params[:image_name],
       image_category: params[:image_category],
+      image: params[:image],
       image_path: params[:image_path]
       })
-    
+
     flash[:success] = "New Image Created"
 
     redirect_to brand_image_path
@@ -51,6 +52,7 @@ class ImagesController < ApplicationController
     @image.update({ 
       image_name: params[:image_name],
       image_category: params[:image_category],
+      image: params[:image],
       image_path: params[:image_path]
       })
 

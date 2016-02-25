@@ -1,5 +1,5 @@
 class Image < ActiveRecord::Base
-  attr_accessor :image_path
+  # attr_accessor :image_path
   belongs_to :imageable, polymorphic: true
   mount_uploader :image, ImageUploader
 

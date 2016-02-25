@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223050247) do
+ActiveRecord::Schema.define(version: 20160225001912) do
 
   create_table "brand_users", force: :cascade do |t|
     t.datetime "created_at",           null: false
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160223050247) do
     t.string   "image_name",     limit: 255
     t.string   "image_category", limit: 255
     t.string   "image_path",     limit: 255
+    t.string   "image",          limit: 255
   end
 
   create_table "locations", force: :cascade do |t|

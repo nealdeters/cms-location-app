@@ -1,10 +1,10 @@
 class LocationsController < ApplicationController
 
-  before_action :authenticate_user!
-  before_filter :load_brand
+  before_action :authenticate_user!, :load_brand, :load_image
   layout "cms_locations_layout"
 
   def index
+    
     if current_user.brands.exists?(params[:brand_id])
       @locations = @brand.locations.all
 
@@ -59,7 +59,8 @@ class LocationsController < ApplicationController
   end
 
   def edit
-    @location = @brand.locations.find(params[:id])
+    # @location = @brand.locations.find(params[:id])
+    @location = Location.find()
   end
 
   def update
@@ -107,6 +108,10 @@ class LocationsController < ApplicationController
 
   def load_brand
     @brand = Brand.find(params[:brand_id])
+  end
+
+  def load_image
+    @image = Image.find_by(imageable_id: params[:imageable_id])
   end
 
 end
