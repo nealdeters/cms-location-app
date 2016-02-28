@@ -1,6 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :authenticate_user!
-  before_filter :load_brand
+  before_action :authenticate_user!, :load_brand
   layout "cms_locations_layout"
 
   def index
