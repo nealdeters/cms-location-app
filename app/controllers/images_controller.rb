@@ -25,6 +25,7 @@ class ImagesController < ApplicationController
   end
 
   def create
+
     @image = @brand.images.create({ 
       image_name: params[:image_name],
       image_category: params[:image_category],
