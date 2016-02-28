@@ -1,1 +1,5 @@
-image show
+<% if @image.image_path.empty? %>
+  <img src="<%= @image.image.large.url %>">
+<% else %>
+  <%= image_tag @image.image_path %>
+<% end %>

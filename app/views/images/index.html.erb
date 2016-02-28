@@ -47,6 +47,14 @@
     <tr>
       <td><%= image.id %></td>
       <td><%= image.image_name %></td>
+
+      <% if image.image_path.empty? %>
+        <td><img src="<%= image.image.thumb.url %>"></td>
+      <% else %>
+        <td><%= image_tag image.image_path, heigth: '100', width: '100' %></td>
+      <% end %>
+
+
       <td><%= image.updated_at %></td>
       <td><%= image.created_at %></td>
       <td>

@@ -14,4 +14,5 @@ class Brand < ActiveRecord::Base
   def self.search(search)
     where("brand_id LIKE ? OR brand_name LIKE ?", "%#{search}%", "%#{search}%") 
   end
+
 end

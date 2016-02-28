@@ -12,8 +12,9 @@ gem 'thematic'
 gem 'font-awesome-rails'
 #gem for converting address to geo coordinates
 gem 'geocoder'
-#gem for uploading images
 gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'

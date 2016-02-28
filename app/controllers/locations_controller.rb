@@ -1,10 +1,10 @@
 class LocationsController < ApplicationController
-
   before_action :authenticate_user!
   before_action :load_brand
   layout "cms_locations_layout"
 
   def index
+    
     if current_user.brands.exists?(params[:brand_id])
       @locations = @brand.locations.all
 
@@ -44,7 +44,7 @@ class LocationsController < ApplicationController
       meta_description: params[:meta_description],
       meta_keywords: params[:meta_keywords],
       meta_title: params[:meta_title],
-      meta_url: params[:meta_url],
+      meta_url: params[:meta_url]
       })
     
     flash[:success] = "New Location Created"
@@ -60,6 +60,7 @@ class LocationsController < ApplicationController
 
   def edit
     @location = @brand.locations.find(params[:id])
+    # @location = Location.find(params[:brand_id])
   end
 
   def update
@@ -82,8 +83,25 @@ class LocationsController < ApplicationController
       meta_description: params[:meta_description],
       meta_keywords: params[:meta_keywords],
       meta_title: params[:meta_title],
-      meta_url: params[:meta_url],
+      meta_url: params[:meta_url]
       })
+
+    # update location image
+    if @location.images.first != nil
+      @location.images.first.update( 
+        image_name: params[:image_name],
+        image_category: params[:image_category],
+        image: params[:image]
+        # image_path: params[:image_path]
+      )
+    else
+      @location.images.create( 
+         image_name: params[:image_name],
+         image_category: params[:image_category],
+         image: params[:image]
+         # image_path: params[:image_path]
+       )
+    end
 
     flash[:info] = "Location Updated"
 
@@ -108,5 +126,9 @@ class LocationsController < ApplicationController
   def load_brand
     @brand = Brand.find(params[:brand_id])
   end
+
+  # def load_image
+  #   @image = Image.find_by(imageable_id: params[:imageable_id])
+  # end
 
 end
