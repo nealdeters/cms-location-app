@@ -7,25 +7,26 @@
     <li role="presentation"><a href="#meta">Meta</a></li>
   </ul> -->
 
-  <%= form_tag brand_location_update_path, method: :patch do %>
+  <%= form_tag brand_location_update_path, multipart: true, method: :patch do %>
   
   <div class="row">
     <div class="col-md-12">
+    <br>
+    <% if @location.images.first != nil %>  
+      <% if @location.images.first.image_path.nil? %>
+        <img src="<%= @location.images.first.image.thumb %>">
+      <% else %>
+        <%= image_tag @location.images.first.image_path, heigth: '100', width: '100' %>
+      <% end %>
+    <% end %>
     <br>
     <h3>Location Information</h3>
       <div class="col-md-6">
         <table class="table table-hover">
           <tbody>
             <tr>
-              <td>
-                  
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <td><%= label_tag :image, "Upload an image" %></td>
-                <td><%= file_field_tag :image %></td>
-              </td>
+              <td><%= label_tag :image, "Upload an image" %></td>
+              <td><%= file_field_tag :image %></td>
             </tr>
             <tr>
               <td><%= label_tag :business_name %></td>
@@ -111,7 +112,7 @@
     <div class="col-md-12">
     <br>
     <h3>Meta Information</h3>
-    <table class="table table-hover-responsive" id="meta">
+    <table class="table table-hover" id="meta">
       <tbody>  
         <tr>
             <td><%= label_tag :meta_description %></td>
