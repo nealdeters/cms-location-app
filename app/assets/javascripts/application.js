@@ -14,10 +14,6 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require theme/animations
 //= require theme/main
-//= require theme/map
 //= require theme/main-ck
-//= require theme/vimeo
-//= require theme/isMobile
 //= require_tree .
