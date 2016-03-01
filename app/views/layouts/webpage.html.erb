@@ -75,7 +75,7 @@
                       <% end %> 
 
 
-                        <li class="nav-item nav-item-cta last"><button type="button" class="btn btn-cta btn-cta-primary" data-toggle="modal" data-target="#contact" >Contact</button></li>
+                        <li class="nav-item nav-item-cta last"><button type="button" class="btn btn-cta btn-cta-primary" data-toggle="modal" data-target="#contactModal" >Contact</button></li>
                     </ul><!--//nav-->
                 </div><!--//navabr-collapse-->
             </nav><!--//main-nav-->           
@@ -88,7 +88,7 @@
           <% if !@location.tagline_title.blank? %>
             <h2 class="title"><%= raw @location.tagline_title %></h2>
             <p class="summary"><%= raw @location.tagline_summary %></p>
-            <a class="btn btn-cta btn-cta-secondary" href="#contact">Learn More</a>
+            <a class="btn btn-cta btn-cta-secondary" data-toggle="modal" data-target="#contactModal">Learn More</a>
           <% end %>
 
         </div><!--//intro-->
@@ -131,11 +131,18 @@
           </div>
           <div class="col-md-6">
             <div class="bCard1-info">
+              <img src="<%= @location.images.first.image.local_image %>">
+
               <h3><strong itemprop="name"><%= @location.business_name %></strong></h3>
-              <span itemprop="telePhone" class="desktop phone hidden-xs"><%= @location.phone_number %></span>
-              <span class="mobile-phone visible-xs-inline">
-                <a data-track-label="Mobile Call" data-sim-tracklabel="b card mobile phone" href="tel:3129966582"></a><%= @location.phone_number %>
+              
+              <span itemprop="telePhone" class="desktop phone hidden-xs">
+                <%= @location.phone_number %>
               </span>
+
+              <span class="mobile-phone visible-xs-inline">
+                <a href="tel:<%= @location.phone_number %>"><%= @location.phone_number %></a>
+              </span>
+
               <p itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
                 <span itemprop="streetAddress"><%= @location.address_1 %> <%= @location.address_2 %><br></span><span itemprop="addressLocality"><%= @location.city %>,
                 </span>
@@ -163,7 +170,7 @@
           </div>
           <div class="col-md-6">
             <% if @brand.images.where(image_category: 'about').take %>  
-              <img class="featurette-image img-responsive center-block" src="<%= @brand.images.where(image_category: 'about').first.image.medium %>"></span>
+              <img class="featurette-image img-responsive center-block" src="<%= @brand.images.where(image_category: 'about').first.image.square %>"></span>
             <% end %>
           </div>
         </div>
@@ -183,7 +190,7 @@
           </div>
           <div class="col-md-6 col-md-pull-6">
             <% if @brand.images.where(image_category: 'services').take %>  
-              <img class="featurette-image img-responsive center-block" src="<%= @brand.images.where(image_category: 'services').first.image.medium %>"></span>
+              <img class="featurette-image img-responsive center-block" src="<%= @brand.images.where(image_category: 'services').first.image.square %>"></span>
             <% end %>
           </div>
         </div>
@@ -211,7 +218,7 @@
           </div>
           <div class="col-md-6">
             <% if @brand.images.where(image_category: 'areas').take %>  
-              <img class="featurette-image img-responsive center-block" src="<%= @brand.images.where(image_category: 'areas').first.image.medium %>"></span>
+              <img class="featurette-image img-responsive center-block" src="<%= @brand.images.where(image_category: 'areas').first.image.square %>"></span>
             <% end %>
           </div>
         </div>
@@ -243,6 +250,39 @@
       </div>
     </section>
   <% end %>
+
+  <!--- MODAL -->
+  <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="exampleModalLabel">Contact Us</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="control-label">Name:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="control-label">Email:</label>
+              <input type="text" class="form-control" id="recipient-email">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="control-label">Message:</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+          <button type="button" class="btn btn-cta btn-cta-primary">Send message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--END MODAL-->
 
   <div class="container">
     <!-- FOOTER -->

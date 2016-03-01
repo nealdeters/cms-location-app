@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301052942) do
+ActiveRecord::Schema.define(version: 20160301074359) do
 
   create_table "brand_users", force: :cascade do |t|
     t.datetime "created_at",           null: false
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20160301052942) do
     t.float    "longitude",            limit: 24
     t.string   "tagline_title",        limit: 255
     t.string   "tagline_summary",      limit: 255
+    t.string   "email",                limit: 255
   end
 
   create_table "users", force: :cascade do |t|

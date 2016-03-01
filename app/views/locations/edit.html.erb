@@ -60,6 +60,10 @@
         <table class="table table-hover">
           <tbody>  
             <tr>
+              <td><%= label_tag :email %></td>
+              <td><%= text_field_tag :email, @location.email %></td>
+            </tr>
+            <tr>
               <td><%= label_tag :phone_number %></td>
               <td><%= text_field_tag :phone_number, @location.phone_number %></td>
             </tr>
