@@ -43,7 +43,11 @@
         <div class="container">            
             <h1 class="logo pull-left">
                 <a href="#header">
+                  <% if @brand.images.where(image_category: 'logo').take %>  
+                    <span class="logo-title brand-logo"><img src="<%= @brand.images.where(image_category: 'logo').first.image.logo %>"></span>
+                  <% else %>
                     <span class="logo-title"><%= @brand.brand_name %></span>
+                  <% end %>
                 </a>
             </h1><!--//logo-->              
             <nav id="main-nav" class="main-nav navbar-right" role="navigation">
@@ -58,15 +62,15 @@
                 <div class="navbar-collapse collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav">
 
-                      <% if !@location.business_description.empty? %>
+                      <% if !@location.business_description.blank? %>
                         <li class="nav-item"><a href="#about">About</a></li>
                       <% end %>
 
-                      <% if !@location.service_description.empty? %>
+                      <% if !@location.service_description.blank? %>
                         <li class="nav-item"><a href="#services">Services</a></li>
                       <% end %>
 
-                      <% if !@location.areas_served.empty? %>
+                      <% if !@location.areas_served.blank? %>
                         <li class="nav-item"><a href="#areas">Areas Served</a></li>  
                       <% end %> 
 
@@ -145,7 +149,7 @@
       </div>
     </section>
 
-  <% if !@location.business_description.empty? %>
+  <% if !@location.business_description.blank? %>
     <section class="about" id="about">
       <div class="container">
         <!-- START THE FEATURETTES -->
@@ -153,56 +157,62 @@
         <!-- <hr class="featurette-divider" id="about"> -->
 
         <div class="row featurette">
-          <div class="col-md-7">
+          <div class="col-md-6">
             <h2 class="featurette-heading">About Us</h2>
             <p class="lead"><%= @location.business_description %></p>
           </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" data-src="" width="500" height="500" alt="Generic placeholder image">
+          <div class="col-md-6">
+            <% if @brand.images.where(image_category: 'about').take %>  
+              <img class="featurette-image img-responsive center-block" src="<%= @brand.images.where(image_category: 'about').first.image.medium %>"></span>
+            <% end %>
           </div>
         </div>
       </div>
     </section>
   <% end %>
 
-  <% if !@location.service_description.empty? %>
+  <% if !@location.service_description.blank? %>
     <section class="services" id="services">
       <div class="container">
         <!-- <hr class="featurette-divider" id="services"> -->
 
         <div class="row featurette">
-          <div class="col-md-7 col-md-push-5">
+          <div class="col-md-6 col-md-push-6">
             <h2 class="featurette-heading">Services</h2>
             <p class="lead"><%= @location.service_description %></p>
           </div>
-          <div class="col-md-5 col-md-pull-7">
-            <img class="featurette-image img-responsive center-block" data-src="" width="500" height="500"  alt="Generic placeholder image">
+          <div class="col-md-6 col-md-pull-6">
+            <% if @brand.images.where(image_category: 'services').take %>  
+              <img class="featurette-image img-responsive center-block" src="<%= @brand.images.where(image_category: 'services').first.image.medium %>"></span>
+            <% end %>
           </div>
         </div>
       </div>
     </section>
   <% end %>
 
-  <% if !@location.areas_served.empty?  %>
+  <% if !@location.areas_served.blank?  %>
     <section class="areas" id="areas">
       <div class="container">
         <!-- <hr class="featurette-divider" id="areas"> -->
 
         <div class="row featurette">
-          <div class="col-md-7">
+          <div class="col-md-6">
             <h2 class="featurette-heading">Areas Served</h2>
             <p class="lead">
               <%= @location.areas_served %>
 
-              <% if !@location.zipcodes_served.empty?  %>
+              <% if !@location.zipcodes_served.blank?  %>
                 <br>
                 <br>
                 <%= @location.zipcodes_served %>
               <% end %>
             </p>
           </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" data-src="" width="500" height="500" alt="Generic placeholder image">
+          <div class="col-md-6">
+            <% if @brand.images.where(image_category: 'areas').take %>  
+              <img class="featurette-image img-responsive center-block" src="<%= @brand.images.where(image_category: 'areas').first.image.medium %>"></span>
+            <% end %>
           </div>
         </div>
       </div>

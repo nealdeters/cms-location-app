@@ -11,6 +11,19 @@ ul, menu, dir {
     -webkit-padding-start: 0px;
 }
 
+.brand-logo {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.header h1.logo {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 28px;
+    max-height: 50px;
+}
+
 .map {
   padding: 80px 0;
   position: relative;
