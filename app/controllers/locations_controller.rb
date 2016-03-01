@@ -44,7 +44,9 @@ class LocationsController < ApplicationController
       meta_description: params[:meta_description],
       meta_keywords: params[:meta_keywords],
       meta_title: params[:meta_title],
-      meta_url: params[:meta_url]
+      meta_url: params[:meta_url],
+      tagline_title: params[:tagline_title],
+      tagline_summary: params[:tagline_summary]
       })
     
     flash[:success] = "New Location Created"
@@ -83,7 +85,9 @@ class LocationsController < ApplicationController
       meta_description: params[:meta_description],
       meta_keywords: params[:meta_keywords],
       meta_title: params[:meta_title],
-      meta_url: params[:meta_url]
+      meta_url: params[:meta_url],
+      tagline_title: params[:tagline_title],
+      tagline_summary: params[:tagline_summary]
       })
 
     # update location image
