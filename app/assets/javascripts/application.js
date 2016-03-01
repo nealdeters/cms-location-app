@@ -14,6 +14,4 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require theme/main
-//= require theme/main-ck
 //= require_tree .

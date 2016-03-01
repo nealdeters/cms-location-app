@@ -42,7 +42,7 @@
     <header id="header" class="header">  
         <div class="container">            
             <h1 class="logo pull-left">
-                <a href="#header">
+                <a href="#promo">
                   <% if @brand.images.where(image_category: 'logo').take %>  
                     <span class="logo-title brand-logo"><img src="<%= @brand.images.where(image_category: 'logo').first.image.logo %>"></span>
                   <% else %>
@@ -105,7 +105,7 @@
         <div class="bg-slider-wrapper">
             <div id="bg-slider" class="flexslider bg-slider">
                 <ul class="slides">
-                    <li class="slide slide-header"><img src="<%= @brand.images.where(image_category: 'header').first.image %>"></li>
+                    <li class="slide slide-header"><img src="<%= @brand.images.where(image_category: 'header').first.image.header %>"></li>
                     <!-- <li class="slide slide-1"></li> -->
                     <!-- <li class="slide slide-2"></li> -->
                     <!-- <li class="slide slide-3"></li> -->
