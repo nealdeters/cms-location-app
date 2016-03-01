@@ -24,6 +24,14 @@ ul, menu, dir {
     max-height: 50px;
 }
 
+.bg-slider-wrapper .flexslider .slide.slide-header {
+  background: #fff no-repeat 50% top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .map {
   padding: 80px 0;
   position: relative;

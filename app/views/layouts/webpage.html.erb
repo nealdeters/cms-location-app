@@ -82,6 +82,7 @@
         </div><!--//container-->
     </header><!--//header-->
 
+  <% if !@brand.images.where(image_category: 'header').first.blank? %>
     <!-- ******PROMO****** --> 
     <section id="promo" class="promo section">  
         <div class="container intro">
@@ -104,14 +105,16 @@
         <div class="bg-slider-wrapper">
             <div id="bg-slider" class="flexslider bg-slider">
                 <ul class="slides">
-                    <li class="slide slide-1"></li>
-                    <!-- <li class="slide slide-2"></li>
-                    <li class="slide slide-3"></li> -->
+                    <li class="slide slide-header"><img src="<%= @brand.images.where(image_category: 'header').first.image %>"></li>
+                    <!-- <li class="slide slide-1"></li> -->
+                    <!-- <li class="slide slide-2"></li> -->
+                    <!-- <li class="slide slide-3"></li> -->
                 </ul>
             </div>
         </div><!--//bg-slider-wrapper--> 
     </section>
     <!--//promo-->
+  <% end %>
 
 
     <!-- Marketing messaging and featurettes
@@ -131,7 +134,10 @@
           </div>
           <div class="col-md-6">
             <div class="bCard1-info">
-              <img src="<%= @location.images.first.image.local_image %>">
+              
+              <% if !@location.images.first.blank? %>
+                <img src="<%= @location.images.first.image.local_image %>">
+              <% end %>
 
               <h3><strong itemprop="name"><%= @location.business_name %></strong></h3>
               
