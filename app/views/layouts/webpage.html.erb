@@ -82,6 +82,13 @@
         </div><!--//container-->
     </header><!--//header-->
 
+  <% flash.each do |name, message| %>
+    <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= message %>
+    </div>
+  <% end %>
+
   <% if !@brand.images.where(image_category: 'header').first.blank? %>
     <!-- ******PROMO****** --> 
     <section id="promo" class="promo section">  
@@ -293,6 +300,7 @@
              <div class="form-group">
                  <%= label_tag 'comments', 'Message' %>
                  <%= text_area_tag 'comments', nil, class: 'form-control', rows: 4, placeholder: 'Message' %>
+                 <%= hidden_field_tag 'location_email', @location.email %>
              </div>
              <%= submit_tag nil, class: 'btn btn-cta btn-cta-primary' %>
           <% end %>

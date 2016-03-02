@@ -133,7 +133,9 @@ class LocationsController < ApplicationController
     name = params[:name]
     email = params[:email]
     body = params[:comments]
-    LocationPageMailer.welcome_email(name, email, body).deliver
+    location_email = params[:location_email]
+
+    LocationPageMailer.welcome_email(name, email, body, location_email).deliver
 
     flash[:success] = "Message sent"
 
