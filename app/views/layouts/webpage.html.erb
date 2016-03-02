@@ -266,25 +266,41 @@
           <h4 class="modal-title" id="exampleModalLabel">Contact Us</h4>
         </div>
         <div class="modal-body">
-          <form>
+          <!-- <form>
             <div class="form-group">
-              <label for="recipient-name" class="control-label">Name:</label>
-              <input type="text" class="form-control" id="recipient-name">
+              <label for="recipient_name" class="control-label">Name:</label>
+              <input type="text" class="form-control" id="recipient_name">
             </div>
             <div class="form-group">
-              <label for="recipient-name" class="control-label">Email:</label>
-              <input type="text" class="form-control" id="recipient-email">
+              <label for="recipient_email" class="control-label">Email:</label>
+              <input type="text" class="form-control" id="recipient_email">
             </div>
             <div class="form-group">
-              <label for="message-text" class="control-label">Message:</label>
-              <textarea class="form-control" id="message-text"></textarea>
+              <label for="message_text" class="control-label">Message:</label>
+              <textarea class="form-control" id="message_text"></textarea>
             </div>
-          </form>
+          </form> -->
+
+            <%= form_tag(send_mail_path) do %>
+              <div class="form-group">
+                  <%= label_tag 'name', 'Name' %>
+                  <%= text_field_tag 'name', nil, class: 'form-control', placeholder: 'Your Name' %>
+              </div>
+             <div class="form-group">
+                 <%= label_tag 'email', 'Email' %>
+                 <%= email_field_tag 'email', nil, class: 'form-control', placeholder: 'Your Email Address' %>
+             </div>
+             <div class="form-group">
+                 <%= label_tag 'comments', 'Message' %>
+                 <%= text_area_tag 'comments', nil, class: 'form-control', rows: 4, placeholder: 'Message' %>
+             </div>
+             <%= submit_tag nil, class: 'btn btn-cta btn-cta-primary' %>
+          <% end %>
         </div>
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-cta btn-cta-primary">Send message</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

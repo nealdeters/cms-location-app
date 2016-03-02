@@ -127,6 +127,19 @@ class LocationsController < ApplicationController
     @locations = @brand.locations.all
   end
 
+  def send_mail
+    # @location = @brand.locations.find(params[:id])
+
+    name = params[:name]
+    email = params[:email]
+    body = params[:comments]
+    LocationPageMailer.welcome_email(name, email, body).deliver
+
+    flash[:success] = "Message sent"
+
+    redirect_to :brand_location_show
+  end
+
   private
 
   def load_brand
