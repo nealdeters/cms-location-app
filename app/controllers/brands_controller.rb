@@ -4,6 +4,7 @@ class BrandsController < ApplicationController
   layout "cms_brands_layout"
 
   def index
+    @name = "Nearr.me"
     @brands = current_user.brands.all
 
     if params[:search]
