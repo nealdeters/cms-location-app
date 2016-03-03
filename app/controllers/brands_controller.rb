@@ -50,7 +50,7 @@ class BrandsController < ApplicationController
   def show
     @brand = Brand.find(params[:id])
 
-    redirect_to "brands/#{@brand.id}/locations"
+    redirect_to brand_path
   end
 
   def edit

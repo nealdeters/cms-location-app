@@ -10,19 +10,19 @@ Rails.application.routes.draw do
   get '/brands/:brand_id/locations/new' => 'locations#new', as: 'brand_location_new'
   get '/brands/:brand_id/contents/new' => 'contents#new', as: 'brand_content_new'
   get '/brands/:brand_id/images/new' => 'images#new', as: 'brand_image_new'
-  get '/brands/new' => 'brands#new'
+  get '/brands/new' => 'brands#new', as: 'brand_new'
 
   post '/brands/:brand_id/locations' => 'locations#create'
   post '/brands/:brand_id/contents' => 'contents#create'
   post '/brands/:brand_id/images' => 'images#create'
-  post '/brands' => 'brands#create'
+  post '/brands' => 'brands#create', as: 'brand_create'
 
   post '/brands/:brand_id/locations/:id/send_mail' => 'locations#send_mail', as: 'send_mail'
 
   get '/brands/:brand_id/locations/:id' => 'locations#show', as: 'brand_location_show'
   get '/brands/:brand_id/contents/:id' => 'contents#show', as: 'brand_content_show'
   get '/brands/:brand_id/images/:id' => 'images#show', as: 'brand_image_show'
-  get '/brands/:id' => 'brands#show'
+  get '/brands/:id' => 'brands#show', as: "brand_show"
 
   get '/brands/:brand_id/locations/:id/edit' => 'locations#edit', as: 'brand_location_edit'
   get '/brands/:brand_id/contents/:id/edit' => 'contents#edit', as: 'brand_content_edit'
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   delete '/brands/:brand_id/locations/:id' => 'locations#destroy', as: 'brand_location_delete'
   delete '/brands/:brand_id/contents/:id' => 'contents#destroy', as: 'brand_content_delete'
   delete '/brands/:brand_id/images/:id' => 'images#destroy', as: 'brand_image_delete'
-  delete '/brands/:id' => 'brands#destroy'
+  delete '/brands/:id' => 'brands#destroy', as: 'brand_delete'
 
   #static pages
   root "pages#show", page: "home", as: 'home'

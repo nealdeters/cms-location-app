@@ -11,9 +11,9 @@ class ApplicationController < ActionController::Base
     home_path
   end
 
-  # def brand_authentication
-  #   flash[:error] = "You don't have access to this section."
-  #   redirect_to :back
+  # def brand_authentication!
+      # flash[:error] = "You don't have access to this brand."
+      # redirect_to :back
   # end
 
   # def authenticate_admin!
