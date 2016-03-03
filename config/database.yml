@@ -47,8 +47,14 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
+# production:
+#   <<: *default
+#   database: cms-location-app_production
+#   username: cms-location-app
+#   password: <%= ENV['CMS-LOCATION-APP_DATABASE_PASSWORD'] %>
+
+production: 
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: cms-location-app_production
-  username: cms-location-app
-  password: <%= ENV['CMS-LOCATION-APP_DATABASE_PASSWORD'] %>
