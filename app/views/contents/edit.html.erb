@@ -1,36 +1,41 @@
-<div class="col-md-12">
-  <h1>Edit Content  <span class="edit-name">: <%= @content.content_name %></span></h1>
+<section class="section">  
+  <div class="container">
 
-  <!-- <ul class="nav nav-tabs">
-    <li role="presentation"><a href="#local">Local</a></li>
-    <li role="presentation"><a href="#about">About</a></li>
-    <li role="presentation"><a href="#meta">Meta</a></li>
-  </ul> -->
-
-  <%= form_tag brand_content_update_path, method: :patch do %>
-  
-  <div class="row">
     <div class="col-md-12">
-      <table class="table table-hover">
-        <tbody>  
-          <tr>
-            <td><%= label_tag :title %></td>
-            <td><%= text_field_tag :content_name, @content.content_name %></td>
-          </tr>
-          <tr>
-            <td><%= label_tag :category %></td>
-            <td><%= text_field_tag :content_category, @content.content_category %></td>
-          </tr>
-          <tr>
-            <td><%= label_tag :content %></td>
-            <td><%= text_field_tag :content_field, @content.content_field %></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      <h1>Edit Content  <span class="edit-name">: <%= @content.content_name %></span></h1>
+
+      <!-- <ul class="nav nav-tabs">
+        <li role="presentation"><a href="#local">Local</a></li>
+        <li role="presentation"><a href="#about">About</a></li>
+        <li role="presentation"><a href="#meta">Meta</a></li>
+      </ul> -->
+
+      <%= form_tag brand_content_update_path, method: :patch do %>
+      
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-hover">
+            <tbody>  
+              <tr>
+                <td><%= label_tag :title %></td>
+                <td><%= text_field_tag :content_name, @content.content_name %></td>
+              </tr>
+              <tr>
+                <td><%= label_tag :category %></td>
+                <td><%= text_field_tag :content_category, @content.content_category %></td>
+              </tr>
+              <tr>
+                <td><%= label_tag :content %></td>
+                <td><%= text_field_tag :content_field, @content.content_field %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <%= submit_tag 'Update Location', class: "btn btn-default"%>
+
+      <% end %>
+    </div>  
   </div>
-
-  <%= submit_tag 'Update Location', class: "btn btn-default"%>
-
-  <% end %>
-</div>  
+</section>

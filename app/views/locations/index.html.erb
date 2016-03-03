@@ -1,68 +1,73 @@
-<div class="btn-group">
-  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Filter by Name <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a href="/brands/<%= @brand.id %>/locations?filter=business_name&filter_order=asc">By Name Ascending</a>
-    <li><a href="/brands/<%= @brand.id %>/locations?filter=business_name&filter_order=desc">By Name Descending</a> 
-  </ul>
-</div>
+<section class="section">  
+  <div class="container">
 
-<div class="btn-group">
-  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Filter by Created At <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a href="/brands/<%= @brand.id %>/locations?filter=created_at&filter_order=desc">Recently Created</a>
-    <li><a href="/brands/<%= @brand.id %>/locations?filter=created_at&filter_order=asc">Oldest Creation</a> 
-  </ul>
-</div>
+    <div class="btn-group">
+      <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Filter by Name <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="/brands/<%= @brand.id %>/locations?filter=business_name&filter_order=asc">By Name Ascending</a>
+        <li><a href="/brands/<%= @brand.id %>/locations?filter=business_name&filter_order=desc">By Name Descending</a> 
+      </ul>
+    </div>
 
-<div class="btn-group">
-  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Filter by Updated At <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a href="/brands/<%= @brand.id %>/locations?filter=updated_at&filter_order=desc">Recently Updated</a>
-    <li><a href="/brands/<%= @brand.id %>/locations?filter=updated_at&filter_order=asc">Never Updated</a> 
-  </ul>
-</div>
+    <div class="btn-group">
+      <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Filter by Created At <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="/brands/<%= @brand.id %>/locations?filter=created_at&filter_order=desc">Recently Created</a>
+        <li><a href="/brands/<%= @brand.id %>/locations?filter=created_at&filter_order=asc">Oldest Creation</a> 
+      </ul>
+    </div>
 
-<%= link_to "Add new location", brand_location_new_path(@brand), class: "btn btn-default navbar-right" %>
+    <div class="btn-group">
+      <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Filter by Updated At <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="/brands/<%= @brand.id %>/locations?filter=updated_at&filter_order=desc">Recently Updated</a>
+        <li><a href="/brands/<%= @brand.id %>/locations?filter=updated_at&filter_order=asc">Never Updated</a> 
+      </ul>
+    </div>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Location ID</th>
-      <th>Location Name</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Updated at</th>
-      <th>Created at</th>
-      <th>View</th> 
-      <th>Edit</th>
-      <th>Delete</th>  
-    </tr>
-  </thead>
-<% @locations.each do |location| %>
-  <tbody>
-    <tr>
-      <td><%= location.id %></td>
-      <td><%= location.business_name %></td>
-      <td><%= location.city %></td>
-      <td><%= location.state %></td>
-      <td><%= location.updated_at %></td>
-      <td><%= location.created_at %></td>
-      <td>
-        <%= link_to "View", brand_location_show_path(:id => location.id), class: "btn btn-default" %>
-      </td>
-      <td>
-        <%= link_to "Edit", brand_location_edit_path(:id => location.id), class: "btn btn-info" %>
-      </td> 
-      <td>
-        <%= link_to "Delete", brand_location_delete_path(:id => location.id), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"}  %>
-      </td>  
-    </tr>
-  </tbody>
-<% end %>
-</table>
+    <%= link_to "Add new location", brand_location_new_path(@brand), class: "btn btn-default navbar-right" %>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Location ID</th>
+          <th>Location Name</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Updated at</th>
+          <th>Created at</th>
+          <th>View</th> 
+          <th>Edit</th>
+          <th>Delete</th>  
+        </tr>
+      </thead>
+    <% @locations.each do |location| %>
+      <tbody>
+        <tr>
+          <td><%= location.id %></td>
+          <td><%= location.business_name %></td>
+          <td><%= location.city %></td>
+          <td><%= location.state %></td>
+          <td><%= location.updated_at %></td>
+          <td><%= location.created_at %></td>
+          <td>
+            <%= link_to "View", brand_location_show_path(:id => location.id), class: "btn btn-default" %>
+          </td>
+          <td>
+            <%= link_to "Edit", brand_location_edit_path(:id => location.id), class: "btn btn-info" %>
+          </td> 
+          <td>
+            <%= link_to "Delete", brand_location_delete_path(:id => location.id), method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"}  %>
+          </td>  
+        </tr>
+      </tbody>
+    <% end %>
+    </table>
+  </div>
+</section

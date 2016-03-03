@@ -1,33 +1,38 @@
-<div class="col-md-12">
-  <h1>Add Image</h1>
+<section class="section">  
+  <div class="container">
 
-  <%= form_tag brand_image_path, multipart: true, method: :post do %>
+    <div class="col-md-12">
+      <h1>Add Image</h1>
 
-    <table class="table table-hover">
-      <tbody>  
-          <tr>
-            <tr>
-              <td>
-                <td><%= label_tag :name %></td>
-                <td><%= text_field_tag :image_name %></td>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <td><%= label_tag :category %></td>
-                <td><%= text_field_tag :image_category %></td>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <td><%= label_tag :image, "Upload an image" %></td>
-                <td><%= file_field_tag :image %></td>
-              </td>
-            </tr>
-      </tbody>
-    </table>
+      <%= form_tag brand_image_path, multipart: true, method: :post do %>
 
-  <%= submit_tag 'Add Image', class: "btn btn-default"%>
+        <table class="table table-hover">
+          <tbody>  
+              <tr>
+                <tr>
+                  <td>
+                    <td><%= label_tag :name %></td>
+                    <td><%= text_field_tag :image_name %></td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <td><%= label_tag :category %></td>
+                    <td><%= text_field_tag :image_category %></td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <td><%= label_tag :image, "Upload an image" %></td>
+                    <td><%= file_field_tag :image %></td>
+                  </td>
+                </tr>
+          </tbody>
+        </table>
 
-  <% end %>
-</div>  
+      <%= submit_tag 'Add Image', class: "btn btn-default"%>
+
+      <% end %>
+    </div>  
+  </div>
+</section>

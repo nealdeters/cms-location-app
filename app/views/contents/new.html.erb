@@ -1,35 +1,40 @@
-<div class="col-md-12">
-  <h1>Add Content</h1>
+<section class="section">  
+  <div class="container">
 
-  <%= form_tag brand_content_path, method: :post do %>
+    <div class="col-md-12">
+      <h1>Add Content</h1>
 
-    <table class="table table-hover">
-      <tbody>  
-          <tr>
-            <tr>
-              <td>
-                <td><%= label_tag :title %></td>
-                <td><%= text_field_tag :content_name %></td>
-              </td>
-              <td>
-                  <td><%= label_tag :category %></td>
-                  <td><%= text_field_tag :content_category %></td>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <td><%= label_tag :content %></td>
-                <td><%= text_field_tag :content_field %></td>
-              </td>
-              <td>
-                  <td></td>
-                  <td></td>
-              </td>
-            </tr>
-      </tbody>
-    </table>
+      <%= form_tag brand_content_path, method: :post do %>
 
-  <%= submit_tag 'Add Content', class: "btn btn-default"%>
+        <table class="table table-hover">
+          <tbody>  
+              <tr>
+                <tr>
+                  <td>
+                    <td><%= label_tag :title %></td>
+                    <td><%= text_field_tag :content_name %></td>
+                  </td>
+                  <td>
+                      <td><%= label_tag :category %></td>
+                      <td><%= text_field_tag :content_category %></td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <td><%= label_tag :content %></td>
+                    <td><%= text_field_tag :content_field %></td>
+                  </td>
+                  <td>
+                      <td></td>
+                      <td></td>
+                  </td>
+                </tr>
+          </tbody>
+        </table>
 
-  <% end %>
-</div>  
+      <%= submit_tag 'Add Content', class: "btn btn-default"%>
+
+      <% end %>
+    </div>  
+  </div>
+</section>

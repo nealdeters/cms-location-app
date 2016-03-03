@@ -1,89 +1,94 @@
-<div class="col-md-12">
-  <h1>Edit Brand  <span style="display: inline-block; font-size: 24px;">: <%= @brand.brand_name %></span></h1>
+<section class="section">  
+  <div class="container">
 
-  <%= form_tag brand_update_path, method: :patch do %>
-  
- <div class="row">
-   <div class="col-md-12">
-   <br>
-   <h3>Brand Information</h3>
-     <div class="col-md-6">
-       <table class="table table-hover">
-        <tbody>  
-          <tr>
-            <td>
-              <td><%= label_tag :name %></td>
-              <td><%= text_field_tag :brand_name, @brand.brand_name %></td>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <td><%= label_tag :address_1 %></td>
-              <td><%= text_field_tag :brand_address_1, @brand.brand_address_1 %></td>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <td><%= label_tag :address_2 %></td>
-              <td><%= text_field_tag :brand_address_2, @brand.brand_address_2 %></td>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <td><%= label_tag :city %></td>
-              <td><%= text_field_tag :brand_city, @brand.brand_city %></td>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <td><%= label_tag :state %></td>
-              <td><%= text_field_tag :brand_state, @brand.brand_state %></td>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <td><%= label_tag :zipcode %></td>
-              <td><%= text_field_tag :brand_zipcode, @brand.brand_zipcode %></td>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <div class="col-md-12">
+      <h1>Edit Brand  <span style="display: inline-block; font-size: 24px;">: <%= @brand.brand_name %></span></h1>
 
-     <div class="col-md-6">
-       <table class="table table-hover">
-        <tbody>  
-          <tr>
-            <td>
-              <td><%= label_tag :phone_number %></td>
-              <td><%= text_field_tag :brand_phone_number, @brand.brand_phone_number %></td>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      <%= form_tag brand_update_path, method: :patch do %>
+      
+     <div class="row">
+       <!-- <div class="col-md-12"> -->
+       <br>
+       <h3>Brand Information</h3>
+         <div class="col-md-6">
+           <table class="table table-hover">
+            <tbody>  
+              <tr>
+                <td>
+                  <td><%= label_tag :name %></td>
+                  <td><%= text_field_tag :brand_name, @brand.brand_name %></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :address_1 %></td>
+                  <td><%= text_field_tag :brand_address_1, @brand.brand_address_1 %></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :address_2 %></td>
+                  <td><%= text_field_tag :brand_address_2, @brand.brand_address_2 %></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :city %></td>
+                  <td><%= text_field_tag :brand_city, @brand.brand_city %></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :state %></td>
+                  <td><%= text_field_tag :brand_state, @brand.brand_state %></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :zipcode %></td>
+                  <td><%= text_field_tag :brand_zipcode, @brand.brand_zipcode %></td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-    <div class="row">
-      <div class="col-md-12"> 
-      <br>
-      <h3>About</h3>
-      <table class="table table-hover">
-        <tbody>  
-          <tr>
-              <td><%= label_tag :business_description %></td>
-              <td><%= text_area_tag :brand_business_description, @brand.brand_business_description, size: "75x10"  %></td>
-          </tr>
+         <div class="col-md-6">
+           <table class="table table-hover">
+            <tbody>  
+              <tr>
+                <td>
+                  <td><%= label_tag :phone_number %></td>
+                  <td><%= text_field_tag :brand_phone_number, @brand.brand_phone_number %></td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-          <tr>
-              <td><%= label_tag :service_description %></td>
-              <td><%= text_area_tag :brand_service_description, @brand.brand_service_description, size: "75x10" %></td>
-          </tr>
-        </tbody>
-      </table>
-      </div>
-    </div>
+        <div class="row">
+          <div class="col-md-12"> 
+          <br>
+          <h3>About</h3>
+          <table class="table table-hover">
+            <tbody>  
+              <tr>
+                  <td><%= label_tag :business_description %></td>
+                  <td><%= text_area_tag :brand_business_description, @brand.brand_business_description, size: "75x10"  %></td>
+              </tr>
 
-  <%= submit_tag 'Update Brand', class: "btn btn-default"%>
+              <tr>
+                  <td><%= label_tag :service_description %></td>
+                  <td><%= text_area_tag :brand_service_description, @brand.brand_service_description, size: "75x10" %></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
 
-  <% end %>
-</div>  
+      <%= submit_tag 'Update Brand', class: "btn btn-default"%>
+
+      <% end %>
+    </div>  
+  </div>
+</section>

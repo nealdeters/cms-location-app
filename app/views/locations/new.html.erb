@@ -1,76 +1,81 @@
-<div class="col-md-12">
-  <h1>Add Location</h1>
+<section class="section">  
+  <div class="container">
 
-  <%= form_tag brand_location_path, method: :post do %>
+    <div class="col-md-12">
+      <h1>Add Location</h1>
 
-    <table class="table table-hover">
-      <tbody>  
-          <tr>
-            <tr>
-              <td>
-                <td><%= label_tag :business_name %></td>
-                <td><%= text_field_tag :business_name %></td>
-              </td>
-              <td>
-                  <td><%= label_tag :phone_number %></td>
-                  <td><%= text_field_tag :phone_number %></td>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <td><%= label_tag :street_address_1 %></td>
-                <td><%= text_field_tag :address_1 %></td>
-              </td>
-              <td>
-                  <td><%= label_tag :image %></td>
-                  <td><%= text_field_tag :image %></td>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <td><%= label_tag :street_address_2 %></td>
-                <td><%= text_field_tag :address_2 %></td>
-              </td>
-              <td>
-                  <td></td>
-                  <td></td>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <td><%= label_tag :city %></td>
-                <td><%= text_field_tag :city %></td>
-              </td>
-              <td>
-                  <td></td>
-                  <td></td>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <td><%= label_tag :state %></td>
-                <td><%= text_field_tag :state %></td>
-              </td>
-              <td>
-                  <td></td>
-                  <td></td>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <td><%= label_tag :zipcode %></td>
-                <td><%= text_field_tag :zipcode %></td>
-              </td>
-              <td>
-                  <td></td>
-                  <td></td>
-              </td>
-            </tr>
-        </tr>
-      </tbody>
-    </table>
+      <%= form_tag brand_location_path, method: :post do %>
 
-  <%= submit_tag 'Add Location', class: "btn btn-default"%>
+        <table class="table table-hover">
+          <tbody>  
+              <tr>
+                <tr>
+                  <td>
+                    <td><%= label_tag :business_name %></td>
+                    <td><%= text_field_tag :business_name %></td>
+                  </td>
+                  <td>
+                      <td><%= label_tag :phone_number %></td>
+                      <td><%= text_field_tag :phone_number %></td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <td><%= label_tag :street_address_1 %></td>
+                    <td><%= text_field_tag :address_1 %></td>
+                  </td>
+                  <td>
+                      <td><%= label_tag :image %></td>
+                      <td><%= text_field_tag :image %></td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <td><%= label_tag :street_address_2 %></td>
+                    <td><%= text_field_tag :address_2 %></td>
+                  </td>
+                  <td>
+                      <td></td>
+                      <td></td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <td><%= label_tag :city %></td>
+                    <td><%= text_field_tag :city %></td>
+                  </td>
+                  <td>
+                      <td></td>
+                      <td></td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <td><%= label_tag :state %></td>
+                    <td><%= text_field_tag :state %></td>
+                  </td>
+                  <td>
+                      <td></td>
+                      <td></td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <td><%= label_tag :zipcode %></td>
+                    <td><%= text_field_tag :zipcode %></td>
+                  </td>
+                  <td>
+                      <td></td>
+                      <td></td>
+                  </td>
+                </tr>
+            </tr>
+          </tbody>
+        </table>
 
-  <% end %>
-</div>  
+      <%= submit_tag 'Add Location', class: "btn btn-default"%>
+
+      <% end %>
+    </div>  
+  </div>
+</section>

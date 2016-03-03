@@ -1,42 +1,47 @@
-<div class="col-md-12">
-  <h1>Edit Image  <span class="edit-name">: <%= @image.image_name %></span></h1>
+<section class="section">  
+  <div class="container">
 
-  <!-- <ul class="nav nav-tabs">
-    <li role="presentation"><a href="#local">Local</a></li>
-    <li role="presentation"><a href="#about">About</a></li>
-    <li role="presentation"><a href="#meta">Meta</a></li>
-  </ul> -->
+    <div class="col-md-12">
+      <h1>Edit Image  <span class="edit-name">: <%= @image.image_name %></span></h1>
 
-  <%= form_tag brand_image_update_path, multipart: true, method: :patch do %>
-  
-  <img src="<%= @image.image.medium %>">
-  <table class="table table-hover">
-      <tbody>  
-          <tr>
-            <tr>
-              <td>
-                <td><%= label_tag :name %></td>
-                <td><%= text_field_tag :image_name, @image.image_name %></td>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <td><%= label_tag :category %></td>
-                <td>
-                  <%= select_tag :image_category, options_for_select(["Logo", "Header", "About", "Services", "Areas"], @image.image_category), class: "form-control" %>
-                </td>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <td><%= label_tag :image, "Upload an image" %></td>
-                <td><%= file_field_tag :image %></td>
-              </td>
-            </tr>
-      </tbody>
-    </table>
+      <!-- <ul class="nav nav-tabs">
+        <li role="presentation"><a href="#local">Local</a></li>
+        <li role="presentation"><a href="#about">About</a></li>
+        <li role="presentation"><a href="#meta">Meta</a></li>
+      </ul> -->
 
-  <%= submit_tag 'Update Image', class: "btn btn-default"%>
+      <%= form_tag brand_image_update_path, multipart: true, method: :patch do %>
+      
+      <img src="<%= @image.image.medium %>">
+      <table class="table table-hover">
+          <tbody>  
+              <tr>
+                <tr>
+                  <td>
+                    <td><%= label_tag :name %></td>
+                    <td><%= text_field_tag :image_name, @image.image_name %></td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <td><%= label_tag :category %></td>
+                    <td>
+                      <%= select_tag :image_category, options_for_select(["Logo", "Header", "About", "Services", "Areas"], @image.image_category), class: "form-control" %>
+                    </td>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <td><%= label_tag :image, "Upload an image" %></td>
+                    <td><%= file_field_tag :image %></td>
+                  </td>
+                </tr>
+          </tbody>
+        </table>
 
-  <% end %>
-</div>  
+      <%= submit_tag 'Update Image', class: "btn btn-default"%>
+
+      <% end %>
+    </div>  
+  </div>
+</section>
