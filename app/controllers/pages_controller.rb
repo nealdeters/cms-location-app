@@ -2,6 +2,8 @@ class PagesController < ApplicationController
   layout "application"
 
   def show
+    @name = "Nearr.me"
+
     if valid_page?
       render template: "pages/#{params[:page]}"
     else
