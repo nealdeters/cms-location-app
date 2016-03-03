@@ -27,6 +27,8 @@
             <tr>
               <td><%= label_tag :image, "Upload an image" %></td>
               <td><%= file_field_tag :image %></td>
+              <%= hidden_field_tag :image_name, "Location" %>
+              <%= hidden_field_tag :image_category, "location" %>
             </tr>
             <tr>
               <td><%= label_tag :business_name %></td>
