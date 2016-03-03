@@ -7,6 +7,6 @@ class LocationPageMailer < ApplicationMailer
     @body = body
     @location_email = location_email
 
-    mail(to: ENV['GMAIL_USERNAME'], bcc: @location_email ,from: email, subject: 'Lead Form')
+    mail(to: @location_email, from: ENV['GMAIL_USERNAME'], subject: 'Locations CMS Lead Form')
   end
 end

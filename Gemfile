@@ -10,6 +10,7 @@ gem 'mysql2', '~> 0.3.20'
 gem 'thematic'
 #gem for font awesome
 gem 'font-awesome-rails'
+gem 'seed_dump'
 #gem for converting address to geo coordinates
 gem 'geocoder'
 gem 'carrierwave'
