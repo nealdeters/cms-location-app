@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @brand.brand_name %> - Directory</title>
+  
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic" rel="stylesheet" type="text/css">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="location-page">
+
+    <!-- ******HEADER****** --> 
+    <header id="header" class="header">  
+        <div class="container">            
+            <h1 class="logo pull-left">
+                <a href="#promo">
+                  <% if @brand.images.where(image_category: 'logo').take %>  
+                    <span class="logo-title brand-logo"><img src="<%= @brand.images.where(image_category: 'logo').first.image.logo %>"></span>
+                  <% else %>
+                    <span class="logo-title"><%= @brand.brand_name %></span>
+                  <% end %>
+                </a>
+            </h1><!--//logo-->              
+            <nav id="main-nav" class="main-nav navbar-right" role="navigation">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button><!--//nav-toggle-->
+                </div><!--//navbar-header-->            
+                <div class="navbar-collapse collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                    </ul><!--//nav-->
+                </div><!--//navabr-collapse-->
+            </nav><!--//main-nav-->           
+        </div><!--//container-->
+    </header><!--//header-->
+
+  
+  <div class="container">
+    <% flash.each do |name, message| %>
+        <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= message %>
+        </div>
+      <% end %>
+  </div>
+
+  <% if !@brand.images.where(image_category: 'header').first.blank? %>
+    <!-- ******PROMO****** --> 
+    <section id="promo" class="promo section">  
+        <div class="container intro">
+          
+
+        </div><!--//intro-->
+        
+        <div class="fixed-container">
+            
+            <div class="social text-center">
+                <div class="container">
+                    <span class="line"></span>    
+                </div>         
+            </div><!--//social-->   
+        </div>  
+        <div class="bg-slider-wrapper">
+            <div id="bg-slider" class="flexslider bg-slider">
+                <ul class="slides">
+                    <li class="slide slide-header"><img class="img-responsive" src="<%= @brand.images.where(image_category: 'header').first.image.header %>"></li>
+                    <!-- <li class="slide slide-1"></li> -->
+                    <!-- <li class="slide slide-2"></li> -->
+                    <!-- <li class="slide slide-3"></li> -->
+                </ul>
+            </div>
+        </div><!--//bg-slider-wrapper--> 
+    </section>
+    <!--//promo-->
+  <% end %>
+
+  <section class="content">
+      <div class="container">
+        <h1><%= @brand.brand_name %> Locations</h1>
+        <div class="row">
+
+        <% @states.each_with_index do |state, index| %>
+          <div class="col-lg-4">
+            <p><a href=""><%= state %></a></p>
+          </div><!-- /.col-lg-4 -->
+        <% end %>
+
+
+        </div><!-- /.row -->
+      </div>
+    </section>
+
+  <div class="container">
+    <!-- FOOTER -->
+    <footer>
+      <!-- <p class="pull-right"><a href="#">Back to top</a></p> -->
+      <p>&copy; 2015 <%= @brand.brand_name %> <!-- &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> --></p>
+    </footer>
+  </div><!-- /.container -->
+
+  </body>
+</html>

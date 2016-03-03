@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   before_action :load_brand
-  layout "cms_locations_layout"
+  layout :resolve_layout
 
   def index
     :authenticate_user!
@@ -20,6 +20,20 @@ class LocationsController < ApplicationController
     else
       redirect_to "/"
     end
+  end
+
+  def directory
+    @locations = @brand.locations.all
+    @states = []
+
+    @locations.each do |location|
+      @states << location.state
+    end 
+
+    @states = @states.uniq!
+    @states.sort_by!{ |state| state }
+
+    render template: "layouts/directory"
   end
 
   def new
@@ -131,10 +145,6 @@ class LocationsController < ApplicationController
     redirect_to brand_location_path
   end
 
-  def directory
-    @locations = @brand.locations.all
-  end
-
   def send_mail
     # @location = @brand.locations.find(params[:id])
 
@@ -156,8 +166,13 @@ class LocationsController < ApplicationController
     @brand = Brand.find(params[:brand_id])
   end
 
-  # def load_image
-  #   @image = Image.find_by(imageable_id: params[:imageable_id])
-  # end
+  def resolve_layout
+    case action_name
+    when "index", "edit", "new", "create"
+      "cms_locations_layout"
+    when "directory"
+      "directory"
+    end
+  end
 
 end
