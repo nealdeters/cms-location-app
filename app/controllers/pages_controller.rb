@@ -9,6 +9,19 @@ class PagesController < ApplicationController
     end
   end
 
+  def contact_email
+
+    name = params[:name]
+    email = params[:email]
+    body = params[:message]
+
+    ContactEmailMailer.contact_email(name, email, body).deliver
+
+    flash[:success] = "Message sent"
+
+    redirect_to "/contact"
+  end
+
   private
   def valid_page?
     File.exist?(Pathname.new(Rails.root + "app/views/pages/#{params[:page]}.html.erb"))

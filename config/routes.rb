@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   post '/brands' => 'brands#create', as: 'brand_create'
 
   post '/brands/:brand_id/locations/:id/send_mail' => 'locations#send_mail', as: 'send_mail'
+  post '/contact' => 'pages#contact_email', as: 'contact_email'
 
   get '/brands/:brand_id/locations/:id' => 'locations#show', as: 'brand_location_show'
   get '/brands/:brand_id/contents/:id' => 'contents#show', as: 'brand_content_show'

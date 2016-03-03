@@ -82,7 +82,7 @@
         </div><!--//container-->
     </header><!--//header-->
 
-    <% flash.each do |name, message| %>
+  <% flash.each do |name, message| %>
       <div class="alert alert-<%= name %> alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <%= message %>
@@ -290,8 +290,8 @@
             </div>
           </form> -->
 
-            <%= form_tag(send_mail_path) do %>
-              <div class="form-group">
+          <%= form_tag(send_mail_path) do %>
+            <div class="form-group">
                   <%= label_tag 'name', 'Name' %>
                   <%= text_field_tag 'name', nil, class: 'form-control', placeholder: 'Your Name' %>
               </div>

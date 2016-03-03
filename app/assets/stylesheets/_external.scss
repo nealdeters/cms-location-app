@@ -7,6 +7,14 @@ body#dashboard {
   padding-top: 60px;
 }
 
+.header .main-nav .nav .nav-item .started a {
+  color: #fff;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+}
+
 // body#location-page {
 //   margin-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 // }
