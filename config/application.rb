@@ -18,6 +18,7 @@ Bundler.require(*Rails.groups)
 module CmsLocationApp
   class Application < Rails::Application
     Rails.root.join("vendor", "assets", "images")
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -31,6 +32,10 @@ module CmsLocationApp
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+
+    # # config.action_mailer.delivery_method = :sendmail
+    # config.action_mailer.perform_deliveries = true
+    # config.action_mailer.raise_delivery_errors = true
 
     
     config.active_record.raise_in_transactional_callbacks = true

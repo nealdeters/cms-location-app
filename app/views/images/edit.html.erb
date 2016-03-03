@@ -9,7 +9,7 @@
 
   <%= form_tag brand_image_update_path, multipart: true, method: :patch do %>
   
-  <img src="<%= @image.image %>">
+  <img src="<%= @image.image.medium %>">
   <table class="table table-hover">
       <tbody>  
           <tr>

@@ -34,6 +34,7 @@ class LocationsController < ApplicationController
       city: params[:city],
       state: params[:state],
       zipcode: params[:zipcode],
+      email: params[:email],
       phone_number: params[:phone_number],
       hours_of_operation: params[:hours_of_operation],
       business_description: params[:business_description],
@@ -44,7 +45,9 @@ class LocationsController < ApplicationController
       meta_description: params[:meta_description],
       meta_keywords: params[:meta_keywords],
       meta_title: params[:meta_title],
-      meta_url: params[:meta_url]
+      meta_url: params[:meta_url],
+      tagline_title: params[:tagline_title],
+      tagline_summary: params[:tagline_summary]
       })
     
     flash[:success] = "New Location Created"
@@ -73,6 +76,7 @@ class LocationsController < ApplicationController
       city: params[:city],
       state: params[:state],
       zipcode: params[:zipcode],
+      email: params[:email],
       phone_number: params[:phone_number],
       hours_of_operation: params[:hours_of_operation],
       business_description: params[:business_description],
@@ -83,7 +87,9 @@ class LocationsController < ApplicationController
       meta_description: params[:meta_description],
       meta_keywords: params[:meta_keywords],
       meta_title: params[:meta_title],
-      meta_url: params[:meta_url]
+      meta_url: params[:meta_url],
+      tagline_title: params[:tagline_title],
+      tagline_summary: params[:tagline_summary]
       })
 
     # update location image
@@ -119,6 +125,21 @@ class LocationsController < ApplicationController
 
   def directory
     @locations = @brand.locations.all
+  end
+
+  def send_mail
+    # @location = @brand.locations.find(params[:id])
+
+    name = params[:name]
+    email = params[:email]
+    body = params[:comments]
+    location_email = params[:location_email]
+
+    LocationPageMailer.welcome_email(name, email, body, location_email).deliver
+
+    flash[:success] = "Message sent"
+
+    redirect_to :brand_location_show
   end
 
   private

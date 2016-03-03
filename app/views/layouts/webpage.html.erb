@@ -9,215 +9,331 @@
   <%= csrf_meta_tags %>
 </head>
 <body id="location-page">
+    
     <!-- <div class="navbar-wrapper"> -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">  
+    <!-- <nav class="navbar navbar-inverse navbar-fixed-top">  
       <div class="container">
-
-        
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">Brand Logo</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="#location">Locations</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#areas">Areas</a></li>
-                <li><a href="#contact">Contact</a></li>
-                </li>
-              </ul>
-            </div>
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Brand Logo</a>
           </div>
-        </div>
-        </nav>
-
-      
-    <!-- </div> -->
-
-
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-            </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right"> -->
+              <!---<li><a href="#location">Locations</a></li>-->
+              <!-- <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#areas">Areas</a></li>
+              <li><a href="#contact">Contact</a></li>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div><!-- /.carousel -->
+    </nav> -->
+    <!-- </div> -->
+
+    <!-- ******HEADER****** --> 
+    <header id="header" class="header">  
+        <div class="container">            
+            <h1 class="logo pull-left">
+                <a href="#promo">
+                  <% if @brand.images.where(image_category: 'logo').take %>  
+                    <span class="logo-title brand-logo"><img src="<%= @brand.images.where(image_category: 'logo').first.image.logo %>"></span>
+                  <% else %>
+                    <span class="logo-title"><%= @brand.brand_name %></span>
+                  <% end %>
+                </a>
+            </h1><!--//logo-->              
+            <nav id="main-nav" class="main-nav navbar-right" role="navigation">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button><!--//nav-toggle-->
+                </div><!--//navbar-header-->            
+                <div class="navbar-collapse collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+
+                      <% if !@location.business_description.blank? %>
+                        <li class="nav-item"><a href="#about">About</a></li>
+                      <% end %>
+
+                      <% if !@location.service_description.blank? %>
+                        <li class="nav-item"><a href="#services">Services</a></li>
+                      <% end %>
+
+                      <% if !@location.areas_served.blank? %>
+                        <li class="nav-item"><a href="#areas">Areas Served</a></li>  
+                      <% end %> 
+
+
+                        <li class="nav-item nav-item-cta last"><button type="button" class="btn btn-cta btn-cta-primary" data-toggle="modal" data-target="#contactModal" >Contact</button></li>
+                    </ul><!--//nav-->
+                </div><!--//navabr-collapse-->
+            </nav><!--//main-nav-->           
+        </div><!--//container-->
+    </header><!--//header-->
+
+  <% flash.each do |name, message| %>
+    <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= message %>
+    </div>
+  <% end %>
+
+  <% if !@brand.images.where(image_category: 'header').first.blank? %>
+    <!-- ******PROMO****** --> 
+    <section id="promo" class="promo section">  
+        <div class="container intro">
+          <% if !@location.tagline_title.blank? %>
+            <h2 class="title"><%= raw @location.tagline_title %></h2>
+            <p class="summary"><%= raw @location.tagline_summary %></p>
+            <a class="btn btn-cta btn-cta-secondary" data-toggle="modal" data-target="#contactModal">Learn More</a>
+          <% end %>
+
+        </div><!--//intro-->
+        
+        <div class="fixed-container">
+            
+            <div class="social text-center">
+                <div class="container">
+                    <span class="line"></span>    
+                </div>         
+            </div><!--//social-->   
+        </div>  
+        <div class="bg-slider-wrapper">
+            <div id="bg-slider" class="flexslider bg-slider">
+                <ul class="slides">
+                    <li class="slide slide-header"><img src="<%= @brand.images.where(image_category: 'header').first.image.header %>"></li>
+                    <!-- <li class="slide slide-1"></li> -->
+                    <!-- <li class="slide slide-2"></li> -->
+                    <!-- <li class="slide slide-3"></li> -->
+                </ul>
+            </div>
+        </div><!--//bg-slider-wrapper--> 
+    </section>
+    <!--//promo-->
+  <% end %>
 
 
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="business-card" id="contact-info">
+    <section class="map">
       <div class="container">
         <div class="row" data-track-category="Business Card">
-          <div class="col-md-6">
-            <div class="bCard2-map">
-              <!-- #Google Maps API -->
-              <div id="map"></div>
-              <!-- <div id="map-canvas1" class="map-height"><a data-sim-tracklabel="map get directions" href=""></a></div> -->
-              <div class="clear"></div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="bCard1-info">
-              <h3><strong itemprop="name"><%= @location.business_name %></strong></h3>
-              <span itemprop="telePhone" class="desktop phone hidden-xs"><%= @location.phone_number %></span>
-              <span class="mobile-phone visible-xs-inline">
-                <a data-track-label="Mobile Call" data-sim-tracklabel="b card mobile phone" href="tel:3129966582"></a><%= @location.phone_number %>
+          <div class="col-md-4">
+              
+              <% if !@location.images.first.blank? %>
+                <img src="<%= @location.images.first.image.local_image %>" class="img-thumbnail">
+              <% end %>
+
+              <h3 itemprop="name"><%= @location.business_name %></h3>
+              
+            <div>  
+              <span itemprop="telePhone" class="desktop phone hidden-xs text-center">
+                <%= @location.phone_number %>
               </span>
+
+              <span class="mobile-phone visible-xs-inline text-center">
+                <a href="tel:<%= @location.phone_number %>"><%= @location.phone_number %></a>
+              </span>
+
               <p itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
                 <span itemprop="streetAddress"><%= @location.address_1 %> <%= @location.address_2 %><br></span><span itemprop="addressLocality"><%= @location.city %>,
                 </span>
                 <span itemprop="addressRegion"><%= @location.state %> </span><span itemprop="postalCode"><%= @location.zipcode %></span>
                 <meta itemprop="addressCountry" content="USA">
               </p>
-              <!-- <span id="visit-website"><a data-sim-tracklabel="b card Visit Website" class="btn btn-primary" href="#" target="_blank">Visit Website</a></span> -->
             </div>
+              <!-- <span id="visit-website"><a data-sim-tracklabel="b card Visit Website" class="btn btn-primary" href="#" target="_blank">Visit Website</a></span> -->
+          </div>
+
+          <div class="col-md-8">
+              <!-- #Google Maps API -->
+              <div id="map"></div>
+              <!-- <div class="clear"></div> -->
           </div>
         </div>
       </div>
+    </section>
+
+  <% if !@location.business_description.blank? %>
+    <section class="about" id="about">
+      <div class="container">
+        <!-- START THE FEATURETTES -->
+
+        <!-- <hr class="featurette-divider" id="about"> -->
+
+        <div class="row featurette">
+          <div class="col-md-6 col-md-push-6">
+            <h2 class="featurette-heading">About Us</h2>
+            <p class="lead"><%= @location.business_description %></p>
+          </div>
+
+          <div class="col-md-6 col-md-pull-6">
+            <% if @brand.images.where(image_category: 'about').take %>  
+              <img class="featurette-image img-responsive img-thumbnail" src="<%= @brand.images.where(image_category: 'about').first.image.square %>"></span>
+            <% end %>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <% if !@location.service_description.blank? %>
+    <section class="services" id="services">
+      <div class="container">
+        <!-- <hr class="featurette-divider" id="services"> -->
+
+        <div class="row featurette">
+          <div class="col-md-6 col-md-push-6">
+            <% if @brand.images.where(image_category: 'services').take %>  
+              <img class="featurette-image img-responsive img-thumbnail text-right" src="<%= @brand.images.where(image_category: 'services').first.image.square %>"></span>
+            <% end %>
+          </div>
+
+          <div class="col-md-6 col-md-pull-6">
+            <h2 class="featurette-heading">Services</h2>
+            <p class="lead"><%= @location.service_description %></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <% if !@location.areas_served.blank?  %>
+    <section class="areas" id="areas">
+      <div class="container">
+        <!-- <hr class="featurette-divider" id="areas"> -->
+
+        <div class="row featurette">
+          <div class="col-md-6">
+            <% if @brand.images.where(image_category: 'areas').take %>  
+              <img class="featurette-image img-responsive img-thumbnail" src="<%= @brand.images.where(image_category: 'areas').first.image.square %>"></span>
+            <% end %>
+          </div>
+
+          <div class="col-md-6">
+            <h2 class="featurette-heading">Areas Served</h2>
+            <p class="lead">
+              <%= @location.areas_served %>
+
+              <% if !@location.zipcodes_served.blank?  %>
+                <br>
+                <br>
+                <%= @location.zipcodes_served %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <% if @brand.contents.count != 0 %>
+    <section class="content" id="content">
+      <div class="container">
+        <!-- <hr class="featurette-divider"> -->
+
+        <!-- /END THE FEATURETTES -->
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+
+        <% @brand.contents.each_with_index do |content, index| %>
+          <div class="col-lg-4">
+            <!-- <img class="img-circle center-block" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140"> -->
+            <h2><%= @brand.contents[index].content_name %></h2>
+            <p><%= @brand.contents[index].content_field %></p>
+            <!-- <p><a class="btn btn-default" href="#" role="button">View more &raquo;</a></p> -->
+          </div><!-- /.col-lg-4 -->
+        <% end %>
+
+
+        </div><!-- /.row -->
+      </div>
+    </section>
+  <% end %>
+
+  <!--- MODAL -->
+  <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="exampleModalLabel">Contact Us</h4>
+        </div>
+        <div class="modal-body">
+          <!-- <form>
+            <div class="form-group">
+              <label for="recipient_name" class="control-label">Name:</label>
+              <input type="text" class="form-control" id="recipient_name">
+            </div>
+            <div class="form-group">
+              <label for="recipient_email" class="control-label">Email:</label>
+              <input type="text" class="form-control" id="recipient_email">
+            </div>
+            <div class="form-group">
+              <label for="message_text" class="control-label">Message:</label>
+              <textarea class="form-control" id="message_text"></textarea>
+            </div>
+          </form> -->
+
+            <%= form_tag(send_mail_path) do %>
+              <div class="form-group">
+                  <%= label_tag 'name', 'Name' %>
+                  <%= text_field_tag 'name', nil, class: 'form-control', placeholder: 'Your Name' %>
+              </div>
+             <div class="form-group">
+                 <%= label_tag 'email', 'Email' %>
+                 <%= email_field_tag 'email', nil, class: 'form-control', placeholder: 'Your Email Address' %>
+             </div>
+             <div class="form-group">
+                 <%= label_tag 'comments', 'Message' %>
+                 <%= text_area_tag 'comments', nil, class: 'form-control', rows: 4, placeholder: 'Message' %>
+                 <%= hidden_field_tag 'location_email', @location.email %>
+             </div>
+             <%= submit_tag nil, class: 'btn btn-cta btn-cta-primary' %>
+          <% end %>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-cta btn-cta-primary">Send message</button>
+        </div> -->
+      </div>
     </div>
+  </div>
+  <!--END MODAL-->
 
+  <div class="container">
+    <!-- FOOTER -->
+    <footer>
+      <!-- <p class="pull-right"><a href="#">Back to top</a></p> -->
+      <p>&copy; 2015 <%= @brand.brand_name %> <!-- &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> --></p>
+    </footer>
+  </div><!-- /.container -->
 
-    <div class="container marketing">
-      <!-- START THE FEATURETTES -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}"></script>
 
-      <hr class="featurette-divider" id="about">
+  <script type="text/javascript">
+    var obj = {
+      lat: <%= @location.latitude %>,
+      long: <%= @location.longitude %>
+    }
+    var manager = new MapManager
+    manager.initMap(obj)
+  </script>
 
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">About Us</h2>
-          <p class="lead"><%= @location.business_description %></p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="" width="500" height="500" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider" id="services">
-
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">Services</h2>
-          <p class="lead"><%= @location.service_description %></p>
-        </div>
-        <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" data-src="" width="500" height="500"  alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider" id="areas">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Areas Served</h2>
-          <p class="lead">
-            <%= @location.areas_served %>
-            <br>
-            <br>
-            <%= @location.zipcodes_served %>
-          </p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="" width="500" height="500" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <!-- /END THE FEATURETTES -->
-
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle center-block" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>Brand Content 1</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#" role="button">View more &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle center-block" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>Brand Content 2</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">View more &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle center-block" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>Brand Content 3</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View more &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-
-
-      <!-- FOOTER -->
-      <footer>
-        <!-- <p class="pull-right"><a href="#">Back to top</a></p> -->
-        <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-
-      <script src="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}"></script>
-
-      <script type="text/javascript">
-        var obj = {
-          lat: <%= @location.latitude %>,
-          long: <%= @location.longitude %>
-        }
-        var manager = new MapManager
-        manager.initMap(obj)
-      </script>
-
-    </div><!-- /.container -->
   </body>
 </html>
