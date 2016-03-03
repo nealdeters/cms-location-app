@@ -1,10 +1,10 @@
 class LocationsController < ApplicationController
-  before_action :authenticate_user!
   before_action :load_brand
   layout "cms_locations_layout"
 
   def index
-    
+    :authenticate_user!
+
     if current_user.brands.exists?(params[:brand_id])
       @locations = @brand.locations.all
 
@@ -23,10 +23,12 @@ class LocationsController < ApplicationController
   end
 
   def new
-
+    :authenticate_user!
   end
 
   def create
+    :authenticate_user!
+
     @location = @brand.locations.create({ 
       business_name: params[:business_name],
       address_1: params[:address_1],
@@ -62,11 +64,15 @@ class LocationsController < ApplicationController
   end
 
   def edit
+    :authenticate_user!
+
     @location = @brand.locations.find(params[:id])
     # @location = Location.find(params[:brand_id])
   end
 
   def update
+    :authenticate_user!
+
     @location = @brand.locations.find(params[:id])
 
     @location.update({ 
@@ -115,6 +121,8 @@ class LocationsController < ApplicationController
   end
 
   def destroy
+    :authenticate_user!
+
     @location = @brand.locations.find(params[:id])
     @location.destroy
 
