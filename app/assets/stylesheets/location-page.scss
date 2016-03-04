@@ -91,3 +91,197 @@ ul, menu, dir {
   min-height: 516px;
   color: #444;
 }
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+/* ======= Tempo Styling customized for location page ======= */
+body {
+  font-family: 'Lato', arial, sans-serif;
+  color: #444;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+p {
+  color: #444;
+  font-size: 16px;
+}
+a {
+  color: #6dbd63;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+}
+a:hover {
+  text-decoration: none;
+  color: #48953f;
+}
+a:focus {
+  text-decoration: none;
+}
+.btn,
+a.btn {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  font-family: 'Montserrat', sans-serif;
+  padding: 8px 16px;
+}
+.btn .fa,
+a.btn .fa {
+  color: #fff;
+  margin-right: 5px;
+}
+a.btn-cta-primary,
+.btn-cta-primary {
+  background: #6dbd63;
+  border: 2px solid #6dbd63;
+  color: #fff;
+  text-transform: uppercase;
+}
+a.btn-cta-primary:hover,
+.btn-cta-primary:hover {
+  background: #51a746;
+  border: 2px solid #51a746;
+  color: #fff;
+}
+a.btn-cta-secondary,
+.btn-cta-secondary {
+  background: #fff;
+  border: 2px solid #6dbd63;
+  color: #6dbd63;
+}
+a.btn-cta-secondary .fa,
+.btn-cta-secondary .fa {
+  margin-left: 5px;
+  color: #6dbd63;
+}
+a.btn-cta-secondary:hover,
+.btn-cta-secondary:hover {
+  background: #fff;
+  border: 2px solid #51a746;
+  color: #51a746;
+}
+a.btn-cta-secondary:hover .fa,
+.btn-cta-secondary:hover .fa {
+  color: #51a746;
+}
+
+/* ======= Header ======= */
+.header {
+  padding: 15px 0;
+  background: #fff;
+  z-index: 888;
+}
+.header.navbar-fixed-top {
+  border: none;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.header h1.logo a:hover {
+  color: #6dbd63;
+}
+
+
+.header .main-nav .nav .nav-item.nav-item-cta .btn-cta-primary {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  padding: 6px 12px;
+  color: #fff;
+  font-weight: 300;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 2px;
+  background: #6dbd63;
+}
+.header .main-nav .nav .nav-item.nav-item-cta .btn-cta-primary:hover {
+  background: #51a746;
+  border: 2px solid #51a746;
+  color: #fff;
+}
+.header .main-nav .nav .nav-item a {
+  color: #666;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+}
+.header .main-nav .nav .nav-item a:hover {
+  color: #6dbd63;
+  background: none;
+}
+
+.header .main-nav .nav .nav-item.active {
+  color: #6dbd63;
+}
+
+.promo .intro .title {
+  color: #fff;
+  font-size: 38px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  max-width: 720px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.promo .intro .summary {
+  color: #fff;
+  font-size: 22px;
+  max-width: 680px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+}
+
+.promo .social {
+  background: #6dbd63;
+  padding: 8px 0;
+  -webkit-opacity: 0.8;
+  -moz-opacity: 0.8;
+  opacity: 0.8;
+  color: #fff;
+  font-size: 13px;
+}
