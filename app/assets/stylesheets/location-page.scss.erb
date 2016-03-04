@@ -1,6 +1,26 @@
 // // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "font-awesome";
 
+
+// <% custom = '#ff4a4a'.paint.palette.monochromatic(as: :hex) %>
+$tagline: #ffffff;
+$taglineColor: #ffffff;
+
+$map: #f5f5f5;
+$mapColor: #666;
+$about: #ffffff;
+$aboutColor: #666;
+$services: #6dbd63;
+$servicesColor: #666;
+$areas: #f5f5f5;
+$areasColor: #666;
+$content: #ffffff;
+$contentColor: #666;
+
+$bodyColor: #444;
+$bodyColorHover: #6dbd63;
+
+
 ul, menu, dir {
     display: block;
     list-style-type: disc;
@@ -25,7 +45,7 @@ ul, menu, dir {
 }
 
 .bg-slider-wrapper .flexslider .slide.slide-header {
-  background: #fff no-repeat 50% top;
+  background: $about no-repeat 50% top;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -35,66 +55,66 @@ ul, menu, dir {
 .map {
   padding: 80px 0;
   position: relative;
-  background: #f5f5f5 no-repeat center center;
+  background: $map no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   min-height: 516px;
-  color: #444;
+  color: $mapColor;
 }
 
 .location-about {
   padding: 80px 0;
   position: relative;
-  background: #ffffff no-repeat center center;
+  background: $about no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   min-height: 516px;
-  color: #444;
+  color: $aboutColor;
 }
 
 .services {
   padding: 80px 0;
   position: relative;
-  background: #6dbd63 no-repeat center center;
+  background: $services no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   min-height: 516px;
-  color: #fff;
+  color: $servicesColor;
 }
 
 .areas {
   padding: 80px 0;
   position: relative;
-  background: #f5f5f5 no-repeat center center;
+  background: $areas no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   min-height: 516px;
-  color: #444;
+  color: $areasColor;
 }
 
 .content {
   padding: 80px 0;
   position: relative;
-  background: #ffffff no-repeat center center;
+  background: $content no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   min-height: 516px;
-  color: #444;
+  color: $contentColor;
 }
 
 .modal-content {
     position: relative;
-    background-color: #fff;
+    background-color: $about;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
     border: 1px solid #999;
@@ -113,7 +133,7 @@ ul, menu, dir {
     font-size: 14px;
     line-height: 1.42857143;
     color: #555;
-    background-color: #fff;
+    background-color: $about;
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -127,7 +147,7 @@ ul, menu, dir {
 /* ======= Tempo Styling customized for location page ======= */
 body {
   font-family: 'Lato', arial, sans-serif;
-  color: #444;
+  color: $bodyColor;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -143,11 +163,11 @@ h6 {
   font-weight: bold;
 }
 p {
-  color: #444;
+  color: $bodyColor;
   font-size: 16px;
 }
 a {
-  color: #6dbd63;
+  color: $bodyColorHover;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -ms-transition: all 0.4s ease-in-out;
@@ -171,36 +191,36 @@ a.btn {
 }
 .btn .fa,
 a.btn .fa {
-  color: #fff;
+  color: $about;
   margin-right: 5px;
 }
 a.btn-cta-primary,
 .btn-cta-primary {
-  background: #6dbd63;
-  border: 2px solid #6dbd63;
-  color: #fff;
+  background: $bodyColorHover;
+  border: 2px solid $bodyColorHover;
+  color: $about;
   text-transform: uppercase;
 }
 a.btn-cta-primary:hover,
 .btn-cta-primary:hover {
   background: #51a746;
   border: 2px solid #51a746;
-  color: #fff;
+  color: $about;
 }
 a.btn-cta-secondary,
 .btn-cta-secondary {
-  background: #fff;
-  border: 2px solid #6dbd63;
-  color: #6dbd63;
+  background: $about;
+  border: 2px solid $bodyColorHover;
+  color: $bodyColorHover;
 }
 a.btn-cta-secondary .fa,
 .btn-cta-secondary .fa {
   margin-left: 5px;
-  color: #6dbd63;
+  color: $bodyColorHover;
 }
 a.btn-cta-secondary:hover,
 .btn-cta-secondary:hover {
-  background: #fff;
+  background: $about;
   border: 2px solid #51a746;
   color: #51a746;
 }
@@ -212,7 +232,7 @@ a.btn-cta-secondary:hover .fa,
 /* ======= Header ======= */
 .header {
   padding: 15px 0;
-  background: #fff;
+  background: $about;
   z-index: 888;
 }
 .header.navbar-fixed-top {
@@ -223,7 +243,7 @@ a.btn-cta-secondary:hover .fa,
 }
 
 .header h1.logo a:hover {
-  color: #6dbd63;
+  color: $bodyColorHover;
 }
 
 
@@ -233,35 +253,35 @@ a.btn-cta-secondary:hover .fa,
   -ms-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
   padding: 6px 12px;
-  color: #fff;
+  color: $about;
   font-weight: 300;
   font-family: 'Montserrat', sans-serif;
   margin-top: 2px;
-  background: #6dbd63;
+  background: $bodyColorHover;
 }
 .header .main-nav .nav .nav-item.nav-item-cta .btn-cta-primary:hover {
   background: #51a746;
   border: 2px solid #51a746;
-  color: #fff;
+  color: $about;
 }
 .header .main-nav .nav .nav-item a {
-  color: #666;
+  color: $bodyColor;
   -webkit-transition: none;
   -moz-transition: none;
   -ms-transition: none;
   -o-transition: none;
 }
 .header .main-nav .nav .nav-item a:hover {
-  color: #6dbd63;
+  color: $bodyColorHover;
   background: none;
 }
 
 .header .main-nav .nav .nav-item.active {
-  color: #6dbd63;
+  color: $bodyColorHover;
 }
 
 .promo .intro .title {
-  color: #fff;
+  color: $about;
   font-size: 38px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
   max-width: 720px;
@@ -269,7 +289,7 @@ a.btn-cta-secondary:hover .fa,
   margin-bottom: 15px;
 }
 .promo .intro .summary {
-  color: #fff;
+  color: $about;
   font-size: 22px;
   max-width: 680px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
@@ -277,11 +297,11 @@ a.btn-cta-secondary:hover .fa,
 }
 
 .promo .social {
-  background: #6dbd63;
+  background: $bodyColorHover;
   padding: 8px 0;
   -webkit-opacity: 0.8;
   -moz-opacity: 0.8;
   opacity: 0.8;
-  color: #fff;
+  color: $about;
   font-size: 13px;
 }
