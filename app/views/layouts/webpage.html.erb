@@ -11,34 +11,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body id="location-page">
-    
-    <!-- <div class="navbar-wrapper"> -->
-    <!-- <nav class="navbar navbar-inverse navbar-fixed-top">  
-      <div class="container">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Brand Logo</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right"> -->
-              <!---<li><a href="#location">Locations</a></li>-->
-              <!-- <li><a href="#about">About</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#areas">Areas</a></li>
-              <li><a href="#contact">Contact</a></li>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav> -->
-    <!-- </div> -->
 
     <!-- ******HEADER****** --> 
     <header id="header" class="header">  
@@ -117,20 +89,12 @@
             <div id="bg-slider" class="flexslider bg-slider">
                 <ul class="slides">
                     <li class="slide slide-header"><img class="img-responsive" src="<%= @brand.images.where(image_category: 'header').first.image.header %>"></li>
-                    <!-- <li class="slide slide-1"></li> -->
-                    <!-- <li class="slide slide-2"></li> -->
-                    <!-- <li class="slide slide-3"></li> -->
                 </ul>
             </div>
         </div><!--//bg-slider-wrapper--> 
     </section>
     <!--//promo-->
   <% end %>
-
-
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
 
     <section class="map">
       <div class="container">
@@ -159,13 +123,11 @@
                 <meta itemprop="addressCountry" content="USA">
               </p>
             </div>
-              <!-- <span id="visit-website"><a data-sim-tracklabel="b card Visit Website" class="btn btn-primary" href="#" target="_blank">Visit Website</a></span> -->
           </div>
 
           <div class="col-md-8">
               <!-- #Google Maps API -->
               <div id="map"></div>
-              <!-- <div class="clear"></div> -->
           </div>
         </div>
       </div>
@@ -174,10 +136,6 @@
   <% if !@location.business_description.blank? %>
     <section class="location-about" id="about">
       <div class="container">
-        <!-- START THE FEATURETTES -->
-
-        <!-- <hr class="featurette-divider" id="about"> -->
-
         <div class="row featurette">
           <div class="col-md-6 col-md-push-6">
             <h2 class="featurette-heading">About Us</h2>
@@ -198,8 +156,6 @@
   <% if !@location.service_description.blank? %>
     <section class="services" id="services">
       <div class="container">
-        <!-- <hr class="featurette-divider" id="services"> -->
-
         <div class="row featurette">
           <div class="col-md-6 col-md-push-6">
             <% if @brand.images.where(image_category: 'services').take %>  
@@ -219,8 +175,6 @@
   <% if !@location.areas_served.blank?  %>
     <section class="areas" id="areas">
       <div class="container">
-        <!-- <hr class="featurette-divider" id="areas"> -->
-
         <div class="row featurette">
           <div class="col-md-6">
             <% if @brand.images.where(image_category: 'areas').take %>  
@@ -248,11 +202,6 @@
   <% if @brand.contents.count != 0 %>
     <section class="content" id="content">
       <div class="container">
-        <!-- <hr class="featurette-divider"> -->
-
-        <!-- /END THE FEATURETTES -->
-
-        <!-- Three columns of text below the carousel -->
         <div class="row">
 
         <% @brand.contents.each_with_index do |content, index| %>
@@ -260,7 +209,6 @@
             <!-- <img class="img-circle center-block" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140"> -->
             <h2><%= @brand.contents[index].content_name %></h2>
             <p><%= @brand.contents[index].content_field %></p>
-            <!-- <p><a class="btn btn-default" href="#" role="button">View more &raquo;</a></p> -->
           </div><!-- /.col-lg-4 -->
         <% end %>
 
@@ -279,42 +227,23 @@
           <h4 class="modal-title" id="exampleModalLabel">Contact Us</h4>
         </div>
         <div class="modal-body">
-          <!-- <form>
-            <div class="form-group">
-              <label for="recipient_name" class="control-label">Name:</label>
-              <input type="text" class="form-control" id="recipient_name">
-            </div>
-            <div class="form-group">
-              <label for="recipient_email" class="control-label">Email:</label>
-              <input type="text" class="form-control" id="recipient_email">
-            </div>
-            <div class="form-group">
-              <label for="message_text" class="control-label">Message:</label>
-              <textarea class="form-control" id="message_text"></textarea>
-            </div>
-          </form> -->
-
-          <%= form_tag(send_mail_path) do %>
-            <div class="form-group">
-                  <%= label_tag 'name', 'Name' %>
-                  <%= text_field_tag 'name', nil, class: 'form-control', placeholder: 'Your Name' %>
-              </div>
-             <div class="form-group">
-                 <%= label_tag 'email', 'Email' %>
-                 <%= email_field_tag 'email', nil, class: 'form-control', placeholder: 'Your Email Address' %>
-             </div>
-             <div class="form-group">
-                 <%= label_tag 'comments', 'Message' %>
-                 <%= text_area_tag 'comments', nil, class: 'form-control', rows: 4, placeholder: 'Message' %>
-                 <%= hidden_field_tag 'location_email', @location.email %>
-             </div>
+            <%= form_tag(send_mail_path) do %>
+              <div class="form-group">
+                    <%= label_tag 'name', 'Name' %>
+                    <%= text_field_tag 'name', nil, class: 'form-control', placeholder: 'Your Name' %>
+                </div>
+               <div class="form-group">
+                   <%= label_tag 'email', 'Email' %>
+                   <%= email_field_tag 'email', nil, class: 'form-control', placeholder: 'Your Email Address' %>
+               </div>
+               <div class="form-group">
+                   <%= label_tag 'comments', 'Message' %>
+                   <%= text_area_tag 'comments', nil, class: 'form-control', rows: 4, placeholder: 'Message' %>
+                   <%= hidden_field_tag 'location_email', @location.email %>
+               </div>
              <%= submit_tag nil, class: 'btn btn-cta btn-cta-primary' %>
           <% end %>
         </div>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-cta btn-cta-primary">Send message</button>
-        </div> -->
       </div>
     </div>
   </div>

@@ -2,12 +2,12 @@
 @import "font-awesome";
 
 
-// <% custom = '#ff4a4a'.paint.palette.monochromatic(as: :hex) %>
+
 $tagline: #ffffff;
 $taglineColor: #ffffff;
 
 $map: #f5f5f5;
-$mapColor: #666;
+$mapColor: red;
 $about: #ffffff;
 $aboutColor: #666;
 $services: #6dbd63;
@@ -17,7 +17,8 @@ $areasColor: #666;
 $content: #ffffff;
 $contentColor: #666;
 
-$bodyColor: #444;
+$bodyColor: #666;
+
 $bodyColorHover: #6dbd63;
 
 
@@ -63,6 +64,8 @@ ul, menu, dir {
   min-height: 516px;
   color: $mapColor;
 }
+
+
 
 .location-about {
   padding: 80px 0;
@@ -165,6 +168,10 @@ h6 {
 p {
   color: $bodyColor;
   font-size: 16px;
+}
+
+.map .p {
+  color: $mapColor;
 }
 a {
   color: $bodyColorHover;
