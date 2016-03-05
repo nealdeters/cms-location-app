@@ -139,7 +139,7 @@
         <div class="row featurette">
           <div class="col-md-6 col-md-push-6">
             <h2 class="featurette-heading">About Us</h2>
-            <p class="lead"><%= @location.business_description %></p>
+            <p class="lead"><%= raw @location.business_description %></p>
           </div>
 
           <div class="col-md-6 col-md-pull-6">
@@ -165,7 +165,7 @@
 
           <div class="col-md-6 col-md-pull-6">
             <h2 class="featurette-heading">Services</h2>
-            <p class="lead"><%= @location.service_description %></p>
+            <p class="lead services-font-color"><%= raw @location.service_description %></p>
           </div>
         </div>
       </div>
@@ -185,12 +185,12 @@
           <div class="col-md-6">
             <h2 class="featurette-heading">Areas Served</h2>
             <p class="lead">
-              <%= @location.areas_served %>
+              <%= raw @location.areas_served %>
 
               <% if !@location.zipcodes_served.blank?  %>
                 <br>
                 <br>
-                <%= @location.zipcodes_served %>
+                <%= raw @location.zipcodes_served %>
               <% end %>
             </p>
           </div>
@@ -207,8 +207,8 @@
         <% @brand.contents.each_with_index do |content, index| %>
           <div class="col-lg-4">
             <!-- <img class="img-circle center-block" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140"> -->
-            <h2><%= @brand.contents[index].content_name %></h2>
-            <p><%= @brand.contents[index].content_field %></p>
+            <h2><%= raw @brand.contents[index].content_name %></h2>
+            <p><%= raw @brand.contents[index].content_field %></p>
           </div><!-- /.col-lg-4 -->
         <% end %>
 
