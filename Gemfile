@@ -12,17 +12,25 @@ gem 'rails_12factor', group: :production
 gem 'thematic'
 #gem for font awesome
 gem 'font-awesome-rails'
+#gem for copying database info
 gem 'seed_dump'
+#for creating monochromatic color palettees. --- not currenlty using
 gem 'chroma'
 #gem for converting address to geo coordinates
 gem 'geocoder'
+#gem for uploading images
 gem 'carrierwave'
 gem 'mini_magick'
+#gem for uploading images to aws
 gem 'fog'
+#gem for .env file
 gem 'dotenv-rails'
+#gem for creating fake information
+gem 'faker'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
+#gem for user creation
 gem 'devise'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -30,7 +38,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'faker'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
