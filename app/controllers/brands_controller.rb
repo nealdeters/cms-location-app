@@ -31,9 +31,10 @@ class BrandsController < ApplicationController
       brand_state: params[:brand_state],
       brand_zipcode: params[:brand_zipcode],
       brand_phone_number: params[:brand_phone_number],
-      brand_business_description: params[:brand_business_description],
-      brand_service_description: params[:brand_service_description],
       brand_industry: params[:brand_industry],
+      primary_color: params[:primary_color],
+      secondary_color: params[:secondary_color],
+      tertiary_color: params[:tertiary_color]
       })
  
     if @brand.save
@@ -68,9 +69,10 @@ class BrandsController < ApplicationController
       brand_state: params[:brand_state],
       brand_zipcode: params[:brand_zipcode],
       brand_phone_number: params[:brand_phone_number],
-      brand_business_description: params[:brand_business_description],
-      brand_service_description: params[:brand_service_description],
-      brand_industry: params[:brand_industry]
+      brand_industry: params[:brand_industry],
+      primary_color: params[:primary_color],
+      secondary_color: params[:secondary_color],
+      tertiary_color: params[:tertiary_color]
       })
     
     flash[:info] = "Brand Updated"

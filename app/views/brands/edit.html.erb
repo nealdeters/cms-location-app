@@ -62,31 +62,30 @@
                   <td><%= text_field_tag :brand_phone_number, @brand.brand_phone_number %></td>
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :primary_brand_color %></td>
+                  <td><%= text_field_tag :primary_color, @brand.primary_color %></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :secondary_brand_color %></td>
+                  <td><%= text_field_tag :secondary_color, @brand.secondary_color %></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :tertiary_brand_color %></td>
+                  <td><%= text_field_tag :tertiary_color, @brand.tertiary_color %></td>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
-
-        <div class="row">
-          <div class="col-md-12"> 
-          <br>
-          <h3>About</h3>
-          <table class="table table-hover">
-            <tbody>  
-              <tr>
-                  <td><%= label_tag :business_description %></td>
-                  <td><%= text_area_tag :brand_business_description, @brand.brand_business_description, size: "75x10"  %></td>
-              </tr>
-
-              <tr>
-                  <td><%= label_tag :service_description %></td>
-                  <td><%= text_area_tag :brand_service_description, @brand.brand_service_description, size: "75x10" %></td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
-        </div>
-
-      <%= submit_tag 'Update Brand', class: "btn btn-default btn-xs"%>
+      <div class="col-md-12">
+        <%= submit_tag 'Update Brand', class: "btn btn-default btn-xs"%>
+      </div>
 
       <% end %>
     </div>  

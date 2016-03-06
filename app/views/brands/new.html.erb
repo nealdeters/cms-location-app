@@ -58,11 +58,32 @@
                   <td><%= text_field_tag :brand_phone_number %></td>
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :primary_brand_color %></td>
+                  <td><%= text_field_tag :primary_color %></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :secondary_brand_color %></td>
+                  <td><%= text_field_tag :secondary_color %></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :tertiary_brand_color %></td>
+                  <td><%= text_field_tag :tertiary_color %></td>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
       </div>
-      <%= submit_tag 'Add Brand', class: "btn btn-default btn-xs"%>
+
+      <div class="col-md-12">
+        <%= submit_tag 'Add Brand', class: "btn btn-default btn-xs"%>
+      </div>
 
       <% end %>
     </div>  
