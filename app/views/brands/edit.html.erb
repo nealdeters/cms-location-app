@@ -4,7 +4,7 @@
     <div class="col-md-12">
       <h1>Edit Brand  <span style="display: inline-block; font-size: 24px;">: <%= @brand.brand_name %></span></h1>
 
-      <%= form_tag brand_path, method: :patch do %>
+      <%= form_tag brand_path, class: "form-group", method: :patch do %>
       
      <div class="row">
        <!-- <div class="col-md-12"> -->
@@ -16,37 +16,37 @@
               <tr>
                 <td>
                   <td><%= label_tag :name %></td>
-                  <td><%= text_field_tag :brand_name, @brand.brand_name %></td>
+                  <td><%= text_field_tag :brand_name, @brand.brand_name, class: "form-control" %></td>
                 </td>
               </tr>
               <tr>
                 <td>
                   <td><%= label_tag :address_1 %></td>
-                  <td><%= text_field_tag :brand_address_1, @brand.brand_address_1 %></td>
+                  <td><%= text_field_tag :brand_address_1, @brand.brand_address_1, class: "form-control" %></td>
                 </td>
               </tr>
               <tr>
                 <td>
                   <td><%= label_tag :address_2 %></td>
-                  <td><%= text_field_tag :brand_address_2, @brand.brand_address_2 %></td>
+                  <td><%= text_field_tag :brand_address_2, @brand.brand_address_2, class: "form-control" %></td>
                 </td>
               </tr>
               <tr>
                 <td>
                   <td><%= label_tag :city %></td>
-                  <td><%= text_field_tag :brand_city, @brand.brand_city %></td>
+                  <td><%= text_field_tag :brand_city, @brand.brand_city, class: "form-control" %></td>
                 </td>
               </tr>
               <tr>
                 <td>
                   <td><%= label_tag :state %></td>
-                  <td><%= text_field_tag :brand_state, @brand.brand_state %></td>
+                  <td><%= text_field_tag :brand_state, @brand.brand_state, class: "form-control" %></td>
                 </td>
               </tr>
               <tr>
                 <td>
                   <td><%= label_tag :zipcode %></td>
-                  <td><%= text_field_tag :brand_zipcode, @brand.brand_zipcode %></td>
+                  <td><%= text_field_tag :brand_zipcode, @brand.brand_zipcode, class: "form-control" %></td>
                 </td>
               </tr>
             </tbody>
@@ -59,26 +59,26 @@
               <tr>
                 <td>
                   <td><%= label_tag :phone_number %></td>
-                  <td><%= text_field_tag :brand_phone_number, @brand.brand_phone_number %></td>
+                  <td><%= text_field_tag :brand_phone_number, @brand.brand_phone_number, class: "form-control" %></td>
                 </td>
               </tr>
               <tr>
                 <td>
                   <td><%= label_tag :primary_brand_color %></td>
-                  <td><%= text_field_tag :secondary_color, @brand.secondary_color %></td>
+                  <td><%= text_field_tag :secondary_color, @brand.secondary_color, class: "form-control" %></td>
                 </td>
               </tr>
               <tr>
                 <td>
                   <td><%= label_tag :secondary_brand_color %></td>
-                  <td><%= text_field_tag :primary_color, @brand.primary_color %></td>
+                  <td><%= text_field_tag :primary_color, @brand.primary_color, class: "form-control" %></td>
                 </td>
               </tr>
               
               <tr>
                 <td>
                   <td><%= label_tag :tertiary_brand_color %></td>
-                  <td><%= text_field_tag :tertiary_color, @brand.tertiary_color %></td>
+                  <td><%= text_field_tag :tertiary_color, @brand.tertiary_color, class: "form-control" %></td>
                 </td>
               </tr>
             </tbody>

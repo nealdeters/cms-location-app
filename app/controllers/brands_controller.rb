@@ -19,7 +19,7 @@ class BrandsController < ApplicationController
   end
 
   def new
-
+    @brand = Brand.new
   end
 
   def create

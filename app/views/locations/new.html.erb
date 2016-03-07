@@ -4,34 +4,34 @@
     <div class="col-md-12">
       <h1>Add Location</h1>
 
-      <%= form_tag brand_locations_path, method: :post do %>
+      <%= form_tag brand_locations_path, class: "form-group", method: :post do %>
 
         <div class="col-md-6">
           <table class="table table-hover">
             <tbody>
               <tr>
                 <td><%= label_tag :business_name %></td>
-                <td><%= text_field_tag :business_name, @location.business_name %></td>
+                <td><%= text_field_tag :business_name, @location.business_name, class: "form-control" %></td>
               </tr>
               <tr>
                 <td><%= label_tag :street_address_1 %></td>
-                <td><%= text_field_tag :address_1, @location.address_1 %></td>
+                <td><%= text_field_tag :address_1, @location.address_1, class: "form-control" %></td>
               </tr>
               <tr>
                 <td><%= label_tag :street_address_2 %></td>
-                <td><%= text_field_tag :address_2, @location.address_2 %></td>
+                <td><%= text_field_tag :address_2, @location.address_2, class: "form-control" %></td>
               </tr>
               <tr>
                 <td><%= label_tag :city %></td>
-                <td><%= text_field_tag :city, @location.city %></td>
+                <td><%= text_field_tag :city, @location.city, class: "form-control" %></td>
               </tr>
               <tr>
                 <td><%= label_tag :state %></td>
-                <td><%= text_field_tag :state, @location.state %></td>
+                <td><%= text_field_tag :state, @location.state, class: "form-control" %></td>
               </tr>
               <tr>
                 <td><%= label_tag :zipcode %></td>
-                <td><%= text_field_tag :zipcode, @location.zipcode %></td>
+                <td><%= text_field_tag :zipcode, @location.zipcode, class: "form-control" %></td>
               </tr>
             </tbody>
           </table>
@@ -42,7 +42,7 @@
             <tbody>  
               <tr>
                 <td><%= label_tag :phone_number %></td>
-                <td><%= text_field_tag :phone_number, @location.phone_number %></td>
+                <td><%= text_field_tag :phone_number, @location.phone_number, class: "form-control" %></td>
               </tr>
             </tbody>
           </table>
