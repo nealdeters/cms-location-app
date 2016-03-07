@@ -40,8 +40,9 @@ class LocationsController < ApplicationController
 
   def new
     :authenticate_user!
+    @location = Location.new
   end
-
+  
   def create
     :authenticate_user!
 

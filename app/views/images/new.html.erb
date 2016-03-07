@@ -18,7 +18,9 @@
                 <tr>
                   <td>
                     <td><%= label_tag :category %></td>
-                    <td><%= text_field_tag :image_category %></td>
+                    <td>
+                      <%= select_tag :image_category, options_for_select(["Logo", "Header", "About", "Services", "Areas"], @image.image_category), class: "form-control" %>
+                    </td>
                   </td>
                 </tr>
                 <tr>
