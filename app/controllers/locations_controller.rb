@@ -5,12 +5,15 @@ class LocationsController < ApplicationController
   def index
     :authenticate_user!
 
+    @brand = Brand.find(params[:brand_id])
+
     if current_user.brands.exists?(params[:brand_id])
       # @locations = @brand.locations.all
+      
       @locations = Brand.find(params[:brand_id]).locations
 
       if params[:search]
-        @locations.search(params[:search])
+        @locations = Brand.find(params[:brand_id]).locations.search(params[:search])
       else
         @locations.all
       end
@@ -24,7 +27,7 @@ class LocationsController < ApplicationController
   end
 
   def directory
-    @locations = @brand.locations.all
+    @locations = Brand.find(params[:brand_id]).locations.all
     @states = []
 
     @locations.each do |location|
@@ -44,7 +47,7 @@ class LocationsController < ApplicationController
   def create
     :authenticate_user!
 
-    @location = @brand.locations.create({ 
+    @location = Brand.find(params[:brand_id]).locations.create({ 
       business_name: params[:business_name],
       address_1: params[:address_1],
       address_2: params[:address_2],
@@ -73,7 +76,7 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = @brand.locations.find(params[:id])
+    @location = Location.find(params[:id])
 
     render :layout => 'webpage'
   end
@@ -81,14 +84,16 @@ class LocationsController < ApplicationController
   def edit
     :authenticate_user!
 
-    @location = @brand.locations.find(params[:id])
+    @brand = Brand.find(params[:brand_id])
+
+    @location = Brand.find(params[:brand_id]).locations.find(params[:id])
     # @location = Location.find(params[:brand_id])
   end
 
   def update
     :authenticate_user!
 
-    @location = @brand.locations.find(params[:id])
+    @location = Brand.find(params[:brand_id]).locations.find(params[:id])
 
     @location.update({ 
       business_name: params[:business_name],
@@ -138,7 +143,9 @@ class LocationsController < ApplicationController
   def destroy
     :authenticate_user!
 
-    @location = @brand.locations.find(params[:id])
+    @brand = Brand.find(params[:brand_id])
+
+    @location = Brand.find(params[:brand_id]).locations.find(params[:id])
     @location.destroy
 
     flash[:danger] = "Location Deleted"
@@ -158,7 +165,7 @@ class LocationsController < ApplicationController
 
     flash[:success] = "Message sent"
 
-    redirect_to :location_show
+    redirect_to location_path
   end
 
   private

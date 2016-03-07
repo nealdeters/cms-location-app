@@ -1,17 +1,19 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :locations, only: [ :show, :edit, :update, :destroy ]
-  resources :contents, only: [ :show, :edit, :update, :destroy ]
-  resources :images, only: [ :show, :edit, :update, :destroy ]
+  # resources :locations, only: [ :show, :edit, :update, :destroy ]
+  # resources :contents, only: [ :show, :edit, :update, :destroy ]
+  # resources :images, only: [ :show, :edit, :update, :destroy ]
 
   resources :brands, as: 'brands', shallow: true do 
 
-    resources :locations, only: [ :index, :new, :create ], as: 'locations', shallow: true
+    resources :locations, as: 'locations' do
+      post '/locations/:id/send_mail' => 'locations#send_mail', as: 'send_mail'
+    end
 
-    resources :contents, only: [ :index, :new, :create ], as: 'contents', shallow: true
+    resources :contents, as: 'contents'
 
-    resources :images, only: [ :index, :new, :create ], as: 'images', shallow: true
+    resources :images, as: 'images'
 
   end
 
@@ -30,8 +32,6 @@ Rails.application.routes.draw do
   # post '/brands/:brand_id/content' => 'contents#create'
   # post '/brands/:brand_id/images' => 'images#create'
   # post '/brands' => 'brands#create', as: 'brand_create'
-
-  post '/brands/:brand_id/locations/:id/send_mail' => 'locations#send_mail', as: 'send_mail'
 
   # get '/brands/:brand_id/locations/:id' => 'locations#show', as: 'brand_location_show'
   # get '/brands/:brand_id/content/:id' => 'contents#show', as: 'brand_content_show'

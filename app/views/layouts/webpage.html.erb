@@ -10,75 +10,75 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   
-  <% if !@brand.primary_color.blank? && !@brand.secondary_color.blank? && !@brand.tertiary_color.blank? %>
+  <% if !@location.brand.primary_color.blank? && !@location.brand.secondary_color.blank? && !@location.brand.tertiary_color.blank? %>
     <style>
       a {
-        color: <%= @brand.secondary_color %>;
+        color: <%= @location.brand.secondary_color %>;
       }
       a:hover {
-        color: <%= @brand.secondary_color %>;
+        color: <%= @location.brand.secondary_color %>;
       }
       a.btn-cta-primary, 
       .btn-cta-primary {
-        background: <%= @brand.secondary_color %>;
-        border: 2px solid <%= @brand.secondary_color %>;
+        background: <%= @location.brand.secondary_color %>;
+        border: 2px solid <%= @location.brand.secondary_color %>;
       }
 
       a.btn-cta-primary:hover,
       .btn-cta-primary:hover {
-        background: <%= @brand.primary_color %>;
-        border: 2px solid <%= @brand.primary_color %>;
+        background: <%= @location.brand.primary_color %>;
+        border: 2px solid <%= @location.brand.primary_color %>;
       }
       a.btn-cta-secondary,
       .btn-cta-secondary {
-        border: 2px solid <%= @brand.secondary_color %>;
-        color: <%= @brand.secondary_color %>;
+        border: 2px solid <%= @location.brand.secondary_color %>;
+        color: <%= @location.brand.secondary_color %>;
       }
       a.btn-cta-secondary .fa,
       .btn-cta-secondary .fa {
-        color: <%= @brand.secondary_color %>;
+        color: <%= @location.brand.secondary_color %>;
       }
       a.btn-cta-secondary:hover,
       .btn-cta-secondary:hover {
-        border: 2px solid <%= @brand.secondary_color %>;
-        color: <%= @brand.secondary_color %>;
+        border: 2px solid <%= @location.brand.secondary_color %>;
+        color: <%= @location.brand.secondary_color %>;
       }
       .header h1.logo a:hover {
-        color: <%= @brand.secondary_color %>;
+        color: <%= @location.brand.secondary_color %>;
       }
       .header .main-nav .nav .nav-item.nav-item-cta .btn-cta-primary {
-        background: <%= @brand.primary_color %>;
-        border: 2px solid <%= @brand.primary_color %>;
+        background: <%= @location.brand.primary_color %>;
+        border: 2px solid <%= @location.brand.primary_color %>;
       }
       .header .main-nav .navbar-toggle {
-          background: <%= @brand.primary_color %>;
+          background: <%= @location.brand.primary_color %>;
       }
       .header .main-nav .navbar-toggle:hover {
-          background: <%= @brand.primary_color %>;
+          background: <%= @location.brand.primary_color %>;
       }
       .header .main-nav .nav .nav-item.nav-item-cta .btn-cta-primary:hover {
-        background: <%= @brand.primary_color %>;
-        border: 2px solid <%= @brand.primary_color %>;
+        background: <%= @location.brand.primary_color %>;
+        border: 2px solid <%= @location.brand.primary_color %>;
       }
       .header .main-nav .nav .nav-item a:hover {
-        color: <%= @brand.secondary_color %>;
+        color: <%= @location.brand.secondary_color %>;
       }
 
       .header .main-nav .nav .nav-item.active {
-        color: <%= @brand.secondary_color %>;
+        color: <%= @location.brand.secondary_color %>;
       }
       .promo .social {
-        background: <%= @brand.secondary_color %>;
+        background: <%= @location.brand.secondary_color %>;
       }
 
       .map {
-        background: <%= @brand.tertiary_color %> no-repeat center center;
+        background: <%= @location.brand.tertiary_color %> no-repeat center center;
       }
       .services {
-        background: <%= @brand.secondary_color %> no-repeat center center;
+        background: <%= @location.brand.secondary_color %> no-repeat center center;
       }
       .areas {
-        background: <%= @brand.tertiary_color %> no-repeat center center;
+        background: <%= @location.brand.tertiary_color %> no-repeat center center;
       }
     </style>
   <% end %>
@@ -90,10 +90,10 @@
         <div class="container">            
             <h1 class="logo pull-left">
                 <a href="#promo">
-                  <% if @brand.images.where(image_category: 'logo').take %>  
-                    <span class="logo-title brand-logo"><img src="<%= @brand.images.where(image_category: 'logo').first.image.logo %>"></span>
+                  <% if @location.brand.images.where(image_category: 'logo').take %>  
+                    <span class="logo-title brand-logo"><img src="<%= @location.brand.images.where(image_category: 'logo').first.image.logo %>"></span>
                   <% else %>
-                    <span class="logo-title"><%= @brand.brand_name %></span>
+                    <span class="logo-title"><%= @location.brand.brand_name %></span>
                   <% end %>
                 </a>
             </h1><!--//logo-->              
@@ -138,7 +138,7 @@
       <% end %>
   </div>
 
-  <% if !@brand.images.where(image_category: 'header').first.blank? %>
+  <% if !@location.brand.images.where(image_category: 'header').first.blank? %>
     <!-- ******PROMO****** --> 
     <section id="promo" class="promo section">  
         <div class="container intro">
@@ -161,7 +161,7 @@
         <div class="bg-slider-wrapper">
             <div id="bg-slider" class="flexslider bg-slider">
                 <ul class="slides">
-                    <li class="slide slide-header"><img class="img-responsive" src="<%= @brand.images.where(image_category: 'header').first.image.header %>"></li>
+                    <li class="slide slide-header"><img class="img-responsive" src="<%= @location.brand.images.where(image_category: 'header').first.image.header %>"></li>
                 </ul>
             </div>
         </div><!--//bg-slider-wrapper--> 
@@ -258,8 +258,8 @@
           </div>
 
           <div class="col-md-6 col-md-pull-6">
-            <% if @brand.images.where(image_category: 'about').take %>  
-              <img class="featurette-image img-responsive img-thumbnail" src="<%= @brand.images.where(image_category: 'about').first.image.square %>"></span>
+            <% if @location.brand.images.where(image_category: 'about').take %>  
+              <img class="featurette-image img-responsive img-thumbnail" src="<%= @location.brand.images.where(image_category: 'about').first.image.square %>"></span>
             <% end %>
           </div>
           
@@ -273,8 +273,8 @@
       <div class="container">
         <div class="row featurette">
           <div class="col-md-6 col-md-push-6">
-            <% if @brand.images.where(image_category: 'services').take %>  
-              <img class="featurette-image img-responsive img-thumbnail text-right" src="<%= @brand.images.where(image_category: 'services').first.image.square %>"></span>
+            <% if @location.brand.images.where(image_category: 'services').take %>  
+              <img class="featurette-image img-responsive img-thumbnail text-right" src="<%= @location.brand.images.where(image_category: 'services').first.image.square %>"></span>
             <% end %>
           </div>
 
@@ -292,8 +292,8 @@
       <div class="container">
         <div class="row featurette">
           <div class="col-md-6">
-            <% if @brand.images.where(image_category: 'areas').take %>  
-              <img class="featurette-image img-responsive img-thumbnail" src="<%= @brand.images.where(image_category: 'areas').first.image.square %>"></span>
+            <% if @location.brand.images.where(image_category: 'areas').take %>  
+              <img class="featurette-image img-responsive img-thumbnail" src="<%= @location.brand.images.where(image_category: 'areas').first.image.square %>"></span>
             <% end %>
           </div>
 
@@ -314,16 +314,16 @@
     </section>
   <% end %>
 
-  <% if @brand.contents.count != 0 %>
+  <% if @location.brand.contents.count != 0 %>
     <section class="content" id="content">
       <div class="container">
         <div class="row">
 
-        <% @brand.contents.each_with_index do |content, index| %>
+        <% @location.brand.contents.each_with_index do |content, index| %>
           <div class="col-lg-4">
             <!-- <img class="img-circle center-block" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140"> -->
-            <h2><%= raw @brand.contents[index].content_name %></h2>
-            <p><%= raw @brand.contents[index].content_field %></p>
+            <h2><%= raw @location.brand.contents[index].content_name %></h2>
+            <p><%= raw @location.brand.contents[index].content_field %></p>
           </div><!-- /.col-lg-4 -->
         <% end %>
 
@@ -342,7 +342,7 @@
           <h4 class="modal-title" id="exampleModalLabel">Contact Us</h4>
         </div>
         <div class="modal-body">
-            <%= form_tag(send_mail_path) do %>
+            <%= form_tag location_send_mail_path(@location.brand_id, @location.id) do %>
               <div class="form-group">
                     <%= label_tag 'name', 'Name' %>
                     <%= text_field_tag 'name', nil, class: 'form-control', placeholder: 'Your Name' %>
@@ -368,7 +368,7 @@
     <!-- FOOTER -->
     <footer>
       <!-- <p class="pull-right"><a href="#">Back to top</a></p> -->
-      <p>&copy; <%= Time.now.year %> <%= @brand.brand_name %> <!-- &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> --></p>
+      <p>&copy; <%= Time.now.year %> <%= @location.brand.brand_name %> <!-- &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> --></p>
     </footer>
   </div><!-- /.container -->
 
