@@ -42,7 +42,7 @@ class BrandsController < ApplicationController
 
       BrandUser.new(user_id: current_user.id, brand_id: @brand.id)
 
-      redirect_to brand_path
+      redirect_to brands_path
     else
       render :new
     end
@@ -51,7 +51,7 @@ class BrandsController < ApplicationController
   def show
     @brand = Brand.find(params[:id])
 
-    redirect_to brand_path
+    redirect_to brands_path
   end
 
   def edit
@@ -77,7 +77,7 @@ class BrandsController < ApplicationController
     
     flash[:info] = "Brand Updated"
 
-    redirect_to brand_path
+    redirect_to brands_path
   end
 
   def destroy
@@ -86,6 +86,6 @@ class BrandsController < ApplicationController
 
     flash[:danger] = "Brand Deleted"
 
-    redirect_to brand_path
+    redirect_to brands_path
   end
 end

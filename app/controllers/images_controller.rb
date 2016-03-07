@@ -35,7 +35,7 @@ class ImagesController < ApplicationController
 
     flash[:success] = "New Image Created"
 
-    redirect_to brand_image_path
+    redirect_to brand_images_path
   end
 
   def show
@@ -58,7 +58,7 @@ class ImagesController < ApplicationController
 
     flash[:info] = "Image Updated"
 
-    redirect_to brand_image_path
+    redirect_to brand_images_path
   end
 
   def destroy
@@ -67,7 +67,7 @@ class ImagesController < ApplicationController
 
     flash[:danger] = "Image Deleted"
 
-    redirect_to brand_image_path
+    redirect_to brand_images_path
   end
 
   private

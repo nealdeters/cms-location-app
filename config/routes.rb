@@ -1,23 +1,22 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :brands, only: [:new, :create, :edit, :update, :destroy]
   resources :locations, only: [ :show, :edit, :update, :destroy ]
   resources :contents, only: [ :show, :edit, :update, :destroy ]
   resources :images, only: [ :show, :edit, :update, :destroy ]
 
-  resources :brands, path_names: { index: 'brand', show: 'brand_show'} do 
+  resources :brands, as: 'brands', shallow: true do 
 
-    resources :locations, path_names: { index: 'brand_location', new: 'brand_location_new', create: 'brand_location_create'}, shallow: true
+    resources :locations, only: [ :index, :new, :create ], as: 'locations', shallow: true
 
-    resources :contents, path_names: { index: 'brand_content', new: 'brand_content_new', create: 'brand_content_create'}, shallow: true
+    resources :contents, only: [ :index, :new, :create ], as: 'contents', shallow: true
 
-    resources :images, path_names: { index: 'brand_image', new: 'brand_image_new', create: 'brand_image_create'}, shallow: true
+    resources :images, only: [ :index, :new, :create ], as: 'images', shallow: true
 
   end
 
   # get '/brands/:brand_id/locations' => 'locations#index', as: 'brand_location'
-  get '/brands/:brand_id/directory' => 'locations#directory', as: 'location_directory'
+  # get '/brands/:brand_id/directory' => 'locations#directory', as: 'location_directory'
   # get '/brands/:brand_id/content' => 'contents#index', as: 'brand_content'
   # get '/brands/:brand_id/images' => 'images#index', as: 'brand_image'
   # get '/brands' => 'brands#index', as: 'brand'
