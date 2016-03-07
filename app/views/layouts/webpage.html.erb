@@ -15,6 +15,9 @@
       a {
         color: <%= @brand.secondary_color %>;
       }
+      a:hover {
+        color: <%= @brand.secondary_color %>;
+      }
       a.btn-cta-primary, 
       .btn-cta-primary {
         background: <%= @brand.secondary_color %>;
@@ -191,6 +194,48 @@
                 </span>
                 <span itemprop="addressRegion"><%= @location.state %> </span><span itemprop="postalCode"><%= @location.zipcode %></span>
                 <meta itemprop="addressCountry" content="USA">
+                <br>
+                
+              <% if !@location.hours_of_operation.blank? %>
+                <h5><a data-toggle="popover" data-placement="bottom" style="cursor:pointer">Hours of Operation</a></h5>
+                <% hours = @location.hours_of_operation.split(";") %>
+                <!-- Hidden hours of operation div -->
+                <div id="myPopoverContent" class="hide">
+                  <div class="col-md-12">
+                    <table>
+                      <tr>
+                        <td>Monday &nbsp;&nbsp;</td>
+                        <td><%= hours[0] %></td>
+                      </tr>
+                      <tr>
+                        <td>Tuesday &nbsp;&nbsp;</td>
+                        <td><%= hours[1] %></td>
+                      </tr>
+                      <tr>
+                        <td>Wednesday &nbsp;&nbsp;</td>
+                        <td><%= hours[2] %></td>
+                      </tr>
+                      <tr>
+                        <td>Thursday &nbsp;&nbsp;</td>
+                        <td><%= hours[3] %></td>
+                      </tr>
+                      <tr>
+                        <td>Friday &nbsp;&nbsp;</td>
+                        <td><%= hours[4] %></td>
+                      </tr>
+                      <tr>
+                        <td>Saturday &nbsp;&nbsp;</td>
+                        <td><%= hours[5] %></td>
+                      </tr>
+                      <tr>
+                        <td>Sunday &nbsp;&nbsp;</td>
+                        <td><%= hours[6] %></td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              <% end %>
+
               </p>
             </div>
           </div>
@@ -336,6 +381,12 @@
     }
     var manager = new MapManager
     manager.initMap(obj)
+  </script>
+  <script>
+    $('[data-toggle=popover]').popover({
+        content: $('#myPopoverContent').html(),
+        html: true
+    });
   </script>
 
   </body>
