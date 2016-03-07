@@ -60,10 +60,10 @@
             <%= link_to "View", location_path(location), class: "btn btn-default btn-xs" %>
           </td>
           <td>
-            <%= link_to "Edit", edit_location_path(location), class: "btn btn-default btn-xs" %>
+            <%= link_to "Edit", edit_brand_location_path(location.brand, location), class: "btn btn-default btn-xs" %>
           </td> 
           <td>
-            <%= link_to "Delete", location_path(location), method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}  %>
+            <%= link_to "Delete", brand_location_path(location.brand, location), method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}  %>
           </td>  
         </tr>
       </tbody>

@@ -31,7 +31,7 @@
       </ul>
     </div>
 
-    <%= link_to "Add new content", brand_content_new_path(@brand), class: "btn btn-default btn-xs navbar-right" %>
+    <%= link_to "Add new content", new_brand_content_path(@brand), class: "btn btn-default btn-xs navbar-right" %>
 
     <table class="table table-hover">
       <thead>
@@ -55,13 +55,13 @@
           <td><%= content.updated_at %></td>
           <td><%= content.created_at %></td>
           <td>
-            <%= link_to "View", brand_content_show_path(:id => content.id), class: "btn btn-default btn-xs" %>
+            <%= link_to "View", brand_content_path(:id => content.id), class: "btn btn-default btn-xs" %>
           </td>
           <td>
-            <%= link_to "Edit", brand_content_edit_path(:id => content.id), class: "btn btn-default btn-xs" %>
+            <%= link_to "Edit", edit_brand_content_path(:id => content.id), class: "btn btn-default btn-xs" %>
           </td> 
           <td>
-            <%= link_to "Delete", brand_content_delete_path(:id => content.id), method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}  %>
+            <%= link_to "Delete", brand_content_path(:id => content.id), method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}  %>
           </td>  
         </tr>
       </tbody>

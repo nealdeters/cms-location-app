@@ -38,7 +38,7 @@ class ContentsController < ApplicationController
     
     flash[:success] = "New Content Created"
 
-    redirect_to brand_content_path
+    redirect_to brand_contents_path
   end
 
   def show
@@ -60,7 +60,7 @@ class ContentsController < ApplicationController
 
     flash[:info] = "Content Updated"
 
-    redirect_to brand_content_path
+    redirect_to brand_contents_path
   end
 
   def destroy
@@ -69,7 +69,7 @@ class ContentsController < ApplicationController
 
     flash[:danger] = "Content Deleted"
 
-    redirect_to brand_content_path
+    redirect_to brand_contents_path
   end
 
   private

@@ -1,19 +1,17 @@
 class LocationsController < ApplicationController
-  # before_action :load_brand
+  before_action :load_brand, :except => [:show, :send_mail]
   layout :resolve_layout
 
   def index
     :authenticate_user!
 
-    @brand = Brand.find(params[:brand_id])
-
     if current_user.brands.exists?(params[:brand_id])
       # @locations = @brand.locations.all
       
-      @locations = Brand.find(params[:brand_id]).locations
+      @locations = @brand.locations
 
       if params[:search]
-        @locations = Brand.find(params[:brand_id]).locations.search(params[:search])
+        @locations = @brand.locations.search(params[:search])
       else
         @locations.all
       end
@@ -47,7 +45,7 @@ class LocationsController < ApplicationController
   def create
     :authenticate_user!
 
-    @location = Brand.find(params[:brand_id]).locations.create({ 
+    @location = @brand.locations.create({ 
       business_name: params[:business_name],
       address_1: params[:address_1],
       address_2: params[:address_2],
@@ -84,16 +82,14 @@ class LocationsController < ApplicationController
   def edit
     :authenticate_user!
 
-    @brand = Brand.find(params[:brand_id])
-
-    @location = Brand.find(params[:brand_id]).locations.find(params[:id])
+    @location = Location.find(params[:id])
     # @location = Location.find(params[:brand_id])
   end
 
   def update
     :authenticate_user!
 
-    @location = Brand.find(params[:brand_id]).locations.find(params[:id])
+    @location = @brand.locations.find(params[:id])
 
     @location.update({ 
       business_name: params[:business_name],
@@ -143,9 +139,7 @@ class LocationsController < ApplicationController
   def destroy
     :authenticate_user!
 
-    @brand = Brand.find(params[:brand_id])
-
-    @location = Brand.find(params[:brand_id]).locations.find(params[:id])
+    @location = @brand.locations.find(params[:id])
     @location.destroy
 
     flash[:danger] = "Location Deleted"
@@ -170,9 +164,9 @@ class LocationsController < ApplicationController
 
   private
 
-  # def load_brand
-  #   @brand = Brand.find(params[:brand_id])
-  # end
+  def load_brand
+    @brand = Brand.find(params[:brand_id])
+  end
 
   def resolve_layout
     case action_name

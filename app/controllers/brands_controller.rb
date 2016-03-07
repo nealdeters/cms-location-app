@@ -40,7 +40,8 @@ class BrandsController < ApplicationController
     if @brand.save
       flash[:success] = "New Brand Created"
 
-      BrandUser.new(user_id: current_user.id, brand_id: @brand.id)
+      branduser = BrandUser.new(user_id: current_user.id, brand_id: @brand.id)
+      branduser.save
 
       redirect_to brands_path
     else

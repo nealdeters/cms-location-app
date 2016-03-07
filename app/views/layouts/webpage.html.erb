@@ -342,7 +342,7 @@
           <h4 class="modal-title" id="exampleModalLabel">Contact Us</h4>
         </div>
         <div class="modal-body">
-            <%= form_tag location_send_mail_path(@location.brand_id, @location.id) do %>
+            <%= form_tag location_send_email_path(@location) do %>
               <div class="form-group">
                     <%= label_tag 'name', 'Name' %>
                     <%= text_field_tag 'name', nil, class: 'form-control', placeholder: 'Your Name' %>
