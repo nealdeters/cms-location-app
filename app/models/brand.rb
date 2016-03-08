@@ -5,7 +5,7 @@ class Brand < ActiveRecord::Base
   has_many :images, as: :imageable
   has_many :locations
 
-  validates :brand_name, :brand_address_1, presence: true
+  # validates :brand_name, :brand_address_1, presence: true
 
   def location_count
     locations.count
