@@ -1,8 +1,4 @@
-User.create!([
-  {email: "neal@google.com", password: "password", password_confirmation: "password" },
-  {email: "neal@gmail.com", password: "password", password_confirmation: "password" },
-  {email: "nealdeters@gmail.com", password: "password", password_confirmation: "password"}
-])
+
 Brand.create!([
   {brand_name: "Wal-Mart", brand_address_1: "", brand_address_2: "", brand_city: "Chicago", brand_state: "", brand_zipcode: "", brand_phone_number: "", brand_business_description: "", brand_service_description: "", brand_industry: nil, primary_color: "#007dc6", secondary_color: "#78b9e7", tertiary_color: "#76c043"},
   {brand_name: "Target", brand_address_1: "", brand_address_2: "", brand_city: "", brand_state: "", brand_zipcode: "", brand_phone_number: "", brand_business_description: "", brand_service_description: "", brand_industry: nil, primary_color: "#ed1c24", secondary_color: "#efe9e5", tertiary_color: "#616f67"},
