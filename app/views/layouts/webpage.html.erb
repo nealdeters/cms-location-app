@@ -91,7 +91,11 @@
         <div class="container">            
             <h1 class="logo pull-left">
                 <a href="#promo">
-                  <% if @location.brand.images.where(image_category: 'logo').take %>  
+                <% if Rails.env.production? %>
+                  <% if @location.brand.images.where("image_category" => "logo").take %>  
+                <% else %>
+                  <% if @location.brand.images.where(image_category: 'logo').take %> 
+                <% end %>
                     <span class="logo-title brand-logo"><img src="<%= @location.brand.images.where(image_category: 'logo').first.image.logo %>"></span>
                   <% else %>
                     <span class="logo-title"><%= @location.brand.brand_name %></span>
