@@ -121,8 +121,11 @@
                         <li class="nav-item"><a href="#areas">Areas Served</a></li>  
                       <% end %> 
 
-
-                        <li class="nav-item nav-item-cta last"><button type="button" class="btn btn-cta btn-cta-primary" data-toggle="modal" data-target="#contactModal" >Contact</button></li>
+                      <% if !@location.email.blank? %>
+                        <li class="nav-item nav-item-cta last">
+                          <button type="button" class="btn btn-cta btn-cta-primary" data-toggle="modal" data-target="#contactModal" >Contact</button>
+                        </li>
+                      <% end %>
                     </ul><!--//nav-->
                 </div><!--//navabr-collapse-->
             </nav><!--//main-nav-->           
@@ -172,24 +175,24 @@
     <section class="map">
       <div class="container">
         <div class="row" data-track-category="Business Card">
-          <div class="col-md-4">
-              
+          <div class="col-md-4"> 
               <% if !@location.images.first.blank? %>
                 <img src="<%= @location.images.first.image.local_image %>" class="img-thumbnail">
               <% end %>
 
-              <h3 itemprop="name"><%= @location.business_name %></h3>
+            <div> 
+              <h3 itemprop="name" class="mobile-tablet-center"><%= @location.business_name %></h3>
               
-            <div>  
-              <span itemprop="telePhone" class="desktop phone hidden-xs text-center">
+              
+              <span itemprop="telePhone" class="desktop mobile-tablet-center phone hidden-xs">
                 <%= @location.phone_number %>
               </span>
 
-              <span class="mobile-phone visible-xs-inline text-center">
-                <a href="tel:<%= @location.phone_number %>"><%= @location.phone_number %></a>
+              <span class="mobile-phone visible-xs-inline">
+                <a class="mobile-tablet-center" href="tel:<%= @location.phone_number %>"><%= @location.phone_number %></a>
               </span>
 
-              <p itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+              <p itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress" class="mobile-tablet-center">
                 <span itemprop="streetAddress"><%= @location.address_1 %> <%= @location.address_2 %><br></span><span itemprop="addressLocality"><%= @location.city %>,
                 </span>
                 <span itemprop="addressRegion"><%= @location.state %> </span><span itemprop="postalCode"><%= @location.zipcode %></span>
@@ -197,7 +200,7 @@
                 <br>
                 
               <% if !@location.hours_of_operation.blank? %>
-                <h5><a data-toggle="popover" data-placement="bottom" style="cursor:pointer">Hours of Operation</a></h5>
+                <h5><a data-toggle="popover" data-placement="bottom" style="cursor:pointer" class="mobile-tablet-center">Hours of Operation</a></h5>
                 <% hours = @location.hours_of_operation.split(";") %>
                 <!-- Hidden hours of operation div -->
                 <div id="myPopoverContent" class="hide">
