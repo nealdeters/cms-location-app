@@ -10,7 +10,7 @@
         <li role="presentation"><a href="#meta">Meta</a></li>
       </ul> -->
 
-      <%= form_tag brand_image_update_path, multipart: true, method: :patch do %>
+      <%= form_tag brand_image_path(@brand.id, @image), multipart: true, method: :patch do %>
       
       <img src="<%= @image.image.medium %>">
       <table class="table table-hover">
@@ -19,7 +19,7 @@
                 <tr>
                   <td>
                     <td><%= label_tag :name %></td>
-                    <td><%= text_field_tag :image_name, @image.image_name %></td>
+                    <td><%= text_field_tag :image_name, @image.image_name, class: "form-control" %></td>
                   </td>
                 </tr>
                 <tr>
@@ -33,13 +33,13 @@
                 <tr>
                   <td>
                     <td><%= label_tag :image, "Upload an image" %></td>
-                    <td><%= file_field_tag :image %></td>
+                    <td><%= file_field_tag :image, class: "file-control" %></td>
                   </td>
                 </tr>
           </tbody>
         </table>
 
-      <%= submit_tag 'Update Image', class: "btn btn-default"%>
+      <%= submit_tag 'Update Image', class: "btn btn-default btn-xs"%>
 
       <% end %>
     </div>  

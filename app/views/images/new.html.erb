@@ -4,7 +4,7 @@
     <div class="col-md-12">
       <h1>Add Image</h1>
 
-      <%= form_tag brand_image_path, multipart: true, method: :post do %>
+      <%= form_tag brand_images_path, multipart: true, method: :post do %>
 
         <table class="table table-hover">
           <tbody>  
@@ -12,25 +12,27 @@
                 <tr>
                   <td>
                     <td><%= label_tag :name %></td>
-                    <td><%= text_field_tag :image_name %></td>
+                    <td><%= text_field_tag :image_name, @image.image_name, class: "form-control" %></td>
                   </td>
                 </tr>
                 <tr>
                   <td>
                     <td><%= label_tag :category %></td>
-                    <td><%= text_field_tag :image_category %></td>
+                    <td>
+                      <%= select_tag :image_category, options_for_select(["Logo", "Header", "About", "Services", "Areas"], @image.image_category), class: "form-control" %>
+                    </td>
                   </td>
                 </tr>
                 <tr>
                   <td>
                     <td><%= label_tag :image, "Upload an image" %></td>
-                    <td><%= file_field_tag :image %></td>
+                    <td><%= file_field_tag :image, class: "file-control" %></td>
                   </td>
                 </tr>
           </tbody>
         </table>
 
-      <%= submit_tag 'Add Image', class: "btn btn-default"%>
+      <%= submit_tag 'Add Image', class: "btn btn-default btn-xs"%>
 
       <% end %>
     </div>  

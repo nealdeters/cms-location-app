@@ -1,17 +1,19 @@
 class LocationsController < ApplicationController
-  before_action :load_brand
+  before_action :load_brand, :except => [:show, :send_mail]
   layout :resolve_layout
 
   def index
     :authenticate_user!
 
     if current_user.brands.exists?(params[:brand_id])
-      @locations = @brand.locations.all
+      # @locations = @brand.locations.all
+      
+      @locations = @brand.locations
 
       if params[:search]
         @locations = @brand.locations.search(params[:search])
       else
-        @locations = @brand.locations.all
+        @locations.all
       end
 
       if params[:filter] && params[:filter_order]
@@ -23,7 +25,7 @@ class LocationsController < ApplicationController
   end
 
   def directory
-    @locations = @brand.locations.all
+    @locations = Brand.find(params[:brand_id]).locations.all
     @states = []
 
     @locations.each do |location|
@@ -38,8 +40,9 @@ class LocationsController < ApplicationController
 
   def new
     :authenticate_user!
+    @location = Location.new
   end
-
+  
   def create
     :authenticate_user!
 
@@ -68,11 +71,11 @@ class LocationsController < ApplicationController
     
     flash[:success] = "New Location Created"
 
-    redirect_to brand_location_path
+    redirect_to brand_locations_path
   end
 
   def show
-    @location = @brand.locations.find(params[:id])
+    @location = Location.find(params[:id])
 
     render :layout => 'webpage'
   end
@@ -80,7 +83,7 @@ class LocationsController < ApplicationController
   def edit
     :authenticate_user!
 
-    @location = @brand.locations.find(params[:id])
+    @location = Location.find(params[:id])
     # @location = Location.find(params[:brand_id])
   end
 
@@ -131,7 +134,7 @@ class LocationsController < ApplicationController
 
     flash[:info] = "Location Updated"
 
-    redirect_to brand_location_path
+    redirect_to brand_locations_path
   end
 
   def destroy
@@ -142,7 +145,7 @@ class LocationsController < ApplicationController
 
     flash[:danger] = "Location Deleted"
 
-    redirect_to brand_location_path
+    redirect_to brand_locations_path
   end
 
   def send_mail
@@ -157,7 +160,7 @@ class LocationsController < ApplicationController
 
     flash[:success] = "Message sent"
 
-    redirect_to :brand_location_show
+    redirect_to location_path
   end
 
   private

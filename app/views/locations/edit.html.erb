@@ -10,7 +10,7 @@
         <li role="presentation"><a href="#meta">Meta</a></li>
       </ul> -->
 
-      <%= form_tag brand_location_update_path, multipart: true, method: :patch do %>
+      <%= form_tag brand_location_path, multipart: true, class: "form-group", method: :patch do %>
       
       <div class="row">
         <div class="col-md-12">
@@ -29,33 +29,33 @@
               <tbody>
                 <tr>
                   <td><%= label_tag :image, "Upload an image" %></td>
-                  <td><%= file_field_tag :image %></td>
-                  <%= hidden_field_tag :image_name, "Location" %>
-                  <%= hidden_field_tag :image_category, "location" %>
+                  <td><%= file_field_tag :image, class: "file-control" %></td>
+                  <%= hidden_field_tag :image_name, "Location", class: "form-control" %>
+                  <%= hidden_field_tag :image_category, "location", class: "form-control" %>
                 </tr>
                 <tr>
                   <td><%= label_tag :business_name %></td>
-                  <td><%= text_field_tag :business_name, @location.business_name %></td>
+                  <td><%= text_field_tag :business_name, @location.business_name, class: "form-control" %></td>
                 </tr>
                 <tr>
                   <td><%= label_tag :street_address_1 %></td>
-                  <td><%= text_field_tag :address_1, @location.address_1 %></td>
+                  <td><%= text_field_tag :address_1, @location.address_1, class: "form-control" %></td>
                 </tr>
                 <tr>
                   <td><%= label_tag :street_address_2 %></td>
-                  <td><%= text_field_tag :address_2, @location.address_2 %></td>
+                  <td><%= text_field_tag :address_2, @location.address_2, class: "form-control" %></td>
                 </tr>
                 <tr>
                   <td><%= label_tag :city %></td>
-                  <td><%= text_field_tag :city, @location.city %></td>
+                  <td><%= text_field_tag :city, @location.city, class: "form-control" %></td>
                 </tr>
                 <tr>
                   <td><%= label_tag :state %></td>
-                  <td><%= text_field_tag :state, @location.state %></td>
+                  <td><%= text_field_tag :state, @location.state, class: "form-control" %></td>
                 </tr>
                 <tr>
                   <td><%= label_tag :zipcode %></td>
-                  <td><%= text_field_tag :zipcode, @location.zipcode %></td>
+                  <td><%= text_field_tag :zipcode, @location.zipcode, class: "form-control" %></td>
                 </tr>
               </tbody>
             </table>
@@ -66,15 +66,15 @@
               <tbody>  
                 <tr>
                   <td><%= label_tag :email %></td>
-                  <td><%= text_field_tag :email, @location.email %></td>
+                  <td><%= text_field_tag :email, @location.email, class: "form-control" %></td>
                 </tr>
                 <tr>
                   <td><%= label_tag :phone_number %></td>
-                  <td><%= text_field_tag :phone_number, @location.phone_number %></td>
+                  <td><%= text_field_tag :phone_number, @location.phone_number, class: "form-control" %></td>
                 </tr>
                 <tr>
                   <td><%= label_tag :hours_of_operation %></td>
-                  <td><%= text_field_tag :hours_of_operation, @location.hours_of_operation %></td>
+                  <td><%= text_field_tag :hours_of_operation, @location.hours_of_operation, class: "form-control" %></td>
                 </tr>
               </tbody>
             </table>
@@ -90,35 +90,35 @@
           <tbody>  
             <tr>
                 <td><%= label_tag :business_description %></td>
-                <td><%= text_area_tag :business_description, @location.business_description, size: "75x10"  %></td>
+                <td><%= text_area_tag :business_description, @location.business_description, size: "75x10", class: "form-control" %></td>
             </tr>
 
             <tr>
                 <td><%= label_tag :service_description %></td>
-                <td><%= text_area_tag :service_description, @location.service_description, size: "75x10" %></td>
+                <td><%= text_area_tag :service_description, @location.service_description, size: "75x10", class: "form-control" %></td>
             </tr>
 
             <tr>
                   <td><%= label_tag :areas_served %></td>
-                  <td><%= text_field_tag :areas_served, @location.areas_served, size: "75x10" %></td>
+                  <td><%= text_field_tag :areas_served, @location.areas_served, size: "75x10", class: "form-control" %></td>
             </tr>
 
             <tr>
                   <td><%= label_tag :zipcodes_served %></td>
-                  <td><%= text_field_tag :zipcodes_served, @location.zipcodes_served, size: "75x10" %></td>
+                  <td><%= text_field_tag :zipcodes_served, @location.zipcodes_served, size: "75x10", class: "form-control" %></td>
             </tr>
 
             <tr>
                 <td><%= label_tag :languages %></td>
-                <td><%= text_field_tag :languages, @location.languages, size: "75x10" %></td>
+                <td><%= text_field_tag :languages, @location.languages, size: "75x10", class: "form-control" %></td>
             </tr>
             <tr>
                 <td><%= label_tag :tagline_title %></td>
-                <td><%= text_field_tag :tagline_title, @location.tagline_title, size: "75x10" %></td>
+                <td><%= text_field_tag :tagline_title, @location.tagline_title, size: "75x10", class: "form-control" %></td>
             </tr>
             <tr>
                 <td><%= label_tag :tagline_summary %></td>
-                <td><%= text_field_tag :tagline_summary, @location.tagline_summary, size: "75x10" %></td>
+                <td><%= text_field_tag :tagline_summary, @location.tagline_summary, size: "75x10", class: "form-control" %></td>
             </tr>
           </tbody>
         </table>
@@ -133,29 +133,29 @@
           <tbody>  
             <tr>
                 <td><%= label_tag :meta_description %></td>
-                <td><%= text_area_tag :meta_description, @location.meta_description, size: "75x10"  %></td>
+                <td><%= text_area_tag :meta_description, @location.meta_description, size: "75x10", class: "form-control"  %></td>
             </tr>
 
             <tr>
                 <td><%= label_tag :meta_keywords %></td>
-                <td><%= text_area_tag :meta_keywords, @location.meta_keywords, size: "75x10" %></td>
+                <td><%= text_area_tag :meta_keywords, @location.meta_keywords, size: "75x10", class: "form-control" %></td>
             </tr>
 
             <tr>
                   <td><%= label_tag :meta_title %></td>
-                  <td><%= text_field_tag :meta_title, @location.meta_title, size: "75x10" %></td>
+                  <td><%= text_field_tag :meta_title, @location.meta_title, size: "75x10", class: "form-control" %></td>
             </tr>
 
             <tr>
                   <td><%= label_tag :meta_url %></td>
-                  <td><%= text_field_tag :meta_url, @location.meta_url, size: "75x10" %></td>
+                  <td><%= text_field_tag :meta_url, @location.meta_url, size: "75x10", class: "form-control" %></td>
             </tr>
           </tbody>
         </table>
         </div>
       </div>
 
-      <%= submit_tag 'Update Location', class: "btn btn-default"%>
+      <%= submit_tag 'Update Location', class: "btn btn-default btn-xs" %>
 
       <% end %>
     </div>  

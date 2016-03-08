@@ -10,7 +10,7 @@
         <li role="presentation"><a href="#meta">Meta</a></li>
       </ul> -->
 
-      <%= form_tag brand_content_update_path, method: :patch do %>
+      <%= form_tag brand_content_path, method: :patch do %>
       
       <div class="row">
         <div class="col-md-12">
@@ -18,22 +18,22 @@
             <tbody>  
               <tr>
                 <td><%= label_tag :title %></td>
-                <td><%= text_field_tag :content_name, @content.content_name %></td>
+                <td><%= text_field_tag :content_name, @content.content_name, class: "form-control" %></td>
               </tr>
               <tr>
                 <td><%= label_tag :category %></td>
-                <td><%= text_field_tag :content_category, @content.content_category %></td>
+                <td><%= text_field_tag :content_category, @content.content_category, class: "form-control" %></td>
               </tr>
               <tr>
                 <td><%= label_tag :content %></td>
-                <td><%= text_field_tag :content_field, @content.content_field %></td>
+                <td><%= text_field_tag :content_field, @content.content_field, class: "form-control" %></td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <%= submit_tag 'Update Location', class: "btn btn-default"%>
+      <%= submit_tag 'Update Location', class: "btn btn-default btn-xs"%>
 
       <% end %>
     </div>  

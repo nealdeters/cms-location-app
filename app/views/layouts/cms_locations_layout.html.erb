@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= @brand.brand_name %> - Locations</title>
+  <title><%= @brand.brand_name %> | Locations</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic" rel="stylesheet" type="text/css">
@@ -13,8 +14,12 @@
   <header id="header" class="header">  
       <div class="container">            
           <h1 class="logo pull-left">
-              <a href="<%= brand_location_path %>">
-                  <span class="logo-title"><%= @brand.brand_name %></span>
+              <a href="<%= brand_locations_path(@brand.id) %>">
+                  <% if @brand.images.where(image_category: 'logo').take %>  
+                    <span class="logo-title brand-logo"><img src="<%= @brand.images.where(image_category: 'logo').first.image.logo %>"></span>
+                  <% else %>
+                    <span class="logo-title"><%= @brand.brand_name %></span>
+                  <% end %>
               </a>
           </h1><!--//logo-->              
           <nav id="main-nav" class="main-nav navbar-right" role="navigation">
@@ -28,28 +33,28 @@
               </div><!--//navbar-header-->            
               <div class="navbar-collapse collapse" id="navbar-collapse">
                   <ul class="nav navbar-nav"> 
-                    <li class="nav-item"><a href="<%= brand_path %>">Brands</a></li>
-                    <li class="nav-item"><a href="<%= brand_location_path %>">Locations</a></li>
-                    <li class="nav-item"><a href="<%= brand_image_path %>">Images</a></li>
-                    <li class="nav-item"><a href="<%= brand_content_path %>">Content</a></li>                        
+                    <li class="nav-item"><a href="<%= brands_path %>">Brands</a></li>
+                    <li class="nav-item"><a href="<%= brand_locations_path(@brand.id) %>">Locations</a></li>
+                    <li class="nav-item"><a href="<%= brand_images_path(@brand.id) %>">Images</a></li>
+                    <li class="nav-item"><a href="<%= brand_contents_path(@brand.id) %>">Content</a></li>                        
 
-                    <% if current_page?(brand_location_path) %>
+                    <% if current_page?(brand_locations_path(@brand.id)) %>
                       <li>
-                        <%= form_tag brand_location_path, method: :get, class: "navbar-form navbar-right" do %>
+                        <%= form_tag brand_locations_path(@brand.id), method: :get, class: "navbar-form navbar-right" do %>
                           <%= text_field_tag :search, nil, placeholder: "Search Locations", class: "form-control" %>
                           <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
                         <% end %>
                       </li>
-                    <% elsif current_page?(brand_image_path) %>
+                    <% elsif current_page?(brand_images_path(@brand.id)) %>
                       <li>
-                        <%= form_tag brand_image_path, method: :get, class: "navbar-form navbar-right" do %>
+                        <%= form_tag brand_images_path, method: :get, class: "navbar-form navbar-right" do %>
                           <%= text_field_tag :search, nil, placeholder: "Search Images", class: "form-control" %>
                           <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
                         <% end %>
                       </li>
-                    <% elsif current_page?(brand_content_path) %>
+                    <% elsif current_page?(brand_contents_path(@brand.id)) %>
                       <li>
-                        <%= form_tag brand_content_path, method: :get, class: "navbar-form navbar-right" do %>
+                        <%= form_tag brand_contents_path, method: :get, class: "navbar-form navbar-right" do %>
                           <%= text_field_tag :search, nil, placeholder: "Search Content", class: "form-control" %>
                           <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
                         <% end %>
@@ -76,5 +81,12 @@
 
   <%= yield %>
 
+  <script>
+    $(document).ready (function(){
+        $(".alert-dismissible").fadeTo(2000, 500).slideUp(500, function(){
+            $(".alert-dismissible").alert('close');
+        });   
+     });
+  </script>
 </body>
 </html>

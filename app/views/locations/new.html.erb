@@ -4,76 +4,54 @@
     <div class="col-md-12">
       <h1>Add Location</h1>
 
-      <%= form_tag brand_location_path, method: :post do %>
+      <%= form_tag brand_locations_path, class: "form-group", method: :post do %>
 
-        <table class="table table-hover">
-          <tbody>  
+        <div class="col-md-6">
+          <table class="table table-hover">
+            <tbody>
               <tr>
-                <tr>
-                  <td>
-                    <td><%= label_tag :business_name %></td>
-                    <td><%= text_field_tag :business_name %></td>
-                  </td>
-                  <td>
-                      <td><%= label_tag :phone_number %></td>
-                      <td><%= text_field_tag :phone_number %></td>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <td><%= label_tag :street_address_1 %></td>
-                    <td><%= text_field_tag :address_1 %></td>
-                  </td>
-                  <td>
-                      <td><%= label_tag :image %></td>
-                      <td><%= text_field_tag :image %></td>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <td><%= label_tag :street_address_2 %></td>
-                    <td><%= text_field_tag :address_2 %></td>
-                  </td>
-                  <td>
-                      <td></td>
-                      <td></td>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <td><%= label_tag :city %></td>
-                    <td><%= text_field_tag :city %></td>
-                  </td>
-                  <td>
-                      <td></td>
-                      <td></td>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <td><%= label_tag :state %></td>
-                    <td><%= text_field_tag :state %></td>
-                  </td>
-                  <td>
-                      <td></td>
-                      <td></td>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <td><%= label_tag :zipcode %></td>
-                    <td><%= text_field_tag :zipcode %></td>
-                  </td>
-                  <td>
-                      <td></td>
-                      <td></td>
-                  </td>
-                </tr>
-            </tr>
-          </tbody>
-        </table>
+                <td><%= label_tag :business_name %></td>
+                <td><%= text_field_tag :business_name, @location.business_name, class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td><%= label_tag :street_address_1 %></td>
+                <td><%= text_field_tag :address_1, @location.address_1, class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td><%= label_tag :street_address_2 %></td>
+                <td><%= text_field_tag :address_2, @location.address_2, class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td><%= label_tag :city %></td>
+                <td><%= text_field_tag :city, @location.city, class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td><%= label_tag :state %></td>
+                <td><%= text_field_tag :state, @location.state, class: "form-control" %></td>
+              </tr>
+              <tr>
+                <td><%= label_tag :zipcode %></td>
+                <td><%= text_field_tag :zipcode, @location.zipcode, class: "form-control" %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-      <%= submit_tag 'Add Location', class: "btn btn-default"%>
+        <div class="col-md-6">
+          <table class="table table-hover">
+            <tbody>  
+              <tr>
+                <td><%= label_tag :phone_number %></td>
+                <td><%= text_field_tag :phone_number, @location.phone_number, class: "form-control" %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+      <div class="col-md-12">
+        <%= submit_tag 'Add Location', class: "btn btn-default btn-xs" %>
+      </div>
 
       <% end %>
     </div>  

@@ -1,7 +1,7 @@
 <section class="section">  
   <div class="container">
     <div class="btn-group">
-      <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Filter by Name <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
@@ -11,7 +11,7 @@
     </div>
 
     <div class="btn-group">
-      <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Filter by Created At <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
@@ -21,7 +21,7 @@
     </div>
 
     <div class="btn-group">
-      <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Filter by Updated At <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
@@ -30,7 +30,7 @@
       </ul>
     </div>
 
-    <%= link_to "Add new brand", "/brands/new", class: "btn btn-default navbar-right" %>
+    <%= link_to "Add new brand", "/brands/new", class: "btn btn-default btn-xs navbar-right" %>
 
     <table class="table table-hover">
         <thead>
@@ -54,13 +54,13 @@
             <td><%= brand.updated_at %></td>
             <td><%= brand.created_at %></td>
             <td>
-              <%= link_to "View", "/brands/#{brand.id}/locations", class: "btn btn-default" %>
+              <%= link_to "View", brand_locations_path("#{brand.id}"), class: "btn btn-default btn-xs" %>
             </td>
             <td>
-              <%= link_to "Edit", "/brands/#{brand.id}/edit", class: "btn btn-info" %>
+              <%= link_to "Edit", edit_brand_path("#{brand.id}"), class: "btn btn-default btn-xs" %>
             </td> 
             <td>
-              <%= link_to "Delete", "/brands/#{brand.id}", method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"}  %>
+              <%= link_to "Delete", "/brands/#{brand.id}", method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}  %>
             </td>  
           </tr>
         </tbody>

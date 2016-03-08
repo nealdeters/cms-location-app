@@ -19,7 +19,7 @@ class BrandsController < ApplicationController
   end
 
   def new
-
+    @brand = Brand.new
   end
 
   def create
@@ -31,17 +31,19 @@ class BrandsController < ApplicationController
       brand_state: params[:brand_state],
       brand_zipcode: params[:brand_zipcode],
       brand_phone_number: params[:brand_phone_number],
-      brand_business_description: params[:brand_business_description],
-      brand_service_description: params[:brand_service_description],
       brand_industry: params[:brand_industry],
+      primary_color: params[:primary_color],
+      secondary_color: params[:secondary_color],
+      tertiary_color: params[:tertiary_color]
       })
  
     if @brand.save
       flash[:success] = "New Brand Created"
 
-      BrandUser.new(user_id: current_user.id, brand_id: @brand.id)
+      branduser = BrandUser.new(user_id: current_user.id, brand_id: @brand.id)
+      branduser.save
 
-      redirect_to brand_path
+      redirect_to brands_path
     else
       render :new
     end
@@ -50,7 +52,7 @@ class BrandsController < ApplicationController
   def show
     @brand = Brand.find(params[:id])
 
-    redirect_to brand_path
+    redirect_to brands_path
   end
 
   def edit
@@ -68,14 +70,15 @@ class BrandsController < ApplicationController
       brand_state: params[:brand_state],
       brand_zipcode: params[:brand_zipcode],
       brand_phone_number: params[:brand_phone_number],
-      brand_business_description: params[:brand_business_description],
-      brand_service_description: params[:brand_service_description],
-      brand_industry: params[:brand_industry]
+      brand_industry: params[:brand_industry],
+      primary_color: params[:primary_color],
+      secondary_color: params[:secondary_color],
+      tertiary_color: params[:tertiary_color]
       })
     
     flash[:info] = "Brand Updated"
 
-    redirect_to brand_path
+    redirect_to brands_path
   end
 
   def destroy
@@ -84,6 +87,6 @@ class BrandsController < ApplicationController
 
     flash[:danger] = "Brand Deleted"
 
-    redirect_to brand_path
+    redirect_to brands_path
   end
 end
