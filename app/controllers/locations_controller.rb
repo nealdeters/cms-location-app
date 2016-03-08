@@ -150,7 +150,6 @@ class LocationsController < ApplicationController
   end
 
   def send_mail
-    # @location = @brand.locations.find(params[:id])
 
     name = params[:name]
     email = params[:email]
