@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :locations, as: 'locations', except: :show
 
     resources :locations, as: 'locations', only: [:show], shallow: true
-
+    
     resources :contents, as: 'contents'
 
     resources :images, as: 'images'

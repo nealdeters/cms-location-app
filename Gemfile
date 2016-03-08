@@ -12,6 +12,8 @@ gem 'rails_12factor', group: :production
 gem 'thematic'
 #gem for font awesome
 gem 'font-awesome-rails'
+#creates slugs for nicer urls
+gem 'friendly_id', '~> 5.1.0'
 #gem for copying database info
 gem 'seed_dump'
 #for creating monochromatic color palettees. --- not currenlty using

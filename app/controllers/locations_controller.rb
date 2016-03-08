@@ -75,7 +75,7 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.find(params[:id])
+    @location = Location.friendly.find(params[:id])
 
     render :layout => 'webpage'
   end
@@ -112,7 +112,8 @@ class LocationsController < ApplicationController
       meta_title: params[:meta_title],
       meta_url: params[:meta_url],
       tagline_title: params[:tagline_title],
-      tagline_summary: params[:tagline_summary]
+      tagline_summary: params[:tagline_summary],
+      slug: params[:slug]
       })
 
     # update location image

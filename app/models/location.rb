@@ -6,6 +6,9 @@ class Location < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode
 
+  extend FriendlyId
+  friendly_id :meta_url, use: [:slugged, :finders]
+
   def self.search(search)
     where("business_name LIKE ? OR id LIKE ?", "%#{search}%", "%#{search}%") 
   end
