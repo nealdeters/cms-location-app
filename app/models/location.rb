@@ -10,7 +10,12 @@ class Location < ActiveRecord::Base
   friendly_id :meta_url, use: [:slugged, :finders]
 
   def self.search(search)
-    where("business_name LIKE ? OR id LIKE ?", "%#{search}%", "%#{search}%") 
+    if Rails.env.production?
+      where("business_name ILIKE ? OR id ILIKE ?", "%#{search}%", "%#{search}%")
+    else
+      where("business_name LIKE ? OR id LIKE ?", "%#{search}%", "%#{search}%") 
+    end
+
   end
 
   def full_address
