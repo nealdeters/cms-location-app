@@ -15,7 +15,6 @@ class Location < ActiveRecord::Base
     else
       where("business_name LIKE ? OR id LIKE ?", "%#{search}%", "%#{search}%") 
     end
-
   end
 
   def full_address
