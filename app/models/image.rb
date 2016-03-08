@@ -4,6 +4,10 @@ class Image < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   def self.search(search)
-    where("image_name LIKE ? OR id LIKE ?", "%#{search}%", "%#{search}%") 
+    if Rails.env.production?
+      where("image_name ILIKE ? OR cast(id as text) ILIKE ?", "%#{search}%", "%#{search}%")
+    else
+      where("image_name LIKE ? OR id LIKE ?", "%#{search}%", "%#{search}%") 
+    end
   end
 end

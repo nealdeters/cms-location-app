@@ -7,12 +7,16 @@ class Brand < ActiveRecord::Base
 
   # validates :brand_name, :brand_address_1, presence: true
 
-  def location_count
-    locations.count
+  def self.search(search)
+    if Rails.env.production?
+      where("brand_name ILIKE ? OR cast(brand_id as text) ILIKE ?", "%#{search}%", "%#{search}%")
+    else
+      where("brand_name LIKE ? OR brand_id LIKE ?", "%#{search}%", "%#{search}%") 
+    end
   end
 
-  def self.search(search)
-    where("brand_id LIKE ? OR brand_name LIKE ?", "%#{search}%", "%#{search}%") 
+  def location_count
+    locations.count
   end
 
 end
