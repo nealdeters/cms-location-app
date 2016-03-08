@@ -11,7 +11,7 @@ class Location < ActiveRecord::Base
 
   def self.search(search)
     if Rails.env.production?
-      where("business_name ILIKE ? OR id ILIKE ?", "%#{search}%", "%#{search}%")
+      where("business_name ILIKE ? OR cast(id as text) ILIKE ?", "%#{search}%", "%#{search}%")
     else
       where("business_name LIKE ? OR id LIKE ?", "%#{search}%", "%#{search}%") 
     end
