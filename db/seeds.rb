@@ -1,7 +1,7 @@
 User.create!([
-  {email: "neal@google.com", encrypted_password: "$2a$10$lUan6f1KkZu1jTIgI5UMH.2Got96rTeYr5081YM54S1/PaSq7tcBO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 50, current_sign_in_at: "2016-03-08 04:37:45", last_sign_in_at: "2016-03-07 22:56:26", current_sign_in_ip: "::1", last_sign_in_ip: "::1"},
-  {email: "neal@gmail.com", encrypted_password: "$2a$10$aSdKaFfPfXF18iamDD8.N.ZF9BaJkgFWi7P4dNIr5X9KZpYLKH/jC", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 11, current_sign_in_at: "2016-03-07 19:51:27", last_sign_in_at: "2016-03-07 01:48:54", current_sign_in_ip: "::1", last_sign_in_ip: "::1"},
-  {email: "nealdeters@gmail.com", encrypted_password: "$2a$10$Gs5wXnPKIcBuhA9ZGJxHiOlHAgxta41R2FBpMAvHsf2Bzlrf9A5m.", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2016-03-03 21:12:34", last_sign_in_at: "2016-03-03 21:11:46", current_sign_in_ip: "::1", last_sign_in_ip: "::1"}
+  {email: "neal@google.com", password: "password", password_confirmation: "password" },
+  {email: "neal@gmail.com", password: "password", password_confirmation: "password" },
+  {email: "nealdeters@gmail.com", password: "password", password_confirmation: "password"}
 ])
 Brand.create!([
   {brand_name: "Wal-Mart", brand_address_1: "", brand_address_2: "", brand_city: "Chicago", brand_state: "", brand_zipcode: "", brand_phone_number: "", brand_business_description: "", brand_service_description: "", brand_industry: nil, primary_color: "#007dc6", secondary_color: "#78b9e7", tertiary_color: "#76c043"},
