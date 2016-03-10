@@ -22,6 +22,13 @@ class LocationsController < ApplicationController
     else
       redirect_to "/"
     end
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @locations.to_csv }
+      format.xls # { send_data @locations.to_csv(col_sep: "\t") }
+    end
+
   end
 
   def directory
