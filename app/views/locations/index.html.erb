@@ -57,7 +57,7 @@
           <td><%= location.updated_at %></td>
           <td><%= location.created_at %></td>
           <td>
-            <%= link_to "View", location_subdomain_url(location), class: "btn btn-default btn-xs" %>
+            <%= link_to "View", location_path(location), class: "btn btn-default btn-xs" %>
           </td>
           <td>
             <%= link_to "Edit", edit_brand_location_path(location.brand, location.id), class: "btn btn-default btn-xs" %>
