@@ -1,9 +1,9 @@
 class LocationsController < ApplicationController
   before_action :load_brand, :except => [:show, :send_mail]
+  before_action :authenticate_user!, :only => [:index, :directory, :new, :create, :edit, :update, :destroy]
   layout :resolve_layout
 
   def index
-    :authenticate_user!
 
     if current_user.brands.exists?(params[:brand_id])
       # @locations = @brand.locations.all
@@ -39,12 +39,10 @@ class LocationsController < ApplicationController
   end
 
   def new
-    :authenticate_user!
     @location = Location.new
   end
   
   def create
-    :authenticate_user!
 
     @location = @brand.locations.create({ 
       business_name: params[:business_name],
@@ -81,14 +79,12 @@ class LocationsController < ApplicationController
   end
 
   def edit
-    :authenticate_user!
 
     @location = Location.find(params[:id])
     # @location = Location.find(params[:brand_id])
   end
 
   def update
-    :authenticate_user!
 
     @location = @brand.locations.find(params[:id])
 
@@ -139,7 +135,6 @@ class LocationsController < ApplicationController
   end
 
   def destroy
-    :authenticate_user!
 
     @location = @brand.locations.find(params[:id])
     @location.destroy
