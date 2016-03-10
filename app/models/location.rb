@@ -26,6 +26,20 @@ class Location < ActiveRecord::Base
     end
   end
 
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+
+      location_hash = row.to_hash # exclude the price field
+      location = Location.where(id: location_hash["id"])
+
+      if location.count == 1
+        location.first.update_attributes(location_hash)
+      else
+        Location.create!(location_hash)
+      end # end if !product.nil?
+    end # end CSV.foreach
+  end
+
   def full_address
     "#{address_1}, #{city}, #{state} #{zipcode}"
   end

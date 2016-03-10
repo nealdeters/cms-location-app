@@ -14,6 +14,8 @@ gem 'thematic'
 gem 'font-awesome-rails'
 #creates slugs for nicer urls
 gem 'friendly_id', '~> 5.1.0'
+# gem for importing excel spreadsheets
+gem 'roo'
 #gem for copying database info
 gem 'seed_dump'
 #for creating monochromatic color palettees. --- not currenlty using

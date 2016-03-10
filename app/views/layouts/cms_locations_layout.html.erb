@@ -37,7 +37,8 @@
                     <li class="nav-item"><a href="<%= brands_path %>">Brands</a></li>
                     <li class="nav-item"><a href="<%= brand_locations_path(@brand.id) %>">Locations</a></li>
                     <li class="nav-item"><a href="<%= brand_images_path(@brand.id) %>">Images</a></li>
-                    <li class="nav-item"><a href="<%= brand_contents_path(@brand.id) %>">Content</a></li>                        
+                    <li class="nav-item"><a href="<%= brand_contents_path(@brand.id) %>">Content</a></li>
+                    <li class="nav-item"><a href="<%= import_export_brand_locations_path %>">Import/Export</a></li>                    
 
                     <% if current_page?(brand_locations_path(@brand.id)) %>
                       <li>

@@ -1,0 +1,55 @@
+<section class="section">  
+  <div class="container">
+
+    <div class="col-md-12">
+      <h1>Import/Export Locations</h1>
+
+      <p>A CSV file can be used to import records. The first row should be the column name. The following columns are allowed.</p>
+      <ul>
+        <li><strong>id</strong> - Integer type</li>
+        <li><strong>business_name</strong> - String type</li>
+        <li><strong>address_1</strong> - String type</li>
+        <li><strong>address_2</strong> - String type</li>
+        <li><strong>city</strong> - String type</li>
+        <li><strong>state</strong> - String type</li>
+        <li><strong>zipcode</strong> - String type</li>
+        <li><strong>hours_of_operation</strong> - String type</li>
+        <li><strong>business_description</strong> - String type</li>
+        <li><strong>service_description</strong> - String type</li>
+        <li><strong>areas_served</strong> - String type</li>
+        <li><strong>zipcodes_served</strong> - String type</li>
+        <li><strong>languages</strong> - String type</li>
+        <li><strong>meta_description</strong> - String type</li>
+        <li><strong>meta_keywords</strong> - String type</li>
+        <li><strong>meta_title</strong> - String type</li>
+        <li><strong>meta_url</strong> - String type</li>
+        <li><strong>phone_number</strong> - String type</li>
+        <li><strong>brand_id</strong> - Integer type</li>
+        <li><strong>type</strong> - String type</li>
+        <li><strong>latitude</strong> - Integer type</li>
+        <li><strong>longitude</strong> - Integer type</li>
+        <li><strong>tagline_title</strong> - String type</li>
+        <li><strong>tagline_summary</strong> - String type</li>
+        <li><strong>email</strong> - String type</li>
+        <li><strong>slug</strong> - String type</li>
+
+                              
+      </ul>
+      <p>If an <strong>id</strong> is supplied, it will update the existing record instead of creating a new one.</p>
+      <br>
+      <p>You can download a list of your existing locations below.</p>
+      <%= link_to "Download Locations CSV", brand_locations_path(format: "csv") %>
+      <br>
+      <br>
+
+      <%= form_tag brand_locations_path, multipart: true, method: :post do %>
+        <%= file_field_tag :file, class: "file-control" %>
+        <br>
+
+      <%= submit_tag 'Import Locations', class: "btn btn-default btn-xs"%>
+
+      <% end %>
+
+    </div>  
+  </div>
+</section>

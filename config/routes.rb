@@ -9,7 +9,12 @@ Rails.application.routes.draw do
 
   resources :brands, as: 'brands' do 
 
-    resources :locations, as: 'locations', except: :show
+    resources :locations, as: 'locations', except: :show do
+      collection do
+        get '/import_export' => 'locations#import_export', as: "import_export"
+        post :import
+      end
+    end
 
     resources :locations, as: 'locations', only: [:show], shallow: true
 

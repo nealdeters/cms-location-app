@@ -26,8 +26,20 @@ class LocationsController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @locations.to_csv }
-      format.xls # { send_data @locations.to_csv(col_sep: "\t") }
+      # format.xls { send_data @locations.to_csv(col_sep: "\t") }
     end
+
+  end
+
+  def import
+    Location.import(params[:file])
+
+    flash[:success] = "Locations imported."
+
+    redirect_to brand_locations_path
+  end
+
+  def import_export
 
   end
 
@@ -173,7 +185,7 @@ class LocationsController < ApplicationController
 
   def resolve_layout
     case action_name
-    when "index", "edit", "new", "create"
+    when "index", "edit", "new", "create", "import_export"
       "cms_locations_layout"
     when "directory"
       "directory"
