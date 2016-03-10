@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <header id="header" class="header">  
+  <header id="header-cms" class="header">  
       <div class="container">            
           <h1 class="logo pull-left">
               <a href="/brands">
@@ -43,6 +43,51 @@
           </nav><!--//main-nav-->           
       </div><!--//container-->
   </header><!--//header-->
+
+  <div class="filter-cms-bar ">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+
+          <% if current_page?(brands_path(@brand)) %>
+            <div class="btn-group">
+              <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Filter by Name <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="/brands?filter=brand_name&filter_order=asc">By Name Ascending</a>
+                <li><a href="/brands?filter=brand_name&filter_order=desc">By Name Descending</a> 
+              </ul>
+            </div>
+
+            <div class="btn-group">
+              <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Filter by Created At <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="/brands?filter=created_at&filter_order=asc">By Creation Ascending</a>
+                <li><a href="/brands?filter=created_at&filter_order=desc">By Creation Descending</a> 
+              </ul>
+            </div>
+
+            <div class="btn-group">
+              <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Filter by Updated At <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="/brands?filter=updated_at&filter_order=asc">By Creation Ascending</a>
+                <li><a href="/brands?filter=updated_at&filter_order=desc">By Creation Descending</a> 
+              </ul>
+            </div>
+
+
+            <%= link_to "Add new brand", "/brands/new", class: "btn btn-default btn-xs pull-right" %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="container">
     <% flash.each do |name, message| %>
