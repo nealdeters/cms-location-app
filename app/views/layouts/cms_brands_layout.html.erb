@@ -10,7 +10,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <!-- <div class="wrapper"> -->
   <header id="header" class="header">  
       <div class="container">            
           <h1 class="logo pull-left">
@@ -55,6 +54,16 @@
   </div>
 
   <%= yield %>
+
+  <!-- ******FOOTER****** --> 
+  <div class="bottom-cms-bar">
+      <div class="container">
+          <div class="row">
+              <small class="copyright col-md-6 col-sm-6 col-xs-12">Copyright @ <%= Time.now.year %> <a href="#"><%= site_name %></a></small>
+          </div><!--//row-->
+      </div><!--//container-->
+  </div><!--//bottom-bar-->
+
 
   <script>
     $(document).ready (function(){

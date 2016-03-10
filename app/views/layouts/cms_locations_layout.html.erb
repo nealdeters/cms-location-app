@@ -83,6 +83,16 @@
 
   <%= yield %>
 
+  <!-- ******FOOTER****** --> 
+  <div class="bottom-cms-bar">
+      <div class="container">
+          <div class="row">
+              <small class="copyright col-md-6 col-sm-6 col-xs-12">Copyright @ <%= Time.now.year %> <a href="#"><%= site_name %></a></small>
+
+          </div><!--//row-->
+      </div><!--//container-->
+  </div><!--//bottom-bar-->
+
   <script>
     $(document).ready (function(){
         $(".alert-dismissible").fadeTo(2000, 500).slideUp(500, function(){

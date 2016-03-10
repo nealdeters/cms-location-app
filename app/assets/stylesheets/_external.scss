@@ -34,6 +34,25 @@ body#dashboard {
   background-image: none;
 }
 
+.bottom-cms-bar {
+    background: #444;
+    position: fixed;
+    bottom: 0;
+    color: #b3b3b3;
+    font-size: 14px;
+    padding: 10px 0;
+    margin-top: 30px;
+    width: 100%;
+    line-height: 3;
+}
+
+.filter-cms-bar {
+    background: #f5f5f5;
+    font-size: 14px;
+    padding: 10px 0;
+    width: 100%;
+}
+
 // body#location-page {
 //   margin-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 // }

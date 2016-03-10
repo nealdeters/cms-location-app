@@ -1,37 +1,45 @@
+<div class="filter-cms-bar ">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="btn-group">
+            <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Filter by Name <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="/brands/<%= @brand.id %>/contents?filter=content_name&filter_order=asc">By Name Ascending</a>
+              <li><a href="/brands/<%= @brand.id %>/contents?filter=content_name&filter_order=desc">By Name Descending</a> 
+            </ul>
+          </div>
+
+          <div class="btn-group">
+            <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Filter by Created At <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="/brands/<%= @brand.id %>/contents?filter=created_at&filter_order=desc">Recently Created</a>
+              <li><a href="/brands/<%= @brand.id %>/contents?filter=created_at&filter_order=asc">Oldest Creation</a> 
+            </ul>
+          </div>
+
+          <div class="btn-group">
+            <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Filter by Updated At <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="/brands/<%= @brand.id %>/contents?filter=updated_at&filter_order=desc">Recently Updated</a>
+              <li><a href="/brands/<%= @brand.id %>/contents?filter=updated_at&filter_order=asc">Never Updated</a> 
+            </ul>
+          </div>
+
+          <%= link_to "Add new content", new_brand_content_path(@brand), class: "btn btn-default btn-xs pull-right" %>
+        </div>
+    </div>
+  </div>
+</div>
+
 <section class="section">  
   <div class="container">
-
-    <div class="btn-group">
-      <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Filter by Name <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="/brands/<%= @brand.id %>/contents?filter=content_name&filter_order=asc">By Name Ascending</a>
-        <li><a href="/brands/<%= @brand.id %>/contents?filter=content_name&filter_order=desc">By Name Descending</a> 
-      </ul>
-    </div>
-
-    <div class="btn-group">
-      <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Filter by Created At <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="/brands/<%= @brand.id %>/contents?filter=created_at&filter_order=desc">Recently Created</a>
-        <li><a href="/brands/<%= @brand.id %>/contents?filter=created_at&filter_order=asc">Oldest Creation</a> 
-      </ul>
-    </div>
-
-    <div class="btn-group">
-      <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Filter by Updated At <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="/brands/<%= @brand.id %>/contents?filter=updated_at&filter_order=desc">Recently Updated</a>
-        <li><a href="/brands/<%= @brand.id %>/contents?filter=updated_at&filter_order=asc">Never Updated</a> 
-      </ul>
-    </div>
-
-    <%= link_to "Add new content", new_brand_content_path(@brand), class: "btn btn-default btn-xs navbar-right" %>
 
     <table class="table table-hover">
       <thead>
