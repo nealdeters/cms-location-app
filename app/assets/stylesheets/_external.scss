@@ -98,6 +98,21 @@ a.btn-cta-cms-delete:hover,
   color: #a32222;
 }
 
+a.btn-cta-cms-search, 
+.btn-cta-cms-search {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #666;
+  text-transform: uppercase;
+}
+
+a.btn-cta-cms-search:hover,
+.btn-cta-cms-search:hover {
+  background: #fff;
+  border: 1px solid #c0c5ce;
+  color: #666;
+}
+
 
 
 // body#location-page {

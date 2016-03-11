@@ -44,21 +44,21 @@
                       <li>
                         <%= form_tag brand_locations_path(@brand.id), method: :get, class: "navbar-form navbar-right" do %>
                           <%= text_field_tag :search, nil, placeholder: "Search Locations", class: "form-control" %>
-                          <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+                          <%= submit_tag "Search", name: nil, class: "btn btn-cta-cms-search" %>
                         <% end %>
                       </li>
                     <% elsif current_page?(brand_images_path(@brand.id)) %>
                       <li>
                         <%= form_tag brand_images_path, method: :get, class: "navbar-form navbar-right" do %>
                           <%= text_field_tag :search, nil, placeholder: "Search Images", class: "form-control" %>
-                          <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+                          <%= submit_tag "Search", name: nil, class: "btn btn-cta-cms-search" %>
                         <% end %>
                       </li>
                     <% elsif current_page?(brand_contents_path(@brand.id)) %>
                       <li>
                         <%= form_tag brand_contents_path, method: :get, class: "navbar-form navbar-right" do %>
                           <%= text_field_tag :search, nil, placeholder: "Search Content", class: "form-control" %>
-                          <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+                          <%= submit_tag "Search", name: nil, class: "btn btn-cta-cms-search" %>
                         <% end %>
                       </li>
                     <% end %>
