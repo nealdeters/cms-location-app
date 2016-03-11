@@ -78,7 +78,7 @@
 
                 <% if current_page?(brand_locations_path(@brand.id)) || current_page?(brand_images_path(@brand.id)) || current_page?(brand_contents_path(@brand.id))%>
                   <div class="btn-group">
-                    <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Filter by Name <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
@@ -96,7 +96,7 @@
                   </div>
 
                   <div class="btn-group">
-                    <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Filter by Created At <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
@@ -114,7 +114,7 @@
                   </div>
 
                   <div class="btn-group">
-                    <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Filter by Updated At <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
@@ -132,11 +132,11 @@
                   </div>
 
                   <% if current_page?(brand_locations_path(@brand.id)) %> 
-                    <%= link_to "Add new location", new_brand_location_path, class: "btn btn-default btn-xs pull-right" %>
+                    <%= link_to "Add new location", new_brand_location_path, class: "btn btn-cta-cms btn-xs pull-right" %>
                   <% elsif current_page?(brand_images_path(@brand.id)) %>
-                    <%= link_to "Add new image", new_brand_image_path(@brand), class: "btn btn-default btn-xs pull-right" %>
+                    <%= link_to "Add new image", new_brand_image_path(@brand), class: "btn btn-cta-cms btn-xs pull-right" %>
                   <% elsif current_page?(brand_contents_path(@brand.id)) %>
-                    <%= link_to "Add new content", new_brand_content_path(@brand), class: "btn btn-default btn-xs pull-right" %>
+                    <%= link_to "Add new content", new_brand_content_path(@brand), class: "btn btn-cta-cms btn-xs pull-right" %>
                   <% end %>
 
                 <% end %>

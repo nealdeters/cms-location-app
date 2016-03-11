@@ -24,13 +24,13 @@
           <td><%= location.updated_at %></td>
           <td><%= location.created_at %></td>
           <td>
-            <%= link_to "View", location_subdomain_url(location), class: "btn btn-default btn-xs" %>
+            <%= link_to "View", location_subdomain_url(location), class: "btn btn-cta-cms-view btn-xs" %>
           </td>
           <td>
-            <%= link_to "Edit", edit_brand_location_path(location.brand, location.id), class: "btn btn-default btn-xs" %>
+            <%= link_to "Edit", edit_brand_location_path(location.brand, location.id), class: "btn btn-cta-cms-view btn-xs" %>
           </td> 
           <td>
-            <%= link_to "Delete", brand_location_path(location.brand, location.id), method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}  %>
+            <%= link_to "Delete", brand_location_path(location.brand, location.id), method: :delete, class: "btn btn-cta-cms-delete btn-xs", data: {confirm: "Are you sure?"}  %>
           </td>  
         </tr>
       </tbody>

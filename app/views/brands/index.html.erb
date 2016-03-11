@@ -23,13 +23,13 @@
             <td><%= brand.updated_at %></td>
             <td><%= brand.created_at %></td>
             <td>
-              <%= link_to "View", brand_locations_path("#{brand.id}"), class: "btn btn-default btn-xs" %>
+              <%= link_to "View", brand_locations_path("#{brand.id}"), class: "btn btn-cta-cms-view btn-xs" %>
             </td>
             <td>
-              <%= link_to "Edit", edit_brand_path("#{brand.id}"), class: "btn btn-default btn-xs" %>
+              <%= link_to "Edit", edit_brand_path("#{brand.id}"), class: "btn btn-cta-cms-view btn-xs" %>
             </td> 
             <td>
-              <%= link_to "Delete", "/brands/#{brand.id}", method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}  %>
+              <%= link_to "Delete", "/brands/#{brand.id}", method: :delete, class: "btn btn-cta-cms-delete btn-xs", data: {confirm: "Are you sure?"}  %>
             </td>  
           </tr>
         </tbody>

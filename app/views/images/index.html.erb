@@ -23,13 +23,13 @@
           <td><%= image.updated_at %></td>
           <td><%= image.created_at %></td>
           <td>
-            <%= link_to "View", brand_image_path(:id => image.id), class: "btn btn-default btn-xs" %>
+            <%= link_to "View", brand_image_path(:id => image.id), class: "btn btn-cta-cms-view btn-xs" %>
           </td>
           <td>
-            <%= link_to "Edit", edit_brand_image_path(:id => image.id), class: "btn btn-default btn-xs" %>
+            <%= link_to "Edit", edit_brand_image_path(:id => image.id), class: "btn btn-cta-cms-view btn-xs" %>
           </td> 
           <td>
-            <%= link_to "Delete", brand_image_path(:id => image.id), method: :delete, class: "btn btn-danger btn-xs", data: {confirm: "Are you sure?"}  %>
+            <%= link_to "Delete", brand_image_path(:id => image.id), method: :delete, class: "btn btn-cta-cms-delete btn-xs", data: {confirm: "Are you sure?"}  %>
           </td>  
         </tr>
       </tbody>

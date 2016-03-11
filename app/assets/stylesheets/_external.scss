@@ -53,6 +53,53 @@ body#dashboard {
     width: 100%;
 }
 
+a.btn-cta-cms, 
+.btn-cta-cms {
+  background: #fff;
+  // border: 2px solid ;
+  color: #666;
+  text-transform: uppercase;
+}
+
+a.btn-cta-cms:hover,
+.btn-cta-cms:hover {
+  background: #fff;
+  border: 1px solid #c0c5ce;
+  color: #666;
+}
+
+a.btn-cta-cms-view, 
+.btn-cta-cms-view {
+  background: #fff;
+  // border: 2px solid ;
+  color: #666;
+  text-transform: uppercase;
+}
+
+a.btn-cta-cms-view:hover,
+.btn-cta-cms-view:hover {
+  background: #fff;
+  border: 1px solid #c0c5ce;
+  color: #666;
+}
+
+a.btn-cta-cms-delete, 
+.btn-cta-cms-delete {
+  background: #fff;
+  // border: 2px solid ;
+  color: #666;
+  text-transform: uppercase;
+}
+
+a.btn-cta-cms-delete:hover,
+.btn-cta-cms-delete:hover {
+  background: #fff;
+  border: 1px solid #a32222;
+  color: #a32222;
+}
+
+
+
 // body#location-page {
 //   margin-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 // }
