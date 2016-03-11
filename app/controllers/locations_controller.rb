@@ -92,6 +92,8 @@ class LocationsController < ApplicationController
   end
 
   def show
+    # give brand a url attr, view button url points to brand#url from db, url dns redirects to your heroku, before_action locations#show find location by slug or id, find location’s brand, if request.url doesn’t match brand#url, don’t let them in
+
     @location = Location.friendly.find(params[:id])
 
     render :layout => 'webpage'
