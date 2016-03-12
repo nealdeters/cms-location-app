@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="icon" type="image/png" href="<%= @location.brand.images.where(image_category: 'favicon').first.image.url %>">
+  <% if !@location.brand.images.where(image_category: 'favicon').first.blank? %>
+    <link rel="icon" type="image/png" href="<%= @location.brand.images.where(image_category: 'favicon').first.image.url %>">
+  <% else %>
+  
+  <% end %>
   <title><%= @location.meta_title %></title>
   <meta name="description" content="<%= @location.meta_description %>">
   <meta name="keywords" content="<%= @location.meta_keywords %>">
