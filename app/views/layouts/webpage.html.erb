@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="icon" type="image/png" href="<%= @location.brand.images.where(image_category: 'favicon').first.image.url %>">
   <title><%= @location.meta_title %></title>
   <meta name="description" content="<%= @location.meta_description %>">
   <meta name="keywords" content="<%= @location.meta_keywords %>">
@@ -385,19 +386,6 @@
     }
     var manager = new MapManager
     manager.initMap(obj)
-  </script>
-  <script>
-    $('[data-toggle=popover]').popover({
-        content: $('#myPopoverContent').html(),
-        html: true
-    });
-  </script>
-  <script>
-      $(document).ready (function(){
-          $(".alert-dismissible").fadeTo(2000, 500).slideUp(500, function(){
-              $(".alert-dismissible").alert('close');
-          });   
-       });
   </script>
 
   </body>

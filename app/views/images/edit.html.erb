@@ -26,7 +26,7 @@
                   <td>
                     <td><%= label_tag :category %></td>
                     <td>
-                      <%= select_tag :image_category, options_for_select(["logo", "header", "about", "services", "areas"], @image.image_category), class: "form-control" %>
+                      <%= select_tag :image_category, options_for_select(["logo", "header", "about", "services", "areas", "favicon"], @image.image_category), class: "form-control" %>
                     </td>
                   </td>
                 </tr>
@@ -39,7 +39,7 @@
           </tbody>
         </table>
 
-      <%= submit_tag 'Update Image', class: "btn btn-default btn-xs"%>
+      <%= submit_tag 'Update Image', class: "btn btn-cta-cms-search btn-xs"%>
 
       <% end %>
     </div>  

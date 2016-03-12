@@ -74,7 +74,7 @@
                 </tr>
                 <tr>
                   <td><%= label_tag :hours_of_operation %></td>
-                  <td><%= text_field_tag :hours_of_operation, @location.hours_of_operation, class: "form-control" %></td>
+                  <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="Proper Hours Formatting:<br><br>List out your hours from Mon-Sun, seperating each day by semicolons.<br><br> 9:00am-5:00pm;9:00am-5:00pm;9:00am-5:00pm;9:00am-5:00pm;9:00am-5:00pm;Closed;Closed"><%= text_field_tag :hours_of_operation, @location.hours_of_operation, class: "form-control" %></td>
                 </tr>
               </tbody>
             </table>
@@ -106,11 +106,6 @@
             <tr>
                   <td><%= label_tag :zipcodes_served %></td>
                   <td><%= text_field_tag :zipcodes_served, @location.zipcodes_served, size: "75x10", class: "form-control" %></td>
-            </tr>
-
-            <tr>
-                <td><%= label_tag :languages %></td>
-                <td><%= text_field_tag :languages, @location.languages, size: "75x10", class: "form-control" %></td>
             </tr>
             <tr>
                 <td><%= label_tag :tagline_title %></td>
@@ -155,7 +150,7 @@
         </div>
       </div>
 
-      <%= submit_tag 'Update Location', class: "btn btn-default btn-xs" %>
+      <%= submit_tag 'Update Location', class: "btn btn-cta-cms-search btn-xs" %>
 
       <% end %>
     </div>  
