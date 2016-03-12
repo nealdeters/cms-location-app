@@ -325,7 +325,7 @@
         <div class="row">
 
         <% @location.brand.contents.each_with_index do |content, index| %>
-          <div class="col-lg-4">
+          <div class="col-lg-4 content-fixed">
             <!-- <img class="img-circle center-block" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140"> -->
             <h2><%= raw @location.brand.contents[index].content_name %></h2>
             <p><%= raw @location.brand.contents[index].content_field %></p>
