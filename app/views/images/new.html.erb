@@ -18,7 +18,7 @@
                 <tr>
                   <td>
                     <td><%= label_tag :category %></td>
-                    <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="Select from the list of category options. <br><br>Logo: appends itself to the brand logo section of the location page.<br><br>Header: customizes the head image of the location pages.<br><br>About, Services, and Areas: set the images for the about, services, and areas section.<br><br>Favicon: customizes the favicon image of the page.<br><br>If no images are created for these sections none will appear.">
+                    <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="Select from the list of category options. <br><br>Logo: appends itself to the brand logo section of the location page.<br><br>Header: customizes the head image of the location pages.<br><br>About, Services, and Areas: set the images for the about, services, and areas section.<br><br>Favicon: customizes the favicon image of the page.<br><br>If no images are created for these sections none will appear."g>
                       <%= select_tag :image_category, options_for_select(["logo", "header", "about", "services", "areas", "favicon"], @image.image_category), class: "form-control" %>
                     </td>
                   </td>
