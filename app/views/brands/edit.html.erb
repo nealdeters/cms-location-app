@@ -64,6 +64,12 @@
               </tr>
               <tr>
                 <td>
+                  <td><%= label_tag :brand_url %></td>
+                  <td><%= text_field_tag :brand_url, @brand.brand_url, class: "form-control" %></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
                   <td><%= label_tag :primary_brand_color %></td>
                   <td><%= text_field_tag :primary_color, @brand.primary_color, class: "form-control" %></td>
                 </td>

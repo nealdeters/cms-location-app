@@ -32,6 +32,7 @@ class BrandsController < ApplicationController
       brand_zipcode: params[:brand_zipcode],
       brand_phone_number: params[:brand_phone_number],
       brand_industry: params[:brand_industry],
+      brand_url: params[:brand_url],
       primary_color: params[:primary_color],
       secondary_color: params[:secondary_color],
       tertiary_color: params[:tertiary_color]
@@ -71,6 +72,7 @@ class BrandsController < ApplicationController
       brand_zipcode: params[:brand_zipcode],
       brand_phone_number: params[:brand_phone_number],
       brand_industry: params[:brand_industry],
+      brand_url: params[:brand_url],
       primary_color: params[:primary_color],
       secondary_color: params[:secondary_color],
       tertiary_color: params[:tertiary_color]
