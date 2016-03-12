@@ -6,7 +6,13 @@ $(document).ready(function() {
            $('#header').addClass('navbar-fixed-top');
        }
        else {
-           $('#header').removeClass('navbar-fixed-top');
+          var loc = window.location.href; // returns the full URL
+          
+          if(/contact/.test(loc)) {
+            
+          } else {
+            $('#header').removeClass('navbar-fixed-top');
+          }
        }
   });
   /* ======= Fixed header end ======= */

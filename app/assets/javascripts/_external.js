@@ -16,5 +16,13 @@ $(document).ready (function(){
   $(window).load(function() {
     $('.flexslider').flexslider();
   });
+
+  $(function() {
+    var loc = window.location.href; // returns the full URL
+    if(/contact/.test(loc)) {
+      $('.header').addClass('navbar-fixed-top');
+    }
+  });
   
+
 });
