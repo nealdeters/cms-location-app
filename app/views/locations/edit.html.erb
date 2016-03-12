@@ -10,8 +10,17 @@
         <li role="presentation"><a href="#meta">Meta</a></li>
       </ul> -->
 
+      <ul class="nav nav-tabs" id="myTab">
+        <li class="active"><a data-target="#local" data-toggle="tab">Location Information</a></li>
+        <li><a data-target="#about" data-toggle="tab">About</a></li>
+        <li><a data-target="#meta" data-toggle="tab">Meta Information</a></li>
+      </ul>
+
       <%= form_tag brand_location_path, multipart: true, class: "form-group", method: :patch do %>
       
+      <div class="tab-content">
+
+      <div class="tab-pane active" id="local">
       <div class="row">
         <div class="col-md-12">
         <br>
@@ -81,7 +90,9 @@
           </div>
           </div>
         </div>
+      </div>
         
+      <div class="tab-pane" id="about">
       <div class="row">
         <div class="col-md-12"> 
         <br>
@@ -119,7 +130,9 @@
         </table>
         </div>
       </div>
+      </div>
 
+      <div class="tab-pane" id="meta">
       <div class="row">
         <div class="col-md-12">
         <br>
@@ -148,6 +161,8 @@
           </tbody>
         </table>
         </div>
+      </div>
+      </div>
       </div>
 
       <%= submit_tag 'Update Location', class: "btn btn-cta-cms-search btn-xs" %>
