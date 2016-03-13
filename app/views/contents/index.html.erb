@@ -1,3 +1,7 @@
+<script>
+  window.brandId = <%= @contents.first.contentable_id %>
+</script>
+
 <section class="section">  
   <div class="container">
 
@@ -14,27 +18,29 @@
           <th>Delete</th>  
         </tr>
       </thead>
-    <% @contents.each do |content| %>
       <tbody>
-        <tr>
-          <td><%= content.id %></td>
-          <td><%= content.content_name %></td>
-          <td><%= content.content_category %></td>
-          <td><%= content.updated_at %></td>
-          <td><%= content.created_at %></td>
+        <tr ng-repeat="content in contents | filter: searchFilter | orderBy:sortByAttribute:descending">
+          <td>{{ content.id }}</td>
+          <td>{{ content.content_name }}</td>
+          <td>{{ content.content_category }}</td>
+          <td>{{ content.updated_at }}</td>
+          <td>{{ content.created_at }}</td>
           <td>
-            <%= link_to 'View', "#contentModal-#{content.id}", "data-toggle" => "modal", class: 'btn btn-cta-cms-view btn-xs' %>
+            <%= link_to 'View', "#contentModal-{{content.id}}", "data-toggle" => "modal", class: 'btn btn-cta-cms-view btn-xs' %>
           </td>
           <td>
-            <%= link_to "Edit", edit_brand_content_path(:id => content.id), class: "btn btn-cta-cms-view btn-xs" %>
+            <% url_escaped_href = edit_brand_content_path('{{ content.brand_id }}', '{{ content.id }}') 
+              edit_brand_content_path = URI::unescape(url_escaped_href)
+            %>
+            <a ng-href="<%= edit_brand_content_path %>" class="btn btn-cta-cms-view btn-xs">Edit</a>
           </td> 
           <td>
-            <%= link_to "Delete", brand_content_path(:id => content.id), method: :delete, class: "btn btn-cta-cms-delete btn-xs", data: {confirm: "Are you sure?"}  %>
+            <%= link_to "Delete", "/brands/{{ content.brand_id }}/contents/{{ content.id }}", method: :delete, class: "btn btn-cta-cms-delete btn-xs", data: {confirm: "Are you sure?"}  %>
           </td>  
         </tr>
       </tbody>
-    <% end %>
     </table>
+
   </div>
 </section>
 

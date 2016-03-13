@@ -13,8 +13,13 @@
 <body>
 
   <div ng-app="app">
-  <div ng-controller="locationsCtrl" ng-init="setup()">
-  <div ng-controller="imagesCtrl" ng-init="setup()">
+  <% if current_page?(brand_locations_path(@brand.id)) %>  
+    <div ng-controller="locationsCtrl" ng-init="setup()">
+  <% elsif current_page?(brand_images_path(@brand.id)) %>
+    <div ng-controller="imagesCtrl" ng-init="setup()">
+  <% elsif current_page?(brand_contents_path(@brand.id)) %>
+    <div ng-controller="contentsCtrl" ng-init="setup()">
+  <% end %>
 
   <header id="header" class="cms header">  
       <div class="container">            
@@ -146,7 +151,6 @@
       </div><!--//container-->
   </div><!--//bottom-bar-->
 
-  </div><!-- NG-CONTROLLER END -->
   </div><!-- NG-CONTROLLER END -->
   </div><!-- NG-APP END -->
 
