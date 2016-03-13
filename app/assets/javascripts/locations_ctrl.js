@@ -5,7 +5,7 @@
     
     $scope.setup = function(){
         $http.get('/api/v1/locations.json?brand_id=' + window.brandId).then(function(response){
-            $scope.brands = response.data;
+            $scope.locations = response.data;
         });
     };
 

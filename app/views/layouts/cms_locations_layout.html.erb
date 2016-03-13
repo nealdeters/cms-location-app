@@ -45,11 +45,6 @@
 
                     <% if current_page?(brand_locations_path(@brand.id)) %>
                       <li>
-                        <%= form_tag brand_locations_path(@brand.id), method: :get, class: "navbar-form navbar-right" do %>
-                          <%= text_field_tag :search, nil, placeholder: "Search Locations", class: "form-control" %>
-                          <%= submit_tag "Search", name: nil, class: "btn btn-cta-cms-search" %>
-                        <% end %>
-
                         <input class="form-control" placeholder="Search Locations" ng-model="searchFilter">
                       </li>
                     <% elsif current_page?(brand_images_path(@brand.id)) %>
@@ -58,6 +53,8 @@
                           <%= text_field_tag :search, nil, placeholder: "Search Images", class: "form-control" %>
                           <%= submit_tag "Search", name: nil, class: "btn btn-cta-cms-search" %>
                         <% end %>
+
+                        <input class="form-control" placeholder="Search Images" ng-model="searchFilter">
                       </li>
                     <% elsif current_page?(brand_contents_path(@brand.id)) %>
                       <li>
@@ -65,10 +62,11 @@
                           <%= text_field_tag :search, nil, placeholder: "Search Content", class: "form-control" %>
                           <%= submit_tag "Search", name: nil, class: "btn btn-cta-cms-search" %>
                         <% end %>
+
+                        <input class="form-control" placeholder="Search Content" ng-model="searchFilter">
                       </li>
                     <% end %>
 
-                    <!-- <li class="nav-item"><%= link_to "Sign In", "/users/sign_in", method: :get if !user_signed_in? %></li> -->
                     <li class="nav-item"><%= link_to "Sign Out", "/users/sign_out", method: :delete if user_signed_in? %></li>
 
                   </ul><!--//nav-->
@@ -81,69 +79,64 @@
             <div class="row">
               <div class="col-md-12">
 
-                <% if current_page?(brand_locations_path(@brand.id)) || current_page?(brand_images_path(@brand.id)) || current_page?(brand_contents_path(@brand.id))%>
-                  <div class="btn-group">
-                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="btn-group">
+                  <% if current_page?(brand_locations_path(@brand.id)) %>
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('business_name')">
                       Filter by Name <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu">
-                      <% if current_page?(brand_locations_path(@brand.id)) %>
-                        <li><a href="/brands/<%= @brand.id %>/locations?filter=business_name&filter_order=asc">By Name Ascending</a>
-                        <li><a href="/brands/<%= @brand.id %>/locations?filter=business_name&filter_order=desc">By Name Descending</a> 
-                      <% elsif current_page?(brand_images_path(@brand.id)) %>
-                        <li><a href="/brands/<%= @brand.id %>/images?filter=image_name&filter_order=asc">By Name Ascending</a>
-                        <li><a href="/brands/<%= @brand.id %>/images?filter=image_name&filter_order=desc">By Name Descending</a>
-                      <% elsif current_page?(brand_contents_path(@brand.id)) %>
-                        <li><a href="/brands/<%= @brand.id %>/contents?filter=content_name&filter_order=asc">By Name Ascending</a>
-                        <li><a href="/brands/<%= @brand.id %>/contents?filter=content_name&filter_order=desc">By Name Descending</a>
-                      <% end %>
-                    </ul>
-                  </div>
 
-                  <div class="btn-group">
-                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <% elsif current_page?(brand_images_path(@brand.id)) %>
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('image_name')">
+                      Filter by Name <span class="caret"></span>
+                    </button>
+                  <% elsif current_page?(brand_contents_path(@brand.id)) %>
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('content_name')">
+                      Filter by Name <span class="caret"></span>
+                    </button>
+                  <% end %>
+                </div>
+
+                <div class="btn-group">
+                  <% if current_page?(brand_locations_path(@brand.id)) %>
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('created_at')">
                       Filter by Created At <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu">
-                      <% if current_page?(brand_locations_path(@brand.id)) %>  
-                        <li><a href="/brands/<%= @brand.id %>/locations?filter=created_at&filter_order=desc">Recently Created</a>
-                        <li><a href="/brands/<%= @brand.id %>/locations?filter=created_at&filter_order=asc">Oldest Creation</a> 
-                      <% elsif current_page?(brand_images_path(@brand.id)) %>
-                        <li><a href="/brands/<%= @brand.id %>/images?filter=created_at&filter_order=desc">Recently Created</a>
-                        <li><a href="/brands/<%= @brand.id %>/images?filter=created_at&filter_order=asc">Oldest Creation</a> 
-                      <% elsif current_page?(brand_contents_path(@brand.id)) %>
-                        <li><a href="/brands/<%= @brand.id %>/contents?filter=created_at&filter_order=desc">Recently Created</a>
-                        <li><a href="/brands/<%= @brand.id %>/contents?filter=created_at&filter_order=asc">Oldest Creation</a>
-                      <% end %> 
-                    </ul>
-                  </div>
 
-                  <div class="btn-group">
-                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <% elsif current_page?(brand_images_path(@brand.id)) %>
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('created_at')">
+                      Filter by Created At <span class="caret"></span>
+                    </button>
+                  <% elsif current_page?(brand_contents_path(@brand.id)) %>
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('created_at')">
+                      Filter by Created At <span class="caret"></span>
+                    </button>
+                  <% end %>
+                </div>
+
+                <div class="btn-group">
+                  <% if current_page?(brand_locations_path(@brand.id)) %>
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('updated_at')">
                       Filter by Updated At <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu">
-                      <% if current_page?(brand_locations_path(@brand.id)) %>
-                        <li><a href="/brands/<%= @brand.id %>/locations?filter=updated_at&filter_order=desc">Recently Updated</a>
-                        <li><a href="/brands/<%= @brand.id %>/locations?filter=updated_at&filter_order=asc">Never Updated</a> 
-                      <% elsif current_page?(brand_images_path(@brand.id)) %>
-                        <li><a href="/brands/<%= @brand.id %>/images?filter=updated_at&filter_order=desc">Recently Updated</a>
-                        <li><a href="/brands/<%= @brand.id %>/images?filter=updated_at&filter_order=asc">Never Updated</a> 
-                      <% elsif current_page?(brand_contents_path(@brand.id)) %>
-                         <li><a href="/brands/<%= @brand.id %>/contents?filter=updated_at&filter_order=desc">Recently Updated</a>
-                         <li><a href="/brands/<%= @brand.id %>/contents?filter=updated_at&filter_order=asc">Never Updated</a> 
-                      <% end %>
-                    </ul>
-                  </div>
 
-                  <% if current_page?(brand_locations_path(@brand.id)) %> 
-                    <%= link_to "Add new location", new_brand_location_path, class: "btn btn-cta-cms btn-xs pull-right" %>
                   <% elsif current_page?(brand_images_path(@brand.id)) %>
-                    <%= link_to "Add new image", new_brand_image_path(@brand), class: "btn btn-cta-cms btn-xs pull-right" %>
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('updated_at')">
+                      Filter by Updated At <span class="caret"></span>
+                    </button>
                   <% elsif current_page?(brand_contents_path(@brand.id)) %>
-                    <%= link_to "Add new content", new_brand_content_path(@brand), class: "btn btn-cta-cms btn-xs pull-right" %>
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('updated_at')">
+                      Filter by Updated At <span class="caret"></span>
+                    </button>
                   <% end %>
+                </div>
 
+                
+                <% if current_page?(brand_locations_path(@brand.id)) %> 
+                  <%= link_to "Add new location", new_brand_location_path, class: "btn btn-cta-cms btn-xs pull-right" %>
+                <% elsif current_page?(brand_images_path(@brand.id)) %>
+                  <%= link_to "Add new image", new_brand_image_path(@brand), class: "btn btn-cta-cms btn-xs pull-right" %>
+                <% elsif current_page?(brand_contents_path(@brand.id)) %>
+                  <%= link_to "Add new content", new_brand_content_path(@brand), class: "btn btn-cta-cms btn-xs pull-right" %>
                 <% end %>
             </div>
           </div>
