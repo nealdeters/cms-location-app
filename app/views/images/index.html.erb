@@ -1,3 +1,7 @@
+<script>
+  window.brandId = <%= @images.first.imageable_id %>
+</script>
+
 <section class="section">  
   <div class="container">
 
@@ -6,7 +10,6 @@
         <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Thumbnail</th>
           <th>Updated at</th>
           <th>Created at</th>
           <th>View</th> 
@@ -14,27 +17,28 @@
           <th>Delete</th>  
         </tr>
       </thead>
-    <% @images.each do |image| %>
       <tbody>
-        <tr>
-          <td><%= image.id %></td>
-          <td><%= image.image_name %></td>
-          <td><img src="<%= image.image.thumb.url %>"></td>
-          <td><%= image.updated_at %></td>
-          <td><%= image.created_at %></td>
+        <tr ng-repeat="image in images | filter: searchFilter | orderBy:sortByAttribute:descending">
+          <td>{{ image.id }}</td>
+          <td>{{ image.image_name }}</td>
+          <td>{{ image.updated_at }}</td>
+          <td>{{ image.created_at }}</td>
           <td>
-            <%= link_to 'View', "#imageModal-#{image.id}", "data-toggle" => "modal", class: 'btn btn-cta-cms-view btn-xs' %>
+            <%= link_to 'View', "#imageModal-{{image.id}}", "data-toggle" => "modal", class: 'btn btn-cta-cms-view btn-xs' %>
           </td>
           <td>
-            <%= link_to "Edit", edit_brand_image_path(:id => image.id), class: "btn btn-cta-cms-view btn-xs" %>
+            <% url_escaped_href = edit_brand_image_path('{{ image.brand_id }}', '{{ image.id }}') 
+              edit_brand_image_path = URI::unescape(url_escaped_href)
+            %>
+            <a ng-href="<%= edit_brand_image_path %>" class="btn btn-cta-cms-view btn-xs">Edit</a>
           </td> 
           <td>
-            <%= link_to "Delete", brand_image_path(:id => image.id), method: :delete, class: "btn btn-cta-cms-delete btn-xs", data: {confirm: "Are you sure?"}  %>
+            <%= link_to "Delete", "/brands/{{ image.brand_id }}/images/{{ image.id }}", method: :delete, class: "btn btn-cta-cms-delete btn-xs", data: {confirm: "Are you sure?"}  %>
           </td>  
         </tr>
       </tbody>
-      <% end %>
     </table>
+
   </div>
 </section>
 
