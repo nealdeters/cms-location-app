@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="image in images | filter: searchFilter | orderBy:sortByAttribute:descending">
+        <tr ng-repeat="image in images | filter: {image_name: searchFilter} | orderBy:sortByAttribute:descending">
           <td>{{ image.id }}</td>
           <td>{{ image.image_name }}</td>
           <td>{{ image.updated_at }}</td>

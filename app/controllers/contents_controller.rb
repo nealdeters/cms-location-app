@@ -4,6 +4,8 @@ class ContentsController < ApplicationController
   layout "cms_locations_layout"
 
   def index
+    @searchPlaceholder = "Search Content"
+
     if current_user.brands.exists?(params[:brand_id])
       @contents = @brand.contents.all
 

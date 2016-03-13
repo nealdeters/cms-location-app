@@ -3,6 +3,8 @@ class ImagesController < ApplicationController
   layout "cms_locations_layout"
 
   def index
+    @searchPlaceholder = "Search Images"
+
     if current_user.brands.exists?(params[:brand_id])
       @images = @brand.images.all
 

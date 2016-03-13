@@ -5,6 +5,8 @@ class LocationsController < ApplicationController
 
   def index
 
+    @searchPlaceholder = "Search Locations"
+
     if current_user.brands.exists?(params[:brand_id])
       # @locations = @brand.locations.all
       
