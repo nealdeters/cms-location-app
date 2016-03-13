@@ -12,6 +12,9 @@
 </head>
 <body>
 
+  <div ng-app="app">
+  <div ng-controller="locationsCtrl" ng-init="setup()">
+
   <header id="header" class="cms header">  
       <div class="container">            
           <h1 class="logo pull-left">
@@ -46,6 +49,8 @@
                           <%= text_field_tag :search, nil, placeholder: "Search Locations", class: "form-control" %>
                           <%= submit_tag "Search", name: nil, class: "btn btn-cta-cms-search" %>
                         <% end %>
+
+                        <input class="form-control" placeholder="Search Locations" ng-model="searchFilter">
                       </li>
                     <% elsif current_page?(brand_images_path(@brand.id)) %>
                       <li>
@@ -167,6 +172,9 @@
           </div><!--//row-->
       </div><!--//container-->
   </div><!--//bottom-bar-->
+
+  </div><!-- NG-CONTROLLER END -->
+  </div><!-- NG-APP END -->
 
 </body>
 </html>

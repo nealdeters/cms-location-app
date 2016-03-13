@@ -24,6 +24,15 @@ Rails.application.routes.draw do
 
   end
 
+  namespace :api do
+    namespace :v1 do
+      get '/brands' => 'brands#index'
+      get '/locations' => 'locations#index'
+      get '/images' => 'images#index'
+      get '/contents' => 'contents#index'
+    end
+  end
+
   post '/locations/:id' => 'locations#send_mail', as: 'location_send_email'
 
   # get '/brands/:brand_id/locations' => 'locations#index', as: 'brand_location'

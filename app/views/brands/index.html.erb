@@ -1,6 +1,10 @@
 <section class="section">  
   <div class="container">
 
+    <!-- <div ng-app="app">
+    <div ng-controller="brandsCtrl" ng-init="setup()"> -->
+    <!-- {{ 1 + 1 }} -->
+
     <table class="table table-hover table-responsive">
         <thead>
           <tr>
@@ -14,26 +18,31 @@
             <th>Delete</th>  
           </tr>
         </thead>
-      <% @brands.each do |brand| %>
         <tbody>
-          <tr>
-            <td><%= brand.id %></td>
-            <td><%= brand.brand_name %></td>
-            <td><%= brand.location_count %></td>
-            <td><%= brand.updated_at %></td>
-            <td><%= brand.created_at %></td>
+          <tr ng-repeat="brand in brands | filter: searchFilter | orderBy:sortByAttribute:descending">
+            <td>{{ brand.id }}</td>
+            <td>{{ brand.brand_name }}</td>
+            <td>{{ brand.location_count }}</td>
+            <td>{{ brand.updated_at }}</td>
+            <td>{{ brand.created_at }}</td>
             <td>
-              <%= link_to "View", brand_locations_path("#{brand.id}"), class: "btn btn-cta-cms-view btn-xs" %>
+              <% url_escaped_href = brand_locations_path('{{ brand.id}}') 
+                brand_locations_path = URI::unescape(url_escaped_href)
+              %>
+              <a ng-href="<%= brand_locations_path %>" class="btn btn-cta-cms-view btn-xs">View</a>
             </td>
             <td>
-              <%= link_to "Edit", edit_brand_path("#{brand.id}"), class: "btn btn-cta-cms-view btn-xs" %>
+              <% url_escaped_href = edit_brand_path('{{ brand.id}}') 
+                edit_brand_path = URI::unescape(url_escaped_href)
+              %>
+              <a ng-href="<%= edit_brand_path %>" class="btn btn-cta-cms-view btn-xs">Edit</a>
             </td> 
             <td>
-              <%= link_to "Delete", "/brands/#{brand.id}", method: :delete, class: "btn btn-cta-cms-delete btn-xs", data: {confirm: "Are you sure?"}  %>
+              <%= link_to "Delete", "/brands/{{brand.id}}", method: :delete, class: "btn btn-cta-cms-delete btn-xs", data: {confirm: "Are you sure?"}  %>
             </td>  
           </tr>
         </tbody>
-      <% end %>
     </table>
+
   </div>
 </section>
