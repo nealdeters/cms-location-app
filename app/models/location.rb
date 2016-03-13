@@ -42,6 +42,14 @@ class Location < ActiveRecord::Base
     end # end CSV.foreach
   end
 
+  def location_updated_at
+    self.updated_at.strftime("%e %b %Y %I:%M%p")
+  end
+
+  def location_created_at
+    self.created_at.strftime("%e %b %Y %I:%M%p")
+  end
+
   def full_address
     "#{address_1}, #{city}, #{state} #{zipcode}"
   end

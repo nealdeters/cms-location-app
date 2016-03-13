@@ -58,17 +58,16 @@
                 </div>
 
                 <div class="btn-group">
-                  <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('created_at')">
-                    Filter by Created At <span class="caret"></span>
-                  </button>
-                </div>
-
-                <div class="btn-group">
                   <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('updated_at')">
                     Filter by Updated At <span class="caret"></span>
                   </button>
                 </div>
 
+                <div class="btn-group">
+                  <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('created_at')">
+                    Filter by Created At <span class="caret"></span>
+                  </button>
+                </div>
 
                 <%= link_to "Add new brand", "/brands/new", class: "btn btn-cta-cms btn-xs pull-right" %>
               <% end %>

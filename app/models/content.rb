@@ -10,4 +10,12 @@ class Content < ActiveRecord::Base
       where("content_name LIKE ? OR id LIKE ?", "%#{search}%", "%#{search}%") 
     end
   end
+
+  def content_updated_at
+    self.updated_at.strftime("%e %b %Y %I:%M%p")
+  end
+
+  def content_created_at
+    self.created_at.strftime("%e %b %Y %I:%M%p")
+  end
 end

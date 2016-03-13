@@ -83,38 +83,37 @@
 
                 <div class="btn-group">
                   <% if current_page?(brand_locations_path(@brand.id)) %>
-                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('created_at')">
-                      Filter by Created At <span class="caret"></span>
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('updated_at')">
+                      Filter by Updated At <span class="caret"></span>
                     </button>
 
                   <% elsif current_page?(brand_images_path(@brand.id)) %>
-                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('created_at')">
-                      Filter by Created At <span class="caret"></span>
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('updated_at')">
+                      Filter by Updated At <span class="caret"></span>
                     </button>
                   <% elsif current_page?(brand_contents_path(@brand.id)) %>
-                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('created_at')">
-                      Filter by Created At <span class="caret"></span>
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('updated_at')">
+                      Filter by Updated At <span class="caret"></span>
                     </button>
                   <% end %>
                 </div>
 
                 <div class="btn-group">
                   <% if current_page?(brand_locations_path(@brand.id)) %>
-                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('updated_at')">
-                      Filter by Updated At <span class="caret"></span>
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('created_at')">
+                      Filter by Created At <span class="caret"></span>
                     </button>
 
                   <% elsif current_page?(brand_images_path(@brand.id)) %>
-                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('updated_at')">
-                      Filter by Updated At <span class="caret"></span>
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('created_at')">
+                      Filter by Created At <span class="caret"></span>
                     </button>
                   <% elsif current_page?(brand_contents_path(@brand.id)) %>
-                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('updated_at')">
-                      Filter by Updated At <span class="caret"></span>
+                    <button class="btn btn-cta-cms btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-click="sortBy('created_at')">
+                      Filter by Created At <span class="caret"></span>
                     </button>
                   <% end %>
                 </div>
-
                 
                 <% if current_page?(brand_locations_path(@brand.id)) %> 
                   <%= link_to "Add new location", new_brand_location_path, class: "btn btn-cta-cms btn-xs pull-right" %>

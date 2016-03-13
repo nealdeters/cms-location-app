@@ -12,4 +12,12 @@ class Image < ActiveRecord::Base
       where("image_name LIKE ? OR id LIKE ?", "%#{search}%", "%#{search}%") 
     end
   end
+
+  def image_updated_at
+    self.updated_at.strftime("%e %b %Y %I:%M%p")
+  end
+
+  def image_created_at
+    self.created_at.strftime("%e %b %Y %I:%M%p")
+  end
 end

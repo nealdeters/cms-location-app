@@ -1,5 +1,5 @@
 <script>
-  window.brandId = <%= @images.first.imageable_id %>
+  window.brandId = <%= @images.first.imageable_id unless @images.first.blank? %>
 </script>
 
 <section class="section">  
@@ -10,8 +10,8 @@
         <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Updated at</th>
-          <th>Created at</th>
+          <th>Updated</th>
+          <th>Created</th>
           <th>View</th> 
           <th>Edit</th>
           <th>Delete</th>  

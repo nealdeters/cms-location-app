@@ -1,5 +1,5 @@
 <script>
-  window.brandId = <%= @contents.first.contentable_id %>
+  window.brandId = <%= @contents.first.contentable_id unless @contents.first.blank? %>
 </script>
 
 <section class="section">  
@@ -11,8 +11,8 @@
           <th>ID</th>
           <th>Name</th>
           <th>Category</th>
-          <th>Updated at</th>
-          <th>Created at</th>
+          <th>Updated</th>
+          <th>Created</th>
           <th>View</th> 
           <th>Edit</th>
           <th>Delete</th>  

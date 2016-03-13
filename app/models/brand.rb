@@ -19,4 +19,12 @@ class Brand < ActiveRecord::Base
     locations.count
   end
 
+  def brand_updated_at
+    self.updated_at.strftime("%e %b %Y %I:%M%p")
+  end
+
+  def brand_created_at
+    self.created_at.strftime("%e %b %Y %I:%M%p")
+  end
+
 end
