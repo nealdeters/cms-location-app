@@ -26,16 +26,22 @@ class ImagesController < ApplicationController
 
   def create
 
-    @image = @brand.images.create({ 
+    @image = @brand.images.new({ 
       image_name: params[:image_name],
       image_category: params[:image_category],
       image: params[:image],
       image_path: params[:image_path]
       })
 
-    flash[:success] = "New Image Created"
+    if @image.save
 
-    redirect_to brand_images_path
+      flash[:success] = "New Image Created"
+
+      redirect_to brand_images_path
+
+    else
+      render :new
+    end
   end
 
   def show
@@ -56,9 +62,15 @@ class ImagesController < ApplicationController
       image_path: params[:image_path]
       })
 
-    flash[:info] = "Image Updated"
+    if @image.save
 
-    redirect_to brand_images_path
+      flash[:info] = "Image Updated"
+
+      redirect_to brand_images_path
+
+    else
+      render :edit
+    end
   end
 
   def destroy

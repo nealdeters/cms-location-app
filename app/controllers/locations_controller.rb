@@ -32,7 +32,7 @@ class LocationsController < ApplicationController
   end
 
   def import
-    Location.import(params[:file])
+    @import = Location.import(params[:file])
 
     flash[:success] = "Locations imported."
 
@@ -63,7 +63,7 @@ class LocationsController < ApplicationController
   
   def create
 
-    @location = @brand.locations.create({ 
+    @location = @brand.locations.new({ 
       business_name: params[:business_name],
       address_1: params[:address_1],
       address_2: params[:address_2],
@@ -85,10 +85,16 @@ class LocationsController < ApplicationController
       tagline_title: params[:tagline_title],
       tagline_summary: params[:tagline_summary]
       })
-    
-    flash[:success] = "New Location Created"
 
-    redirect_to brand_locations_path
+    if @location.save
+    
+      flash[:success] = "New Location Created"
+
+      redirect_to brand_locations_path
+
+    else
+      render :new
+    end
   end
 
   def show

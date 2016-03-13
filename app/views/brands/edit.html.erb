@@ -1,6 +1,18 @@
 <section class="section">  
   <div class="container">
 
+    <% if @brand.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
+     
+        <ul>
+        <% @brand.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <div class="col-md-12">
       <h1>Edit Brand  <span style="display: inline-block; font-size: 24px;">: <%= @brand.brand_name %></span></h1>
 
@@ -71,20 +83,20 @@
               <tr>
                 <td>
                   <td><%= label_tag :primary_brand_color %></td>
-                  <td><%= text_field_tag :primary_color, @brand.primary_color, class: "form-control" %></td>
+                  <td data-toggle="tooltip" data-placement="bottom" title="Add a 6 digit hexidecimal value"><%= text_field_tag :primary_color, @brand.primary_color, class: "form-control" %></td>
                 </td>
               </tr>
               <tr>
                 <td>
                   <td><%= label_tag :secondary_brand_color %></td>
-                  <td><%= text_field_tag :secondary_color, @brand.secondary_color, class: "form-control" %></td>
+                  <td data-toggle="tooltip" data-placement="bottom" title="Add a 6 digit hexidecimal value"><%= text_field_tag :secondary_color, @brand.secondary_color, class: "form-control" %></td>
                 </td>
               </tr>
               
               <tr>
                 <td>
                   <td><%= label_tag :tertiary_brand_color %></td>
-                  <td><%= text_field_tag :tertiary_color, @brand.tertiary_color, class: "form-control" %></td>
+                  <td data-toggle="tooltip" data-placement="bottom" title="Add a 6 digit hexidecimal value"><%= text_field_tag :tertiary_color, @brand.tertiary_color, class: "form-control" %></td>
                 </td>
               </tr>
             </tbody>

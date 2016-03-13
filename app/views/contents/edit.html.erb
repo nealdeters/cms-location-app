@@ -1,6 +1,18 @@
 <section class="section">  
   <div class="container">
 
+    <% if @content.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@content.errors.count, "error") %> prohibited this content from being saved:</h2>
+     
+        <ul>
+        <% @content.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <div class="col-md-12">
       <h1>Edit Content  <span class="edit-name">: <%= @content.content_name %></span></h1>
 

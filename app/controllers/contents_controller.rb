@@ -35,10 +35,16 @@ class ContentsController < ApplicationController
       content_category: params[:content_category],
       content_field: params[:content_field]
       })
-    
-    flash[:success] = "New Content Created"
 
-    redirect_to brand_contents_path
+    if @content.save
+    
+      flash[:success] = "New Content Created"
+
+      redirect_to brand_contents_path
+
+    else
+      render :new
+    end
   end
 
   def show
@@ -58,9 +64,15 @@ class ContentsController < ApplicationController
       content_field: params[:content_field]
       })
 
-    flash[:info] = "Content Updated"
+    if @content.save
 
-    redirect_to brand_contents_path
+      flash[:info] = "Content Updated"
+
+      redirect_to brand_contents_path
+
+    else
+      render :edit
+    end
   end
 
   def destroy

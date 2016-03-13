@@ -1,6 +1,8 @@
 class Content < ActiveRecord::Base
   belongs_to :contentable, polymorphic: true
 
+  validates :content_name, :content_field, presence: true
+
   def self.search(search)
     if Rails.env.production?
       where("content_name ILIKE ? OR cast(id as text) ILIKE ?", "%#{search}%", "%#{search}%")

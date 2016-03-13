@@ -9,6 +9,8 @@ class Location < ActiveRecord::Base
   extend FriendlyId
   friendly_id :meta_url, use: [:slugged, :finders]
 
+  validates :business_name, :address_1, :city, :state, :zipcode, :phone_number, presence: true
+
   def self.search(search)
     if Rails.env.production?
       where("business_name ILIKE ? OR cast(id as text) ILIKE ?", "%#{search}%", "%#{search}%")

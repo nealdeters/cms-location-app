@@ -3,6 +3,8 @@ class Image < ActiveRecord::Base
   belongs_to :imageable, polymorphic: true
   mount_uploader :image, ImageUploader
 
+  validates :image_name, :image, presence: true
+
   def self.search(search)
     if Rails.env.production?
       where("image_name ILIKE ? OR cast(id as text) ILIKE ?", "%#{search}%", "%#{search}%")

@@ -63,7 +63,7 @@ class BrandsController < ApplicationController
   def update
     @brand = Brand.find(params[:id])
 
-    @brand.update({ 
+    if @brand.update({ 
       brand_name: params[:brand_name],
       brand_address_1: params[:brand_address_1],
       brand_address_2: params[:brand_address_2],
@@ -78,9 +78,12 @@ class BrandsController < ApplicationController
       tertiary_color: params[:tertiary_color]
       })
     
-    flash[:info] = "Brand Updated"
+      flash[:info] = "Brand Updated"
 
-    redirect_to brands_path
+      redirect_to brands_path
+    else 
+      render :edit
+    end
   end
 
   def destroy
