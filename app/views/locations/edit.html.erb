@@ -4,6 +4,10 @@
     <div class="col-md-12">
       <h1>Edit Location  <span class="edit-name">: <%= @location.business_name %></span></h1>
 
+      <div class="progress" role="progressbar">
+          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" id="bar"></div>
+      </div>
+
       <!-- <ul class="nav nav-tabs">
         <li role="presentation"><a href="#local">Local</a></li>
         <li role="presentation"><a href="#about">About</a></li>
@@ -39,8 +43,8 @@
                 <tr>
                   <td><%= label_tag :image, "Upload an image" %></td>
                   <td><%= file_field_tag :image, class: "file-control" %></td>
-                  <%= hidden_field_tag :image_name, "Location", class: "form-control" %>
-                  <%= hidden_field_tag :image_category, "location", class: "form-control" %>
+                  <%= hidden_field_tag :image_name, "Location" %>
+                  <%= hidden_field_tag :image_category, "location" %>
                 </tr>
                 <tr>
                   <td><%= label_tag :business_name %></td>
