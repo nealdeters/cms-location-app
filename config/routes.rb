@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # resources :contents, only: [ :show, :edit, :update, :destroy ]
   # resources :images, only: [ :show, :edit, :update, :destroy ]
 
+  # get '/' => 'locations#directory', :constraints => { :subdomain => 'locations' }, as: 'location_directory_subdomain'
   get '/:id' => 'locations#show', :constraints => { :subdomain => 'locations' }, as: 'location_subdomain'
 
   resources :brands, as: 'brands' do 

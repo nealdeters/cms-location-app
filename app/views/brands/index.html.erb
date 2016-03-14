@@ -10,9 +10,9 @@
           <tr>
             <th>ID</th>
             <th>Brand Name</th>
-            <th>Total Locations</th>
-            <th>Updated</th>
-            <th>Created</th>
+            <th class="hidden-xs hidden-sm">Total Locations</th>
+            <th class="hidden-xs">Updated</th>
+            <th class="hidden-xs">Created</th>
             <th>View</th> 
             <th>Edit</th>
             <th>Delete</th>  
@@ -22,9 +22,9 @@
           <tr ng-repeat="brand in brands | filter: searchFilter | orderBy:sortByAttribute:descending">
             <td>{{ brand.id }}</td>
             <td>{{ brand.brand_name }}</td>
-            <td>{{ brand.location_count }}</td>
-            <td>{{ brand.updated_at }}</td>
-            <td>{{ brand.created_at }}</td>
+            <td class="hidden-xs hidden-sm">{{ brand.location_count }}</td>
+            <td class="hidden-xs">{{ brand.updated_at }}</td>
+            <td class="hidden-xs">{{ brand.created_at }}</td>
             <td>
               <% url_escaped_href = brand_locations_path('{{ brand.id}}') 
                 brand_locations_path = URI::unescape(url_escaped_href)

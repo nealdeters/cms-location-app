@@ -23,6 +23,7 @@ class LocationsController < ApplicationController
       end
     else
       redirect_to "/"
+      # redirect_to "locations.<%= @brand.brand_url %>/directory
     end
 
     respond_to do |format|

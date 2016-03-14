@@ -10,9 +10,9 @@
         <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Category</th>
-          <th>Updated</th>
-          <th>Created</th>
+          <th class="hidden-xs hidden-sm">Category</th>
+          <th class="hidden-xs">Updated</th>
+          <th class="hidden-xs">Created</th>
           <th>View</th> 
           <th>Edit</th>
           <th>Delete</th>  
@@ -22,9 +22,9 @@
         <tr ng-repeat="content in contents | filter: searchFilter | orderBy:sortByAttribute:descending">
           <td>{{ content.id }}</td>
           <td>{{ content.content_name }}</td>
-          <td>{{ content.content_category }}</td>
-          <td>{{ content.updated_at }}</td>
-          <td>{{ content.created_at }}</td>
+          <td class="hidden-xs hidden-sm">{{ content.content_category }}</td>
+          <td class="hidden-xs">{{ content.updated_at }}</td>
+          <td class="hidden-xs">{{ content.created_at }}</td>
           <td>
             <%= link_to 'View', "#contentModal-{{content.id}}", "data-toggle" => "modal", class: 'btn btn-cta-cms-view btn-xs' %>
           </td>

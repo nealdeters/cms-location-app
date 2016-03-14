@@ -10,8 +10,8 @@
         <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Updated</th>
-          <th>Created</th>
+          <th class="hidden-xs">Updated</th>
+          <th class="hidden-xs">Created</th>
           <th>View</th> 
           <th>Edit</th>
           <th>Delete</th>  
@@ -21,8 +21,8 @@
         <tr ng-repeat="image in images | filter: {image_name: searchFilter} | orderBy:sortByAttribute:descending">
           <td>{{ image.id }}</td>
           <td>{{ image.image_name }}</td>
-          <td>{{ image.updated_at }}</td>
-          <td>{{ image.created_at }}</td>
+          <td class="hidden-xs">{{ image.updated_at }}</td>
+          <td class="hidden-xs">{{ image.created_at }}</td>
           <td>
             <%= link_to 'View', "#imageModal-{{image.id}}", "data-toggle" => "modal", class: 'btn btn-cta-cms-view btn-xs' %>
           </td>
