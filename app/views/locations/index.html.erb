@@ -7,7 +7,7 @@
     <table class="table table-hover table-responsive">
       <thead>
         <tr>
-          <th>ID</th>
+          <th class="hidden-xs">ID</th>
           <th>Location Name</th>
           <th class="hidden-xs hidden-sm">City</th>
           <th class="hidden-xs hidden-sm">State</th>
@@ -20,7 +20,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="location in locations | filter: searchFilter | orderBy:sortByAttribute:descending">
-          <td>{{ location.id }}</td>
+          <td class="hidden-xs">{{ location.id }}</td>
           <td>{{ location.business_name }}</td>
           <td class="hidden-xs hidden-sm">{{ location.city }}</td>
           <td class="hidden-xs hidden-sm">{{ location.state }}</td>

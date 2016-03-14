@@ -8,7 +8,7 @@
     <table class="table table-hover table-responsive">
       <thead>
         <tr>
-          <th>ID</th>
+          <th class="hidden-xs">ID</th>
           <th>Name</th>
           <th class="hidden-xs">Updated</th>
           <th class="hidden-xs">Created</th>
@@ -19,7 +19,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="image in images | filter: {image_name: searchFilter} | orderBy:sortByAttribute:descending">
-          <td>{{ image.id }}</td>
+          <td class="hidden-xs">{{ image.id }}</td>
           <td>{{ image.image_name }}</td>
           <td class="hidden-xs">{{ image.updated_at }}</td>
           <td class="hidden-xs">{{ image.created_at }}</td>

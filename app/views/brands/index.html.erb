@@ -8,7 +8,7 @@
     <table class="table table-hover table-responsive">
         <thead>
           <tr>
-            <th>ID</th>
+            <th class="hidden-xs">ID</th>
             <th>Brand Name</th>
             <th class="hidden-xs hidden-sm">Total Locations</th>
             <th class="hidden-xs">Updated</th>
@@ -20,7 +20,7 @@
         </thead>
         <tbody>
           <tr ng-repeat="brand in brands | filter: searchFilter | orderBy:sortByAttribute:descending">
-            <td>{{ brand.id }}</td>
+            <td class="hidden-xs">{{ brand.id }}</td>
             <td>{{ brand.brand_name }}</td>
             <td class="hidden-xs hidden-sm">{{ brand.location_count }}</td>
             <td class="hidden-xs">{{ brand.updated_at }}</td>

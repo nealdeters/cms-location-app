@@ -8,7 +8,7 @@
     <table class="table table-hover table-responsive">
       <thead>
         <tr>
-          <th>ID</th>
+          <th class="hidden-xs">ID</th>
           <th>Name</th>
           <th class="hidden-xs hidden-sm">Category</th>
           <th class="hidden-xs">Updated</th>
@@ -20,7 +20,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="content in contents | filter: searchFilter | orderBy:sortByAttribute:descending">
-          <td>{{ content.id }}</td>
+          <td class="hidden-xs">{{ content.id }}</td>
           <td>{{ content.content_name }}</td>
           <td class="hidden-xs hidden-sm">{{ content.content_category }}</td>
           <td class="hidden-xs">{{ content.updated_at }}</td>
