@@ -49,7 +49,7 @@
                     <li class="nav-item"><a href="<%= brand_contents_path(@brand.id) %>">Content</a></li>
                     <li class="nav-item"><a href="<%= import_export_brand_locations_path %>">Import/Export</a></li>          
 
-                    <li><input class="form-control" placeholder="<%= @searchPlaceholder %>" ng-model="searchFilter"></li>
+                    <li><input class="form-control hidden-xs hidden-sm" placeholder="<%= @searchPlaceholder %>" ng-model="searchFilter"></li>
 
 
                     <li class="nav-item"><%= link_to "Sign Out", "/users/sign_out", method: :delete if user_signed_in? %></li>
