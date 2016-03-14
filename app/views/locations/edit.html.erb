@@ -18,6 +18,7 @@
         <li class="active"><a data-target="#local" data-toggle="tab">Location Information</a></li>
         <li><a data-target="#about" data-toggle="tab">About</a></li>
         <li><a data-target="#meta" data-toggle="tab">Meta Information</a></li>
+        <li><a data-target="#page" data-toggle="tab">Customize Page</a></li>
       </ul>
 
       <%= form_tag brand_location_path, multipart: true, class: "form-group", method: :patch do %>
@@ -141,7 +142,7 @@
         <div class="col-md-12">
         <br>
         <h3>Meta Information</h3>
-        <table class="table table-hover" id="meta">
+        <table class="table table-hover">
           <tbody>  
             <tr>
                 <td><%= label_tag :meta_description %></td>
@@ -167,6 +168,18 @@
         </div>
       </div>
       </div>
+
+      <div class="tab-pane" id="page">
+      <div class="row">
+        <div class="col-md-12">
+        <br>
+        <h3>Customize Page</h3>
+
+        </div>
+      </div>
+      </div>
+
+
       </div>
 
       <%= submit_tag 'Update Location', class: "btn btn-cta-cms-search btn-xs" %>
