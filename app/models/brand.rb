@@ -27,4 +27,8 @@ class Brand < ActiveRecord::Base
     self.created_at.strftime("%e %b %Y %I:%M%p")
   end
 
+  def brand_name_to_subdomain
+    brand_name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+  end
+
 end
