@@ -3,6 +3,7 @@
 <head>
   <title><%= site_name %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= favicon_link_tag 'favicon.ico', type: 'image/png' %>
   <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic" rel="stylesheet" type="text/css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -17,8 +18,11 @@
         <div class="container">            
             <h1 class="logo pull-left">
                 <a href="/">
-                    <span class="logo-title"><%= site_name %></span>
-                    <!-- <span class="logo-title"><img src="/assets/images/drawing.png"></span> -->
+                    <% if asset_path "Drawing.png" %>
+                       <span class="logo-title"><img src="<%= asset_path "Drawing.png" %>"></span> 
+                    <% else %>
+                        <span class="logo-title"><%= site_name %></span>
+                    <% end %>
                 </a>
             </h1><!--//logo-->              
             <nav id="main-nav" class="main-nav navbar-right" role="navigation">
