@@ -31,7 +31,7 @@
           <td class="hidden-xs">{{ location.updated_at }}</td>
           <td class="hidden-xs">{{ location.created_at }}</td>
           <td>
-            <a ng-href="http://{{ location.brand_name_to_subdomain }}.{{ location.brand_url }}/{{ location.id }}" class="btn btn-cta-cms-view btn-xs">View</a>
+            <a ng-href="http://{{ location.brand_url }}/{{ location.id }}" class="btn btn-cta-cms-view btn-xs">View</a>
           </td>
           <td>
             <% url_escaped_href = edit_brand_location_path('{{ location.brand_id }}','{{ location.id }}') 
