@@ -208,6 +208,7 @@ class LocationsController < ApplicationController
     # byebug
     puts "-"*100
     puts request.subdomain
+    puts @location.brand.brand_name_to_subdomain
     puts "-"*100
 
     @location = Location.friendly.find(params[:id])
