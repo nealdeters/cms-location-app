@@ -48,7 +48,7 @@ class LocationsController < ApplicationController
   end
 
   def directory
-    @locations = Brand.find(params[:brand_id]).locations.all
+    @locations = Location.friendly.find(params[:id]).brands.locations.all
     @states = []
 
     @locations.each do |location|

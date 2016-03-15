@@ -122,6 +122,9 @@
                 <% elsif current_page?(brand_contents_path(@brand.id)) %>
                   <%= link_to "Add new content", new_brand_content_path(@brand), class: "btn btn-cta-cms btn-xs pull-right" %>
                 <% end %>
+                <br>
+                <br>
+                <input class="form-control visible-xs visible-sm" placeholder="<%= @searchPlaceholder %>" ng-model="searchFilter">
             </div>
           </div>
         </div>
