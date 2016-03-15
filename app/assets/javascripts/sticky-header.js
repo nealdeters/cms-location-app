@@ -6,9 +6,6 @@ $(document).ready(function() {
            $('#header').addClass('navbar-fixed-top');
            $('#header-cms').addClass('navbar-fixed-top');
 
-           $('#header').addClass('navbar-fixed-top');
-           $('#header-cms').addClass('navbar-fixed-top');
-
        }
        else {
           var loc = window.location.href; // returns the full URL
@@ -17,6 +14,7 @@ $(document).ready(function() {
             
           } else {
             $('#header').removeClass('navbar-fixed-top');
+            $('#header-cms').removeClass('navbar-fixed-top');
           }
        }
   });

@@ -207,7 +207,7 @@ class LocationsController < ApplicationController
 
     @location = Location.friendly.find(params[:id])
 
-    elsif request.subdomain != @location.brand.brand_name_to_subdomain
+    if request.subdomain != @location.brand.brand_name_to_subdomain
       render :file => "#{Rails.root}/public/404.html",  :status => 404
     end
   end
