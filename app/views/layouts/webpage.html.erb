@@ -386,9 +386,22 @@
 
   <div class="mobile-call navbar-fixed-bottom visible-xs text-center">
     <a href="tel:<%= @location.phone_number %>">
-      <span class="glyph-phone glyphicon glyphicon-earphone"></span>
-      <br>
-      <span class="mobile-span">Call Now</span>
+      <ul id="mobile-phonecall">
+        <li>
+          <span class="glyph-phone glyphicon glyphicon-earphone"></span>
+          <br>
+          <span class="mobile-span">Call Now</span>
+        </li>
+      </ul>
+    </a>
+    <a href="http://maps.google.com/maps?f=d&source=s_d&saddr=&daddr=<%= @location.full_address %>">
+      <ul id="mobile-directions">
+        <li>
+          <span class="glyph-phone glyphicon glyphicon-map-marker"></span>
+          <br>
+          <span class="mobile-span">Directions</span>
+        </li>
+      </ul>
     </a>
   </div>
 
