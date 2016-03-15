@@ -7,3 +7,4 @@ json.updated_at location.location_updated_at
 json.created_at location.location_created_at
 json.brand_name_to_subdomain location.brand.brand_name_to_subdomain
 json.brand_url location.brand.brand_url
+json.slug location.slug

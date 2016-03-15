@@ -28,7 +28,12 @@
           <td class="hidden-xs">{{ location.updated_at }}</td>
           <td class="hidden-xs">{{ location.created_at }}</td>
           <td>
-            <a ng-href="http://{{ location.brand_url }}/{{ location.id }}" class="btn btn-cta-cms-view btn-xs">View</a>
+            <div ng-hide="location.slug">
+              <a ng-href="http://{{ location.brand_url }}/{{ location.id }}" class="btn btn-cta-cms-view btn-xs">View</a>
+            </div>
+            <div ng-hide="!location.slug">
+              <a ng-href="http://{{ location.brand_url }}/{{ location.slug }}" class="btn btn-cta-cms-view btn-xs">View</a>
+            </div>
           </td>
           <td>
             <% url_escaped_href = edit_brand_location_path('{{ location.brand_id }}','{{ location.id }}') 
