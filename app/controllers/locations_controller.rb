@@ -1,6 +1,7 @@
 class LocationsController < ApplicationController
   before_action :load_brand, :except => [:show, :send_mail]
   before_action :authenticate_user!, :only => [:index, :directory, :new, :create, :edit, :update, :destroy]
+  before_action :restrict_location_pages, :only => :show
   layout :resolve_layout
 
   def index
@@ -200,6 +201,19 @@ class LocationsController < ApplicationController
       "cms_locations_layout"
     when "directory"
       "directory"
+    end
+  end
+
+  def restrict_location_pages
+    # byebug
+
+    @location = Location.friendly.find(params[:id])
+
+    if request.domain != @location.brand.brand_url
+        # render status: :not_found
+        render :file => "#{Rails.root}/public/404.html",  :status => 404
+    else
+        
     end
   end
 
