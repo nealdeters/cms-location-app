@@ -207,7 +207,7 @@ class LocationsController < ApplicationController
   def restrict_location_pages
     # byebug
     puts "-"*100
-    puts request.extract_domain
+    puts request.protocol
     puts "-"*100
 
     @location = Location.friendly.find(params[:id])
