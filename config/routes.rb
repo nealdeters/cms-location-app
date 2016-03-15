@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   # get '/' => 'locations#directory', :constraints => { :subdomain => 'locations' }, as: 'location_directory_subdomain'
   # get '/:id' => 'locations#show', :constraints => { :subdomain => "locations" }, as: 'location_subdomain'
-  get '/:id' => 'locations#show', :constraints => { :subdomain => /.+/ }, as: 'location_subdomain'
 
   resources :brands, as: 'brands' do 
 
@@ -25,6 +24,8 @@ Rails.application.routes.draw do
     resources :images, as: 'images'
 
   end
+
+  get '/:id' => 'locations#show', :constraints => { :subdomain => /.+/ }, as: 'location_subdomain'
 
   namespace :api do
     namespace :v1 do
