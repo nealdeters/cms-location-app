@@ -25,8 +25,6 @@ Rails.application.routes.draw do
 
   end
 
-  get '/:id' => 'locations#show', :constraints => { :subdomain => /.+/ }, as: 'location_subdomain'
-
   namespace :api do
     namespace :v1 do
       get '/brands' => 'brands#index'
@@ -80,4 +78,6 @@ Rails.application.routes.draw do
   #static pages
   root "pages#show", page: "home", as: 'home'
   get "/*page" => "pages#show"
+
+  get '/:id' => 'locations#show', :constraints => { :subdomain => /.+/ }, as: 'location_subdomain'
 end
