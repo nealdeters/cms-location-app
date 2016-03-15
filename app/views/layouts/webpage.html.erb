@@ -86,6 +86,9 @@
       .areas {
         background: <%= @location.brand.tertiary_color %> no-repeat center center;
       }
+      .mobile-call {
+        background-color: <%= @location.brand.primary_color %>;
+      }
     </style>
   <% end %>
 </head>
@@ -381,8 +384,12 @@
     </footer>
   </div><!-- /.container -->
 
-  <div class="mobilecall visible-xs-*">
-
+  <div class="mobile-call navbar-fixed-bottom visible-xs text-center">
+    <a href="tel:<%= @location.phone_number %>">
+      <span class="glyph-phone glyphicon glyphicon-earphone"></span>
+      <br>
+      <span class="mobile-span">Call Now</span>
+    </a>
   </div>
 
   <script src="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}"></script>
