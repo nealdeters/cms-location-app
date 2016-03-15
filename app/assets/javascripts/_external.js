@@ -30,8 +30,8 @@ $(document).ready (function(){
       var filledFormsCount = $('input.form-control').filter(function () {
           return $(this).val() === "";
       }).length;
-      console.log(formCount);
-      console.log(filledFormsCount);
+      // console.log(formCount);
+      // console.log(filledFormsCount);
       var width = Math.round(((1 / formCount) * (formCount - (filledFormsCount - 1))) * 100);
       var formPerfect = width + "%";
       $("#bar").css("width", formPerfect).text(formPerfect);
