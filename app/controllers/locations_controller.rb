@@ -207,7 +207,6 @@ class LocationsController < ApplicationController
   def restrict_location_pages
     # byebug
     puts "-"*100
-    puts request.raw_host_with_port
     puts request.extract_domain
     puts "-"*100
 
