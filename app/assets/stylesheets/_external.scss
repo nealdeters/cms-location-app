@@ -142,6 +142,30 @@ a.btn-cta-cms-search:hover,
   transition: width .6s ease;
 }
 
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (max-width:640px) {
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    position: fixed;
+  }
+}
+
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width: 992px) {  
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    position: fixed;
+  }
+}
+
 
 
 // body#location-page {
