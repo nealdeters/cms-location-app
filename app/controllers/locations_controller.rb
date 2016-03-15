@@ -206,6 +206,9 @@ class LocationsController < ApplicationController
 
   def restrict_location_pages
     # byebug
+    puts "-"*100
+    puts request.domain
+    puts "-"*100
 
     @location = Location.friendly.find(params[:id])
 
@@ -213,7 +216,7 @@ class LocationsController < ApplicationController
         # render status: :not_found
         render :file => "#{Rails.root}/public/404.html",  :status => 404
     else
-        
+
     end
   end
 
