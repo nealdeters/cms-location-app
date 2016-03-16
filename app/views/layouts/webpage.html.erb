@@ -47,8 +47,12 @@
         border: 2px solid <%= @location.brand.primary_color %>;
         color: <%= @location.brand.primary_color %>;
       }
-      .header h1.logo a:hover {
+      .header h1.logo a {
         color: <%= @location.brand.primary_color %>;
+      }
+
+      .header h1.logo a:hover {
+        color: <%= @location.brand.secondary_color %>;
       }
       .header .main-nav .nav .nav-item.nav-item-cta .btn-cta-primary {
         background: <%= @location.brand.secondary_color %>;
