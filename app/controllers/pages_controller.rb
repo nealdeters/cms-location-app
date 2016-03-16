@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   layout "application"
+  before_action :restrict_directory_page, :only :show
 
   def show
     if valid_page?
@@ -25,5 +26,13 @@ class PagesController < ApplicationController
   private
   def valid_page?
     File.exist?(Pathname.new(Rails.root + "app/views/pages/#{params[:page]}.html.erb"))
+  end
+
+  def restrict_directory_page
+    @brand_url = Brand.find_by(brand_url: request.domain)
+
+    if @brand_url
+      redirect_to "locations/directory"
+    end
   end
 end

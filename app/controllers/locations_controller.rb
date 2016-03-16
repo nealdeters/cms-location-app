@@ -211,12 +211,4 @@ class LocationsController < ApplicationController
     end
   end
 
-  def restrict_directory_page
-    @brand_url = Brand.find_by(brand_url: request.domain)
-
-    if @brand_url
-      redirect_to action: "directory"
-    end
-  end
-
 end
