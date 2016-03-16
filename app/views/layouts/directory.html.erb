@@ -16,6 +16,37 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
+<% if !@brand.primary_color.blank? && !@brand.secondary_color.blank? && !@brand.tertiary_color.blank? %>
+  <style>
+    a {
+      color: <%= @brand.secondary_color %>;
+    }
+    a:hover {
+      color: <%= @brand.primary_color %>;
+    }
+    .header h1.logo a:hover {
+      color: <%= @brand.primary_color %>;
+    }
+    .header .main-nav .navbar-toggle {
+        background: <%= @brand.secondary_color %>;
+    }
+    .header .main-nav .navbar-toggle:hover {
+        background: <%= @brand.secondary_color %>;
+    }
+    .header .main-nav .nav .nav-item a:hover {
+      color: <%= @brand.primary_color %>;
+    }
+
+    .header .main-nav .nav .nav-item.active {
+      color: <%= @brand.primary_color %>;
+    }
+    .promo .social {
+      background: <%= @brand.primary_color %>;
+    }
+  </style>
+<% end %>
+
 <body id="location-page">
 
   <!-- ******HEADER****** --> 
