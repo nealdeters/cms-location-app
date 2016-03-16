@@ -107,7 +107,7 @@ class LocationsController < ApplicationController
         @states = @states.uniq!
         @states.sort_by!{ |state| state }
 
-        render template: "layouts/directory"
+        render layout: "directory"
       end
     else
       @location = Location.friendly.find(params[:id])
@@ -115,7 +115,7 @@ class LocationsController < ApplicationController
       if request.domain != @location.brand.brand_url
         render :file => "#{Rails.root}/public/404.html",  :status => 404
       else
-        render :template => 'layouts/webpage'
+        render :layout => 'webpage'
       end
 
     end
