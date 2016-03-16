@@ -189,6 +189,8 @@ class LocationsController < ApplicationController
 
   def send_mail
 
+    @location = Location.find(params[:id])
+
     name = params[:name]
     email = params[:email]
     body = params[:comments]
