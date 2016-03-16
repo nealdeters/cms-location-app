@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # get '/' => 'locations#directory', :constraints => { :subdomain => 'locations' }, as: 'location_directory_subdomain'
   # get '/:id' => 'locations#show', :constraints => { :subdomain => "locations" }, as: 'location_subdomain'
   get '/:id' => 'locations#show', :constraints => { :subdomain => /^(?:(?!www).)*$/ }, as: 'location_subdomain'
+  get "/directory" => "locations#directory"
 
   resources :brands, as: 'brands' do 
 
@@ -79,5 +80,4 @@ Rails.application.routes.draw do
   #static pages
   root "pages#show", page: "home", as: 'home'
   get "/*page" => "pages#show"
-  get "/" => "locations#directory"
 end
