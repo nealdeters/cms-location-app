@@ -7,9 +7,9 @@
 
   <!-- condition ? if_true : if_false -->
 
-  <title><%= !@brand.brand_meta_title.blank? ? @brand.brand_meta_title :  %></title>
-  <meta name="description" content="<%= !@brand.brand_meta_description.blank? ? @brand.brand_meta_description : %>">
-  <meta name="keywords" content="<%= !@brand.brand_meta_keywords.blank? ? @brand.brand_meta_keywords : %>">
+  <title><%= !@brand.brand_meta_title.blank? ? @brand.brand_meta_title : "" %></title>
+  <meta name="description" content="<%= !@brand.brand_meta_description.blank? ? @brand.brand_meta_description : "" %>">
+  <meta name="keywords" content="<%= !@brand.brand_meta_keywords.blank? ? @brand.brand_meta_keywords : "" %>">
   <meta name="viewport" content="width=device-width">
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
