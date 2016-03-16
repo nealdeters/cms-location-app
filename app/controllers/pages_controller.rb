@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  layout "application", except: => :restrict_directory_page
+  layout "application", except: :restrict_directory_page
   before_action :restrict_directory_page, :only => :show
 
   def show
