@@ -89,9 +89,9 @@
         <% @locations.each do |location| %>
           <div class="col-lg-4">
             <% if location.slug %>
-              <p><a href="/<%= location.slug} %>"><%= location.business_name %></a></p>
+              <p><a href="/<%= location.slug %>"><%= location.business_name %></a></p>
             <% else %>
-              <p><a href="/<%= location.id} %>"><%= location.business_name %></a></p>
+              <p><a href="/<%= location.id %>"><%= location.business_name %></a></p>
             <% end %>
           </div><!-- /.col-lg-4 -->
         <% end %>
