@@ -5,9 +5,9 @@
     <link rel="icon" type="image/png" href="<%= @brand.images.where(image_category: 'favicon').first.image.url %>">
   <% end %>
 
-  <title><%= @brand.brand_meta_title %></title>
-  <meta name="description" content="<%= @brand.brand_meta_description %>">
-  <meta name="keywords" content="<%= @brand.brand_meta_keywords %>">
+  <title><%= if !@brand.brand_meta_title.blank? { @brand.brand_meta_title %></title>
+  <meta name="description" content="<%= if !@brand.brand_meta_description.blank? { @brand.brand_meta_description } %>">
+  <meta name="keywords" content="<%= if !@brand.brand_meta_keywords.blank? { @brand.brand_meta_keywords } %>">
   <meta name="viewport" content="width=device-width">
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
