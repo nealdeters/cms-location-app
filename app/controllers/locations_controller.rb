@@ -212,6 +212,7 @@ class LocationsController < ApplicationController
   end
 
   def restrict_directory_page
+    byebug
     @brand_url = Brand.find_by(brand_url: request.domain)
 
     if @brand_url
