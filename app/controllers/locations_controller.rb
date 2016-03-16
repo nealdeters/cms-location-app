@@ -107,7 +107,6 @@ class LocationsController < ApplicationController
         @states = @states.uniq!
         @states.sort_by!{ |state| state }
 
-        format.html { render :layout => false  } 
         render template: "layouts/directory"
       end
     else
