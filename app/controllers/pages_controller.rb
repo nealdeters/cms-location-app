@@ -32,7 +32,7 @@ class PagesController < ApplicationController
     @brand_url = Brand.find_by(brand_url: request.domain)
 
     if @brand_url
-      g "/directory"
+      redirect_to "/directory"
     end
   end
 end
