@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   layout "application"
-  before_action :restrict_location_pages, :only => :show
+  before_action :restrict_directory_page, :only => :show
 
   def show
     if valid_page?
