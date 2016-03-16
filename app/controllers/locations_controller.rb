@@ -2,6 +2,7 @@ class LocationsController < ApplicationController
   before_action :load_brand, :except => [:show, :send_mail]
   before_action :authenticate_user!, :only => [:index, :directory, :new, :create, :edit, :update, :destroy]
   before_action :restrict_location_pages, :only => :show
+  before_action :restrict_directory_page, :only => :directory
   layout :resolve_layout
 
   def index
@@ -57,8 +58,6 @@ class LocationsController < ApplicationController
 
     @states = @states.uniq!
     @states.sort_by!{ |state| state }
-
-    render template: "layouts/directory"
   end
 
   def new
@@ -207,8 +206,16 @@ class LocationsController < ApplicationController
 
     @location = Location.friendly.find(params[:id])
 
-    if request.subdomain != @location.brand.brand_name_to_subdomain
+    if request.domain != @location.brand.brand_url
       render :file => "#{Rails.root}/public/404.html",  :status => 404
+    end
+  end
+
+  def restrict_directory_page
+    @brand_url = Brand.find_by(brand_url: request.domain)
+
+    if @brand_url
+      redirect_to action: "directory"
     end
   end
 
