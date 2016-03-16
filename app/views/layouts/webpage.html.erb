@@ -4,7 +4,7 @@
   <% if !@location.brand.images.where(image_category: 'favicon').first.blank? %>
     <link rel="icon" type="image/png" href="<%= @location.brand.images.where(image_category: 'favicon').first.image.url %>">
   <% end %>
-  <title><%= if !@location.meta_title.blank? { @location.meta_title } %></title>
+  <title><%= @location.meta_title %></title>
   <meta name="description" content="<%= @location.meta_description %>">
   <meta name="keywords" content="<%= @location.meta_keywords %>">
   <%= stylesheet_link_tag    'location_application', media: 'all', 'data-turbolinks-track' => true %>
