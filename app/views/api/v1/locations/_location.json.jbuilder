@@ -5,6 +5,6 @@ json.city location.city
 json.state location.state
 json.updated_at location.location_updated_at
 json.created_at location.location_created_at
-json.brand_name_to_subdomain location.brand.brand_name_to_subdomain
 json.brand_url location.brand.brand_url
+json.brand_subdomain location.brand.brand_subdomain
 json.slug location.slug
