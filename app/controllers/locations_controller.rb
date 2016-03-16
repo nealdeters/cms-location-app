@@ -107,6 +107,7 @@ class LocationsController < ApplicationController
         @states = @states.uniq!
         @states.sort_by!{ |state| state }
 
+        format.html { render :layout => false  } 
         render template: "layouts/directory"
       end
     else
@@ -115,7 +116,7 @@ class LocationsController < ApplicationController
       if request.domain != @location.brand.brand_url
         render :file => "#{Rails.root}/public/404.html",  :status => 404
       else
-        render :layout => 'webpage'
+        render :template => 'layouts/webpage'
       end
 
     end
