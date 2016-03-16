@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
   before_action :load_brand, :except => [:show, :send_mail]
   before_action :authenticate_user!, :only => [:index, :directory, :new, :create, :edit, :update, :destroy]
-  before_action :restrict_location_pages, :only => :show
+  # before_action :restrict_location_pages, :only => :show
   layout :resolve_layout
 
   def index
@@ -107,7 +107,12 @@ class LocationsController < ApplicationController
     else
       @location = Location.friendly.find(params[:id])
 
-      render :layout => 'webpage'
+      if request.domain != @location.brand.brand_url
+        render :file => "#{Rails.root}/public/404.html",  :status => 404
+      else
+        render :layout => 'webpage'
+      end
+
     end
   end
 
@@ -206,13 +211,13 @@ class LocationsController < ApplicationController
     end
   end
 
-  def restrict_location_pages
+  # def restrict_location_pages
 
-    @location = Location.friendly.find(params[:id])
+  #   @location = Location.friendly.find(params[:id])
 
-    if request.domain != @location.brand.brand_url
-      render :file => "#{Rails.root}/public/404.html",  :status => 404
-    end
-  end
+  #   if request.domain != @location.brand.brand_url
+  #     render :file => "#{Rails.root}/public/404.html",  :status => 404
+  #   end
+  # end
 
 end
