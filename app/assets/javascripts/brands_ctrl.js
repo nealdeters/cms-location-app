@@ -6,6 +6,7 @@
     $scope.setup = function(){
         $http.get('/api/v1/brands.json').then(function(response){
             $scope.brands = response.data;
+            $scope.descending = !$scope.descending;
         });
     };
 

@@ -6,6 +6,7 @@
     $scope.setup = function(){
         $http.get('/api/v1/contents.json?brand_id=' + window.brandId).then(function(response){
             $scope.contents = response.data;
+            $scope.descending = !$scope.descending;
         });
     };
 
