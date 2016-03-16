@@ -73,7 +73,7 @@
               </tr>
               <tr>
                 <td>
-                  <td><%= label_tag :phone_number %></td>
+                  <td><%= label_tag :phone_number, "Phone Number" %></td>
                   <td><%= text_field_tag :brand_phone_number, @brand.brand_phone_number, class: "form-control" %></td>
                 </td>
               </tr>
@@ -97,20 +97,20 @@
            <table class="table table-hover">
             <tbody>  
                 <td>
-                  <td><%= label_tag :primary_brand_color %></td>
+                  <td><%= label_tag :primary_brand_color, "Primary Brand Color" %></td>
                   <td data-toggle="tooltip" data-placement="bottom" title="Add a 6 digit hexidecimal value. Include the # character."><%= text_field_tag :primary_color, @brand.primary_color, class: "form-control" %></td>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <td><%= label_tag :secondary_brand_color %></td>
+                  <td><%= label_tag :secondary_brand_color, "Secondary Brand Color" %></td>
                   <td data-toggle="tooltip" data-placement="bottom" title="Add a 6 digit hexidecimal value. Include the # character."><%= text_field_tag :secondary_color, @brand.secondary_color, class: "form-control" %></td>
                 </td>
               </tr>
               
               <tr>
                 <td>
-                  <td><%= label_tag :tertiary_brand_color %></td>
+                  <td><%= label_tag :tertiary_brand_color, "Tertiary Brand Color" %></td>
                   <td data-toggle="tooltip" data-placement="bottom" title="Add a 6 digit hexidecimal value. Include the # character."><%= text_field_tag :tertiary_color, @brand.tertiary_color, class: "form-control" %></td>
                 </td>
               </tr>
@@ -130,7 +130,7 @@
           <br>
           <p>Prior to adding your locations, please make sure your DNS routing is properly setup.</p>
           <br>
-          <p>To setup your DNS routing, create a CNAME record with the subdomain of your choosing. Direct your new to the DNS URL provided below.</p>
+          <p>To setup your DNS routing, create a CNAME record with the subdomain of your choosing. Direct your new record to the DNS URL provided below.</p>
           <br>
 
            <table class="table table-hover">
@@ -144,7 +144,7 @@
               <tr>
                 <td>
                   <td><%= label_tag :brand_url, 'Brand URL' %></td>
-                  <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="Example: mybranddomain.com<br><br>Please only enter the bare domain. Do not include www. or http://"><%= text_field_tag :brand_url, @brand.brand_url, class: "form-control" %></td>
+                  <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="Example: mybranddomain.com<br><br>Please enter only the bare domain. Do not include www. or http://"><%= text_field_tag :brand_url, @brand.brand_url, class: "form-control" %></td>
                 </td>
               </tr>
               <tr>
