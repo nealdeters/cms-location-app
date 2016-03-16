@@ -93,17 +93,22 @@ class LocationsController < ApplicationController
 
   def show
     if params[:id] == "directory"
-      @locations = Location.friendly.find(params[:id]).brands.locations.all
-      @states = []
+      # @locations = Location.friendly.find(params[:id]).brands.locations.all
+      @brand = Brand.find_by(brand_url: request.domain)
 
-      @locations.each do |location|
-        @states << location.state
-      end 
+      if @brand
+        @locations = @brand.locations.all
+        @states = []
 
-      @states = @states.uniq!
-      @states.sort_by!{ |state| state }
+        @locations.each do |location|
+          @states << location.state
+        end 
 
-      render template: "layouts/directory"
+        @states = @states.uniq!
+        @states.sort_by!{ |state| state }
+
+        render template: "layouts/directory"
+      end
     else
       @location = Location.friendly.find(params[:id])
 
