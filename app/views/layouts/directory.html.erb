@@ -3,7 +3,7 @@
 <head>
   <% if !@brand.images.where(image_category: 'favicon').first.blank? %>
     <link rel="icon" type="image/png" href="<%= @brand.images.where(image_category: 'favicon').first.image.url %>">
-  <% else %>
+  <% end %>
 
   <title><%= @brand.brand_meta_title %></title>
   <meta name="description" content="<%= @brand.brand_meta_description %>">
