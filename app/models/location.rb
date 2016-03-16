@@ -44,7 +44,8 @@ class Location < ActiveRecord::Base
 
   def phone_number_call
     h = {"-" => "","(" => "", ")" =>"", "." => "" }
-    phone_number.gsub(/\w+/) { |m| h.fetch(m,m)}
+    new_phone = phone_number.gsub(/\w+/) { |m| h.fetch(m,m)}
+    new_phone
   end
 
   def location_updated_at
