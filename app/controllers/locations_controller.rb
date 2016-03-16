@@ -2,7 +2,6 @@ class LocationsController < ApplicationController
   before_action :load_brand, :except => [:show, :send_mail]
   before_action :authenticate_user!, :only => [:index, :directory, :new, :create, :edit, :update, :destroy]
   before_action :restrict_location_pages, :only => :show
-  before_action :restrict_directory_page, :only => :directory
   layout :resolve_layout
 
   def index
