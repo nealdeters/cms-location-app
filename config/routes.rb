@@ -79,4 +79,5 @@ Rails.application.routes.draw do
   #static pages
   root "pages#show", page: "home", as: 'home'
   get "/*page" => "pages#show"
+  get "/" => "locations#directory"
 end
