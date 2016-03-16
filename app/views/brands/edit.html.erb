@@ -19,6 +19,7 @@
       <ul class="nav nav-tabs" id="myTab">
         <li class="active"><a data-target="#brand-info" data-toggle="tab">Brand Information</a></li>
         <li><a data-target="#colors" data-toggle="tab">Brand Colors</a></li>
+        <li><a data-target="#meta" data-toggle="tab">Meta Information</a></li>
         <li><a data-target="#dns" data-toggle="tab">DNS Settings</a></li>
       </ul>
 
@@ -73,7 +74,7 @@
               </tr>
               <tr>
                 <td>
-                  <td><%= label_tag :phone_number %></td>
+                  <td><%= label_tag :phone_number, "Phone Number" %></td>
                   <td><%= text_field_tag :brand_phone_number, @brand.brand_phone_number, class: "form-control" %></td>
                 </td>
               </tr>
@@ -97,21 +98,68 @@
            <table class="table table-hover">
             <tbody>  
                 <td>
-                  <td><%= label_tag :primary_brand_color %></td>
+                  <td><%= label_tag :primary_brand_color, "Primary Brand Color" %></td>
                   <td data-toggle="tooltip" data-placement="bottom" title="Add a 6 digit hexidecimal value. Include the # character."><%= text_field_tag :primary_color, @brand.primary_color, class: "form-control" %></td>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <td><%= label_tag :secondary_brand_color %></td>
+                  <td><%= label_tag :secondary_brand_color, "Secondary Brand Color" %></td>
                   <td data-toggle="tooltip" data-placement="bottom" title="Add a 6 digit hexidecimal value. Include the # character."><%= text_field_tag :secondary_color, @brand.secondary_color, class: "form-control" %></td>
                 </td>
               </tr>
               
               <tr>
                 <td>
-                  <td><%= label_tag :tertiary_brand_color %></td>
+                  <td><%= label_tag :tertiary_brand_color, "Tertiary Brand Color" %></td>
                   <td data-toggle="tooltip" data-placement="bottom" title="Add a 6 digit hexidecimal value. Include the # character."><%= text_field_tag :tertiary_color, @brand.tertiary_color, class: "form-control" %></td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+      </div>
+
+      <div class="tab-pane" id="meta">
+        <div class="row">
+        <div class="container">
+        <div class="col-md-12">
+          <br>
+          <h3>Meta Information</h3>
+          <br>
+
+           <table class="table table-hover">
+            <tbody>  
+              <tr>
+                <td>
+                  <td><%= label_tag :brand_tagline_title, 'Brand Tagline Title' %></td>
+                  <td data-toggle="tooltip" data-placement="bottom" title="This title appear in your brands directory page within the page promo image."><%= text_field_tag :brand_tagline_title, @brand.brand_tagline_title, class: "form-control" %></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :brand_tagline_summary, 'Brand Tagline Summary' %></td>
+                  <td data-toggle="tooltip" data-placement="bottom" title="This summary will appear in your brands directory page within the page promo image."><%= text_field_tag :brand_tagline_summary, @brand.brand_tagline_summary, class: "form-control" %></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :brand_meta_description, 'Brand Meta Description' %></td>
+                  <td data-toggle="tooltip" data-placement="bottom" title="Any description will be included within your brands directory page under it's meta description tag."><%= text_field_tag :brand_meta_description, @brand.brand_meta_description, class: "form-control" %></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :brand_meta_keywords, 'Brand Meta Keywords' %></td>
+                  <td data-toggle="tooltip" data-placement="bottom" title="Any keywords will be included within your brands directory page under it's meta keyword tag."><%= text_field_tag :brand_meta_keywords, @brand.brand_meta_keywords, class: "form-control" %></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :brand_meta_title, 'Brand Meta Title' %></td>
+                  <td data-toggle="tooltip" data-placement="bottom" title="Any title will be included within your brands directory page under it's title tag."><%= text_field_tag :brand_meta_title, @brand.brand_meta_title, class: "form-control" %></td>
                 </td>
               </tr>
             </tbody>
@@ -130,21 +178,27 @@
           <br>
           <p>Prior to adding your locations, please make sure your DNS routing is properly setup.</p>
           <br>
-          <p>To setup your DNS routing, simply create a masked redirect record pointing to your Custom DNS URL provided below.</p>
+          <p>To setup your DNS routing, create a CNAME record with the subdomain of your choosing. Direct your new to the DNS URL provided below.</p>
           <br>
 
            <table class="table table-hover">
             <tbody>  
               <tr>
                 <td>
-                  <td><%= label_tag :custom_dns_url, 'Custom DNS URL' %></td>
-                  <td data-toggle="tooltip" data-placement="bottom" title="Point your masked redirect to this domain."><p class="form-control"><%= "http://" + @brand.brand_name_to_subdomain + ".nearr.me" %></p></td>
+                  <td><%= label_tag :custom_dns_url, 'DNS URL' %></td>
+                  <td data-toggle="tooltip" data-placement="bottom" title="Point your CNAME record to this URL."><p class="form-control">fierce-caverns-77919.herokuapp.com.</p></td>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <td><%= label_tag :brand_url, 'Brand Locations URL' %></td>
-                  <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="Input your brand url and the subdomain you plan to redirect your locations to.<br><br>Example: locations.mybranddomain.com"><%= text_field_tag :brand_url, @brand.brand_url, class: "form-control" %></td>
+                  <td><%= label_tag :brand_url, 'Brand URL' %></td>
+                  <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="Example: mybranddomain.com<br><br>Please only enter the bare domain. Do not include www. or http://"><%= text_field_tag :brand_url, @brand.brand_url, class: "form-control" %></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :brand_subdomain, 'Brand Subdomain' %></td>
+                  <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="Input the subdomain you plan to direct your locations to.<br><br>Example: locations"><%= text_field_tag :brand_subdomain, @brand.brand_subdomain, class: "form-control" %></td>
                 </td>
               </tr>
             </tbody>
@@ -153,6 +207,7 @@
       </div>
       </div>
       </div>
+
     </div>
 
       <div class="col-md-12">

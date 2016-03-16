@@ -192,7 +192,11 @@ class LocationsController < ApplicationController
 
     flash[:success] = "Message sent"
 
-    redirect_to "/#{@location.id}"
+    if @location.slug
+      redirect_to "/#{@location.slug}"
+    else
+      redirect_to "/#{@location.id}"
+    end
   end
 
   private

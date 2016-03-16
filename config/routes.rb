@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   # get '/' => 'locations#directory', :constraints => { :subdomain => 'locations' }, as: 'location_directory_subdomain'
   # get '/:id' => 'locations#show', :constraints => { :subdomain => "locations" }, as: 'location_subdomain'
   get '/:id' => 'locations#show', :constraints => { :subdomain => /^(?:(?!www).)*$/ }, as: 'location_subdomain'
-  post '/:id' => 'locations#send_mail', as: 'location_send_email'
 
   resources :brands, as: 'brands' do 
 
@@ -35,6 +34,8 @@ Rails.application.routes.draw do
       get '/contents' => 'contents#index'
     end
   end
+
+  post '/:id' => 'locations#send_mail', as: 'location_send_email'
 
   # get '/brands/:brand_id/locations' => 'locations#index', as: 'brand_location'
   # get '/brands/:brand_id/directory' => 'locations#directory', as: 'location_directory'

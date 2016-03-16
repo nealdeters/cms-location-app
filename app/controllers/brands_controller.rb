@@ -33,6 +33,7 @@ class BrandsController < ApplicationController
       brand_phone_number: params[:brand_phone_number],
       brand_industry: params[:brand_industry],
       brand_url: params[:brand_url],
+      brand_subdomain: params[:brand_subdomain],
       primary_color: params[:primary_color],
       secondary_color: params[:secondary_color],
       tertiary_color: params[:tertiary_color]
@@ -73,9 +74,15 @@ class BrandsController < ApplicationController
       brand_phone_number: params[:brand_phone_number],
       brand_industry: params[:brand_industry],
       brand_url: params[:brand_url],
+      brand_subdomain: params[:brand_subdomain],
       primary_color: params[:primary_color],
       secondary_color: params[:secondary_color],
-      tertiary_color: params[:tertiary_color]
+      tertiary_color: params[:tertiary_color],
+      brand_tagline_title: params[:brand_tagline_title],
+      brand_tagline_summary: params[:brand_tagline_summary],
+      brand_meta_description: params[:brand_meta_description],
+      brand_meta_keywords: params[:brand_meta_keywords],
+      brand_meta_title: params[:brand_meta_title]
       })
     
       flash[:info] = "Brand Updated"

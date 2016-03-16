@@ -122,14 +122,6 @@
                   <td><%= label_tag :zipcodes_served %></td>
                   <td><%= text_field_tag :zipcodes_served, @location.zipcodes_served, size: "75x10", class: "form-control" %></td>
             </tr>
-            <tr>
-                <td><%= label_tag :tagline_title %></td>
-                <td><%= text_field_tag :tagline_title, @location.tagline_title, size: "75x10", class: "form-control" %></td>
-            </tr>
-            <tr>
-                <td><%= label_tag :tagline_summary %></td>
-                <td><%= text_field_tag :tagline_summary, @location.tagline_summary, size: "75x10", class: "form-control" %></td>
-            </tr>
           </tbody>
         </table>
         </div>
@@ -144,23 +136,30 @@
         <table class="table table-hover">
           <tbody>  
             <tr>
-                <td><%= label_tag :meta_description %></td>
-                <td><%= text_area_tag :meta_description, @location.meta_description, size: "75x10", class: "form-control"  %></td>
+              <td><%= label_tag :meta_url, "Custom Location URL" %></td>
+              <td><%= text_field_tag :meta_url, @location.meta_url, size: "75x10", class: "form-control" %></td>
+            </tr>
+            <tr>
+                <td><%= label_tag :tagline_title %></td>
+                <td><%= text_field_tag :tagline_title, @location.tagline_title, size: "75x10", class: "form-control" %></td>
+            </tr>
+            <tr>
+                <td><%= label_tag :tagline_summary %></td>
+                <td><%= text_field_tag :tagline_summary, @location.tagline_summary, size: "75x10", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= label_tag :meta_description %></td>
+              <td><%= text_area_tag :meta_description, @location.meta_description, size: "75x10", class: "form-control"  %></td>
             </tr>
 
             <tr>
-                <td><%= label_tag :meta_keywords %></td>
-                <td><%= text_area_tag :meta_keywords, @location.meta_keywords, size: "75x10", class: "form-control" %></td>
+              <td><%= label_tag :meta_keywords %></td>
+              <td><%= text_area_tag :meta_keywords, @location.meta_keywords, size: "75x10", class: "form-control" %></td>
             </tr>
 
             <tr>
-                  <td><%= label_tag :meta_title %></td>
-                  <td><%= text_field_tag :meta_title, @location.meta_title, size: "75x10", class: "form-control" %></td>
-            </tr>
-
-            <tr>
-                  <td><%= label_tag :meta_url %></td>
-                  <td><%= text_field_tag :meta_url, @location.meta_url, size: "75x10", class: "form-control" %></td>
+              <td><%= label_tag :meta_title %></td>
+              <td><%= text_field_tag :meta_title, @location.meta_title, size: "75x10", class: "form-control" %></td>
             </tr>
           </tbody>
         </table>

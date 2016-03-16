@@ -5,7 +5,7 @@ class Brand < ActiveRecord::Base
   has_many :images, as: :imageable
   has_many :locations
 
-  validates :brand_name, :brand_address_1, :brand_city, :brand_state, :brand_zipcode, :brand_phone_number, :brand_url, presence: true
+  validates :brand_name, :brand_address_1, :brand_city, :brand_state, :brand_zipcode, :brand_phone_number, :brand_url, :brand_subdomain, presence: true
 
   def self.search(search)
     if Rails.env.production?

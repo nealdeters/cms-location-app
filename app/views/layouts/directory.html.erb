@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= @brand.brand_name %> - Directory</title>
-  
+  <% if !@brand.images.where(image_category: 'favicon').first.blank? %>
+    <link rel="icon" type="image/png" href="<%= @brand.images.where(image_category: 'favicon').first.image.url %>">
+  <% else %>
+
+  <title><%= @brand.brand_meta_title %></title>
+  <meta name="description" content="<%= @brand.brand_meta_description %>">
+  <meta name="keywords" content="<%= @brand.brand_meta_keywords %>">
+  <meta name="viewport" content="width=device-width">
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -12,34 +18,34 @@
 </head>
 <body id="location-page">
 
-    <!-- ******HEADER****** --> 
-    <header id="header" class="header">  
-        <div class="container">            
-            <h1 class="logo pull-left">
-                <a href="#promo">
-                  <% if @brand.images.where(image_category: 'logo').take %>  
-                    <span class="logo-title brand-logo"><img src="<%= @brand.images.where(image_category: 'logo').first.image.logo %>"></span>
-                  <% else %>
-                    <span class="logo-title"><%= @brand.brand_name %></span>
-                  <% end %>
-                </a>
-            </h1><!--//logo-->              
-            <nav id="main-nav" class="main-nav navbar-right" role="navigation">
-                <div class="navbar-header">
-                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button><!--//nav-toggle-->
-                </div><!--//navbar-header-->            
-                <div class="navbar-collapse collapse" id="navbar-collapse">
-                    <ul class="nav navbar-nav">
-                    </ul><!--//nav-->
-                </div><!--//navabr-collapse-->
-            </nav><!--//main-nav-->           
-        </div><!--//container-->
-    </header><!--//header-->
+  <!-- ******HEADER****** --> 
+  <header id="header" class="header">  
+      <div class="container">            
+          <h1 class="logo pull-left">
+              <a href="#promo">
+                <% if @brand.images.where(image_category: 'logo').take %>  
+                  <span class="logo-title brand-logo"><img src="<%= @brand.images.where(image_category: 'logo').first.image.logo %>"></span>
+                <% else %>
+                  <span class="logo-title"><%= @brand.brand_name %></span>
+                <% end %>
+              </a>
+          </h1><!--//logo-->              
+          <nav id="main-nav" class="main-nav navbar-right" role="navigation">
+              <div class="navbar-header">
+                  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button><!--//nav-toggle-->
+              </div><!--//navbar-header-->            
+              <div class="navbar-collapse collapse" id="navbar-collapse">
+                  <ul class="nav navbar-nav">
+                  </ul><!--//nav-->
+              </div><!--//navabr-collapse-->
+          </nav><!--//main-nav-->           
+      </div><!--//container-->
+  </header><!--//header-->
 
   
   <div class="container">
@@ -55,7 +61,10 @@
     <!-- ******PROMO****** --> 
     <section id="promo" class="promo section">  
         <div class="container intro">
-          
+          <% if !@brand.brand_tagline_title.blank? %>
+            <h2 class="title"><%= raw @brand.brand_tagline_title %></h2>
+            <p class="summary"><%= raw @brand.brand_tagline_summary %></p>
+          <% end %>
 
         </div><!--//intro-->
         
@@ -84,6 +93,8 @@
   <section class="content">
       <div class="container">
         <h1><%= @brand.brand_name %> Locations</h1>
+        <br>
+        <br>
         <div class="row">
 
         <% @locations.each do |location| %>
@@ -100,7 +111,8 @@
         </div><!-- /.row -->
       </div>
     </section>
-
+  <br>
+  <br>
   <div class="container">
     <!-- FOOTER -->
     <footer>

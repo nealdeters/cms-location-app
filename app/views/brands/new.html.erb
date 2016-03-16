@@ -16,9 +16,23 @@
     <div class="col-md-12">
       <h1>Add Brand</h1>
 
+      <ul class="nav nav-tabs" id="myTab">
+        <li class="active"><a data-target="#brand-info" data-toggle="tab">Brand Information</a></li>
+        <li><a data-target="#colors" data-toggle="tab">Brand Colors</a></li>
+        <li><a data-target="#dns" data-toggle="tab">DNS Settings</a></li>
+      </ul>
+
       <%= form_tag brands_path, class: "form-group", method: :post do %>
-      <div class="col-md-12">
-        <div class="col-md-6">
+      
+    <div class="tab-content">
+
+    <div class="tab-pane active" id="brand-info"> 
+      <div class="row">
+      <div class="container">
+       <!-- <div class="col-md-12"> -->
+       <br>
+       <h3>Brand Information</h3>
+          <div class="col-md-12">
            <table class="table table-hover">
             <tbody>  
               <tr>
@@ -57,47 +71,95 @@
                   <td><%= text_field_tag :brand_zipcode, @brand.brand_zipcode, class: "form-control" %></td>
                 </td>
               </tr>
-            </tbody>
-          </table>
-        </div>
-
-         <div class="col-md-6">
-           <table class="table table-hover">
-            <tbody>  
               <tr>
                 <td>
                   <td><%= label_tag :phone_number %></td>
                   <td><%= text_field_tag :brand_phone_number, @brand.brand_phone_number, class: "form-control" %></td>
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <td><%= label_tag :brand_url %></td>
-                  <td><%= text_field_tag :brand_url, @brand.brand_url, class: "form-control" %></td>
-                </td>
-              </tr>
-              <tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+      </div>
+
+      <div class="tab-pane" id="colors">
+        <div class="row">
+        <div class="container">
+        <div class="col-md-12">
+          <br>
+          <h3>Brand Colors</h3>
+          <br>
+          <p>In order to better customize your location pages, please include three primary colors of your brand.</p>
+          <br>
+
+           <table class="table table-hover">
+            <tbody>  
                 <td>
                   <td><%= label_tag :primary_brand_color %></td>
-                  <td data-toggle="tooltip" data-placement="bottom" title="Add a 6 digit hexidecimal value"><%= text_field_tag :secondary_color, @brand.secondary_color, class: "form-control" %></td>
+                  <td data-toggle="tooltip" data-placement="bottom" title="Add a 6 digit hexidecimal value. Include the # character."><%= text_field_tag :primary_color, @brand.primary_color, class: "form-control" %></td>
                 </td>
               </tr>
               <tr>
                 <td>
                   <td><%= label_tag :secondary_brand_color %></td>
-                  <td data-toggle="tooltip" data-placement="bottom" title="Add a 6 digit hexidecimal value"><%= text_field_tag :primary_color, @brand.primary_color, class: "form-control" %></td>
+                  <td data-toggle="tooltip" data-placement="bottom" title="Add a 6 digit hexidecimal value. Include the # character."><%= text_field_tag :secondary_color, @brand.secondary_color, class: "form-control" %></td>
                 </td>
               </tr>
+              
               <tr>
                 <td>
                   <td><%= label_tag :tertiary_brand_color %></td>
-                  <td data-toggle="tooltip" data-placement="bottom" title="Add a 6 digit hexidecimal value"><%= text_field_tag :tertiary_color, @brand.tertiary_color, class: "form-control" %></td>
+                  <td data-toggle="tooltip" data-placement="bottom" title="Add a 6 digit hexidecimal value. Include the # character."><%= text_field_tag :tertiary_color, @brand.tertiary_color, class: "form-control" %></td>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
+      </div>
+      </div>
+
+      <div class="tab-pane" id="dns">
+        <div class="row">
+        <div class="container">
+        <div class="col-md-12">
+          <br>
+          <h3>DNS Settings</h3>
+          <br>
+          <p>Prior to adding your locations, please make sure your DNS routing is properly setup.</p>
+          <br>
+          <p>To setup your DNS routing, create a CNAME record with the subdomain of your choosing. Direct your new to the DNS URL provided below.</p>
+          <br>
+
+           <table class="table table-hover">
+            <tbody>  
+              <tr>
+                <td>
+                  <td><%= label_tag :custom_dns_url, 'DNS URL' %></td>
+                  <td data-toggle="tooltip" data-placement="bottom" title="Point your CNAME record to this URL."><p class="form-control">fierce-caverns-77919.herokuapp.com.</p></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :brand_url, 'Brand URL' %></td>
+                  <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="Example: mybranddomain.com<br><br>Please only enter the bare domain. Do not include www. or http://"><%= text_field_tag :brand_url, @brand.brand_url, class: "form-control" %></td>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <td><%= label_tag :brand_subdomain, 'Brand Subdomain' %></td>
+                  <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="Input the subdomain you plan to direct your locations to.<br><br>Example: locations"><%= text_field_tag :brand_subdomain, @brand.brand_subdomain, class: "form-control" %></td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+      </div>
+    </div>
 
       <div class="col-md-12">
         <%= submit_tag 'Add Brand', class: "btn btn-cta-cms-search btn-xs"%>
