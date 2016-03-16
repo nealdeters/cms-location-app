@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
   before_action :load_brand, :except => [:show, :send_mail]
   before_action :authenticate_user!, :only => [:index, :directory, :new, :create, :edit, :update, :destroy]
   before_action :restrict_location_pages, :only => :show
-  before_action :restrict_directory_page, :only => :directory
+  before_action :restrict_directory_page
   layout :resolve_layout
 
   def index
@@ -212,8 +212,6 @@ class LocationsController < ApplicationController
   end
 
   def restrict_directory_page
-    byebug
-    
     @brand_url = Brand.find_by(brand_url: request.domain)
 
     if @brand_url
