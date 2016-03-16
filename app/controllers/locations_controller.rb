@@ -47,19 +47,9 @@ class LocationsController < ApplicationController
 
   end
 
-  def directory
-    @locations = Location.friendly.find(params[:id]).brands.locations.all
-    @states = []
-
-    @locations.each do |location|
-      @states << location.state
-    end 
-
-    @states = @states.uniq!
-    @states.sort_by!{ |state| state }
-
-    render template: "layouts/directory"
-  end
+  # def directory
+    
+  # end
 
   def new
     @location = Location.new
@@ -102,10 +92,23 @@ class LocationsController < ApplicationController
   end
 
   def show
+    if params[:id] == "directory"
+      @locations = Location.friendly.find(params[:id]).brands.locations.all
+      @states = []
 
-    @location = Location.friendly.find(params[:id])
+      @locations.each do |location|
+        @states << location.state
+      end 
 
-    render :layout => 'webpage'
+      @states = @states.uniq!
+      @states.sort_by!{ |state| state }
+
+      render template: "layouts/directory"
+    else
+      @location = Location.friendly.find(params[:id])
+
+      render :layout => 'webpage'
+    end
   end
 
   def edit
