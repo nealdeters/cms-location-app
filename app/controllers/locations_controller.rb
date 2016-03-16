@@ -198,7 +198,7 @@ class LocationsController < ApplicationController
 
     flash[:success] = "Message sent"
 
-    redirect_to "/<%= @location.id %>"
+    redirect_to "/#{@location.id}"
   end
 
   private
