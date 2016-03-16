@@ -98,14 +98,8 @@ class LocationsController < ApplicationController
 
       if @brand
         @locations = @brand.locations.all
-        @states = []
 
-        @locations.each do |location|
-          @states << location.state
-        end 
-
-        @states = @states.uniq!
-        @states.sort_by!{ |state| state }
+        @locations.sort_by!{ |location| location }
 
         render layout: "directory"
       end

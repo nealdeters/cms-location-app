@@ -86,9 +86,9 @@
         <h1><%= @brand.brand_name %> Locations</h1>
         <div class="row">
 
-        <% @states.each_with_index do |state, index| %>
+        <% @locations.each_with_index do |location, index| %>
           <div class="col-lg-4">
-            <p><a href=""><%= state %></a></p>
+            <p><a href=""><%= location %></a></p>
           </div><!-- /.col-lg-4 -->
         <% end %>
 
