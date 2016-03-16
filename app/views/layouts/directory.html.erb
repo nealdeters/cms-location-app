@@ -86,9 +86,13 @@
         <h1><%= @brand.brand_name %> Locations</h1>
         <div class="row">
 
-        <% @locationsArray.each_with_index do |location, index| %>
+        <% @locations.each do |location| %>
           <div class="col-lg-4">
-            <p><a href=""><%= location.business_name %></a></p>
+            <% if location.slug %>
+              <p><a href="/<%= location.slug} %>"><%= location.business_name %></a></p>
+            <% else %>
+              <p><a href="/<%= location.id} %>"><%= location.business_name %></a></p>
+            <% end %>
           </div><!-- /.col-lg-4 -->
         <% end %>
 

@@ -98,13 +98,6 @@ class LocationsController < ApplicationController
 
       if @brand
         @locations = @brand.locations.all
-        @locationsArray = []
-
-        @locations.each do |location|
-          @locationsArray << location
-        end 
-
-        @locationsArray = @locationsArray.sort{ |location| location }
 
         render layout: "directory"
       end
