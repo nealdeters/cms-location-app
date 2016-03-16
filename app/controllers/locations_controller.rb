@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
   before_action :load_brand, :except => [:show, :send_mail]
   before_action :authenticate_user!, :only => [:index, :directory, :new, :create, :edit, :update, :destroy]
   # before_action :restrict_location_pages, :only => :show
-  layout :resolve_layout
+  layout :cms_locations_layout, except: :show
 
   def index
 
@@ -206,23 +206,5 @@ class LocationsController < ApplicationController
   def load_brand
     @brand = Brand.find(params[:brand_id])
   end
-
-  def resolve_layout
-    case action_name
-    when "index", "edit", "new", "create", "import_export"
-      "cms_locations_layout"
-    when "directory"
-      "directory"
-    end
-  end
-
-  # def restrict_location_pages
-
-  #   @location = Location.friendly.find(params[:id])
-
-  #   if request.domain != @location.brand.brand_url
-  #     render :file => "#{Rails.root}/public/404.html",  :status => 404
-  #   end
-  # end
 
 end
