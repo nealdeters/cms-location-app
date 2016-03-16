@@ -29,10 +29,10 @@
           <td class="hidden-xs">{{ location.created_at }}</td>
           <td>
             <div ng-hide="location.slug">
-              <a ng-href="http://{{ location.brand_subdomain }}.{{ location.brand_url }}/{{ location.id }}" class="btn btn-cta-cms-view btn-xs">View</a>
+              <a ng-href="http://{{ location.brand_subdomain }}.{{ location.brand_url }}/{{ location.id }}" class="btn btn-cta-cms-view btn-xs" target="_blank">View</a>
             </div>
             <div ng-hide="!location.slug">
-              <a ng-href="http://{{ location.brand_subdomain }}.{{ location.brand_url }}/{{ location.slug }}" class="btn btn-cta-cms-view btn-xs">View</a>
+              <a ng-href="http://{{ location.brand_subdomain }}.{{ location.brand_url }}/{{ location.slug }}" class="btn btn-cta-cms-view btn-xs" target="_blank">View</a>
             </div>
           </td>
           <td>
