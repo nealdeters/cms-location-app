@@ -42,12 +42,6 @@ class Location < ActiveRecord::Base
     end # end CSV.foreach
   end
 
-  def phone_number_call
-    h = {"-" => "","(" => "", ")" =>"", "." => "" }
-    new_phone = phone_number.gsub(/\w+/) { |m| h.fetch(m,m)}
-    new_phone
-  end
-
   def location_updated_at
     self.updated_at.strftime("%e %b %Y %I:%M%p")
   end
