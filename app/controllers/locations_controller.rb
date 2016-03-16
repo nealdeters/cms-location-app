@@ -104,7 +104,7 @@ class LocationsController < ApplicationController
           @locationsArray << location
         end 
 
-        @locationsArray.sort_by!{ |location| location }
+        @locationsArray.sort!{ |location| location }
 
         render layout: "directory"
       end
