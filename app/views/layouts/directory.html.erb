@@ -131,6 +131,18 @@
         <br>
         <div class="row">
 
+        <% @states.each do |state| %>
+          <h3><%= state %></h3>
+            <ul>
+              <li>
+                <% @cities.each do |city| %>
+                  <li><h4><% city %><h4><li>
+                    
+                <% end %>
+              </li>
+            </ul>
+        <% end %>
+
         <% @locations.each do |location| %>
           <div class="col-lg-4">
             <% if location.slug %>

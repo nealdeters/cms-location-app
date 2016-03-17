@@ -99,6 +99,17 @@ class LocationsController < ApplicationController
       if @brand
         @locations = @brand.locations.all
 
+        @states = []
+        @cities = []
+
+        @locations.each do |location|
+          @states << location.state
+          @cities << location.city
+        end
+
+        @states = @states.uniq!
+        @cities = @cities.uniq!
+
         render layout: "directory"
       end
     else

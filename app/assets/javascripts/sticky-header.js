@@ -7,8 +7,6 @@ $(document).ready(function() {
            $('#header-cms').addClass('navbar-fixed-top');
 
 
-       } else if ($(document).height() < 1000) {
-
        } else {
           var loc = window.location.href; // returns the full URL
           
