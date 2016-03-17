@@ -11,7 +11,8 @@ Rails.application.configure do
   config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
   # Precompile additional assets
-  config.assets.precompile += %w( .svg .eot .woff .ttf )
+  # config.assets.precompile += %w( .svg .eot .woff .ttf )
+  config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
