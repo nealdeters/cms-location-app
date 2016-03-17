@@ -104,7 +104,7 @@ class LocationsController < ApplicationController
 
         @locations.each do |location|
           @states << location.state
-          @cities << location.city
+          @cities << { "city": [{ "location": [location] }]}
         end
 
         @states.uniq!

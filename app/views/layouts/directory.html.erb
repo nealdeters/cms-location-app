@@ -133,14 +133,16 @@
 
         <% @states.each do |state| %>
           <h3><%= state %></h3>
-            <ul>
-              <li>
-                <% @cities.each do |city| %>
-                  <li><h4><%= city %><h4><li>
-                    
-                <% end %>
-              </li>
-            </ul>
+            <% @cities.each do |city| %>
+              <uL>
+                <li>
+                  <h4><%= city[:city] %><h4>
+                    <li>
+                      <a><%= city[:city][:location] %></a>
+                    </li>
+                <li>
+              </ul>
+            <% end %>
         <% end %>
 
         <% @locations.each do |location| %>
