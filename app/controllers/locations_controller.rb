@@ -107,8 +107,8 @@ class LocationsController < ApplicationController
           @cities << location.city
         end
 
-        @states = @states.uniq!
-        @cities = @cities.uniq!
+        @states.uniq!
+        @cities.uniq!
 
         render layout: "directory"
       end
