@@ -136,9 +136,9 @@
             <% @cities.each do |city| %>
               <uL>
                 <li>
-                  <h4><%= city[:city] %><h4>
+                  <h4><%= city["city"] %><h4>
                     <li>
-                      <a><%= city[:city][:location] %></a>
+                      <a><%= city["city"]["location"] %></a>
                     </li>
                 <li>
               </ul>
