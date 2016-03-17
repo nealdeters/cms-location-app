@@ -12,6 +12,8 @@ $(document).ready(function() {
           
           if(/contact/.test(loc)) {
             
+          } else if {
+            
           } else {
             $('#header').removeClass('navbar-fixed-top');
             $('#header-cms').removeClass('navbar-fixed-top');
