@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316044954) do
+ActiveRecord::Schema.define(version: 20160317170856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20160316044954) do
     t.string   "meta_url",             limit: 255
     t.string   "phone_number",         limit: 255
     t.integer  "brand_id"
-    t.string   "type",                 limit: 255
+    t.string   "category",             limit: 255
     t.float    "latitude"
     t.float    "longitude"
     t.string   "tagline_title",        limit: 255
