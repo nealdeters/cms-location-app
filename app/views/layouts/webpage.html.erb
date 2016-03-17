@@ -383,7 +383,7 @@
     <footer>
       <!-- <p class="pull-right"><a href="#">Back to top</a></p> -->
       <p>&copy; <%= Time.now.year %> <%= @location.brand.brand_name %> <!-- &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> --></p>
-      <p><a href="<%= @location.subdomain + "." + @location.brandurl + "/directory" %>">Locations</a></p>
+      <p><a href="<%= @location.brand.brand_subdomain + "." + @location.brand.brandurl + "/directory" %>">Locations</a></p>
     </footer>
   </div><!-- /.container -->
 
