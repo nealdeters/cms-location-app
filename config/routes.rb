@@ -35,8 +35,6 @@ Rails.application.routes.draw do
     end
   end
 
-  post '/:id' => 'locations#send_mail', as: 'location_send_email'
-
   # get '/brands/:brand_id/locations' => 'locations#index', as: 'brand_location'
   # get '/brands/:brand_id/directory' => 'locations#directory', as: 'location_directory'
   # get '/brands/:brand_id/content' => 'contents#index', as: 'brand_content'
@@ -75,6 +73,8 @@ Rails.application.routes.draw do
 
   # Contact Email Page
   post '/contact' => 'pages#contact_email', as: 'contact_email'
+
+  post '/:id' => 'locations#send_mail', as: 'location_send_email'
 
   #static pages
   root "pages#show", page: "home", as: 'home'

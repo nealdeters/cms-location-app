@@ -11,18 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311004127) do
+ActiveRecord::Schema.define(version: 20160316044954) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "brand_users", force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "brand_id",   limit: 4
-    t.integer  "user_id",    limit: 4
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "brand_id"
+    t.integer  "user_id"
   end
 
   create_table "brands", force: :cascade do |t|
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "brand_name",                 limit: 255
     t.string   "brand_address_1",            limit: 255
     t.string   "brand_address_2",            limit: 255
@@ -30,29 +33,34 @@ ActiveRecord::Schema.define(version: 20160311004127) do
     t.string   "brand_state",                limit: 255
     t.string   "brand_zipcode",              limit: 255
     t.string   "brand_phone_number",         limit: 255
-    t.text     "brand_business_description", limit: 65535
-    t.text     "brand_service_description",  limit: 65535
+    t.text     "brand_business_description"
+    t.text     "brand_service_description"
     t.string   "brand_industry",             limit: 255
     t.string   "primary_color",              limit: 255
     t.string   "secondary_color",            limit: 255
     t.string   "tertiary_color",             limit: 255
     t.string   "brand_url",                  limit: 255
     t.string   "brand_subdomain",            limit: 255
+    t.string   "brand_tagline_title"
+    t.string   "brand_tagline_summary"
+    t.string   "brand_meta_description"
+    t.string   "brand_meta_keywords"
+    t.string   "brand_meta_title"
   end
 
   create_table "contents", force: :cascade do |t|
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "content_name",     limit: 255
     t.string   "content_category", limit: 255
-    t.integer  "contentable_id",   limit: 4
+    t.integer  "contentable_id"
     t.string   "contentable_type", limit: 255
-    t.text     "content_field",    limit: 65535
+    t.text     "content_field"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
-    t.integer  "sluggable_id",   limit: 4,   null: false
+    t.integer  "sluggable_id",               null: false
     t.string   "sluggable_type", limit: 50
     t.string   "scope",          limit: 255
     t.datetime "created_at"
@@ -66,7 +74,7 @@ ActiveRecord::Schema.define(version: 20160311004127) do
   create_table "images", force: :cascade do |t|
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.integer  "imageable_id",   limit: 4
+    t.integer  "imageable_id"
     t.string   "imageable_type", limit: 255
     t.string   "image_name",     limit: 255
     t.string   "image_category", limit: 255
@@ -75,8 +83,8 @@ ActiveRecord::Schema.define(version: 20160311004127) do
   end
 
   create_table "locations", force: :cascade do |t|
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "business_name",        limit: 255
     t.string   "address_1",            limit: 255
     t.string   "address_2",            limit: 255
@@ -84,8 +92,8 @@ ActiveRecord::Schema.define(version: 20160311004127) do
     t.string   "state",                limit: 255
     t.string   "zipcode",              limit: 255
     t.string   "hours_of_operation",   limit: 255
-    t.text     "business_description", limit: 65535
-    t.text     "service_description",  limit: 65535
+    t.text     "business_description"
+    t.text     "service_description"
     t.string   "areas_served",         limit: 255
     t.string   "zipcodes_served",      limit: 255
     t.string   "languages",            limit: 255
@@ -94,10 +102,10 @@ ActiveRecord::Schema.define(version: 20160311004127) do
     t.string   "meta_title",           limit: 255
     t.string   "meta_url",             limit: 255
     t.string   "phone_number",         limit: 255
-    t.integer  "brand_id",             limit: 4
+    t.integer  "brand_id"
     t.string   "type",                 limit: 255
-    t.float    "latitude",             limit: 24
-    t.float    "longitude",            limit: 24
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "tagline_title",        limit: 255
     t.string   "tagline_summary",      limit: 255
     t.string   "email",                limit: 255
@@ -112,7 +120,7 @@ ActiveRecord::Schema.define(version: 20160311004127) do
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
