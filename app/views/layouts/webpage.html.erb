@@ -121,7 +121,7 @@
                     <ul class="nav navbar-nav">
 
                       <li class="nav-item">
-                        <a href="<%= "www." + @location.brand.brand_url %>">Home</a>
+                        <a href="http://<%= @location.brand.brand_url %>">Home</a>
                       </li>
 
                       <% if !@location.business_description.blank? %>
@@ -137,7 +137,7 @@
                       <% end %> 
 
                       <li class="nav-item">
-                        <a href="<%= @location.brand.brand_subdomain + "." + @location.brand.brand_url + "/directory" %>">Locations</a>
+                        <a href="http://<%= @location.brand.brand_subdomain + "." + @location.brand.brand_url + "/directory" %>">Locations</a>
                       </li>
 
                       <% if !@location.email.blank? %>
