@@ -120,6 +120,10 @@
                 <div class="navbar-collapse collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav">
 
+                      <li class="nav-item">
+                        <a href="<%= "www." + @location.brand.brand_url %>">Home</a>
+                      </li>
+
                       <% if !@location.business_description.blank? %>
                         <li class="nav-item"><a href="#about">About</a></li>
                       <% end %>
@@ -131,6 +135,10 @@
                       <% if !@location.areas_served.blank? %>
                         <li class="nav-item"><a href="#areas">Areas Served</a></li>  
                       <% end %> 
+
+                      <li class="nav-item">
+                        <a href="<%= @location.brand.brand_subdomain + "." + @location.brand.brand_url + "/directory" %>">Locations</a>
+                      </li>
 
                       <% if !@location.email.blank? %>
                         <li class="nav-item nav-item-cta last">
@@ -384,7 +392,6 @@
       <!-- <p class="pull-right"><a href="#">Back to top</a></p> -->
       <p>
         &copy; <%= Time.now.year %> <%= @location.brand.brand_name %> <!-- &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> -->
-        <a href="<%= @location.brand.brand_subdomain + "." + @location.brand.brand_url + "/directory" %>" class="pull-right">Locations</a>
       </p>
     </footer>
   </div><!-- /.container -->
