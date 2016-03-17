@@ -12,8 +12,8 @@ $(document).ready(function() {
           
           if(/contact/.test(loc)) {
             
-          } else if {
-            
+          } else if ($('.ng-scrope').height() < 1000) {
+
           } else {
             $('#header').removeClass('navbar-fixed-top');
             $('#header-cms').removeClass('navbar-fixed-top');
