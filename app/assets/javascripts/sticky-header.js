@@ -12,7 +12,7 @@ $(document).ready(function() {
           
           if(/contact/.test(loc)) {
             
-          } else if ($('.ng-scrope').height() < 1000) {
+          } else if ($('.ng-scope').height() < 1000) {
 
           } else {
             $('#header').removeClass('navbar-fixed-top');
