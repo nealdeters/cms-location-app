@@ -133,15 +133,9 @@
         <%= @state_hsh.each do |state| %>
         <h3><%= state[0] %></h3>
           <ul>
-            <li>
-              <h4>
-                
-              <h4>
-                <li>
-                  
-                </li>
-                
-            <li>
+            <%= state[1].each do |city| %>
+              <li><%= city[0] %></li>
+            <% end %>
           </ul>
         <% end %>
 
