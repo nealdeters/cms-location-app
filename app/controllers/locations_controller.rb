@@ -113,6 +113,7 @@ class LocationsController < ApplicationController
         # @cities.uniq!
 
         render layout: "directory"
+      end
     else
       @location = Location.friendly.find(params[:id])
 
