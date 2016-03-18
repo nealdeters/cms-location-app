@@ -99,6 +99,8 @@ class LocationsController < ApplicationController
       if @brand
         @locations = Hash[@brand.locations.all.group_by(&:state).map{|k,v| [k, v.group_by(&:city)]}]
 
+        end
+
         render layout: "directory"
       end
     else
