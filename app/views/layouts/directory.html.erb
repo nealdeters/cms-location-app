@@ -137,6 +137,12 @@
                 <% state[1].each do |city| %>
                 <li>
                   <%= city[0] %>
+
+                  <%= city[1].each do |name| %>
+                  <li>
+                    <%= name.business_name %>
+                  </li>
+                  <% end %>
                 </li>
                 <% end %>
               </ul>
