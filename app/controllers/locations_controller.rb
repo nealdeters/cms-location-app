@@ -97,9 +97,18 @@ class LocationsController < ApplicationController
       @brand = Brand.find_by(brand_url: request.domain)
 
       if @brand
-        # @locations = @brand.locations.all
+        @locations = @brand.locations.all
 
-        @locations = Hash.new([@brand.locations.all.group_by(&:state).map{|k,v| [k, v.group_by(&:city)]}])
+        @state_hsh = {}
+        @city_hsh = {}
+
+        @locations.each do |location|
+          city_hsh[location.city] ||= []
+          city_hsh[location.city] << location
+          state_hsh[location.state] = city_hsh
+        end
+
+        # @locations = Hash.new([@brand.locations.all.group_by(&:state).map{|k,v| [k, v.group_by(&:city)]}])
 
         # @states = []
         # @cities = []
