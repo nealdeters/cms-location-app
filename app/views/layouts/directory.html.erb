@@ -130,19 +130,13 @@
         <br>
         <br>
         <div class="row">
-        <%= @state_hsh.each do |state| %>
-        <h3><%= state[0] %></h3>
+        <% @locations.each do |location| %>
+          <h3><%= location[0] %></h3>
           <ul>
-            <%= state[1].each do |city| %>
-              <li>
-                <%= city[0] %>
-
-                <li>
-                  <% city[1].each do |array| %>
-                    <%= array[1] %>
-                  <% end %>
-                </li>
-              </li>
+            <%= location[1].each do |city| %>
+            <li>
+              <%= city %>
+            </li>
             <% end %>
           </ul>
         <% end %>
