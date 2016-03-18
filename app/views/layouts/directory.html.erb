@@ -130,12 +130,18 @@
         <br>
         <br>
         <div class="row">
-          <% @locations.each do |location| %>
-            <h3><%= location[0] %></h3>
-            <ul>
-              
-            </ul>
-          <% end %>
+          <div class="container">
+            <% @locations.each do |state| %>
+              <h3><%= state[0] %></h3>
+              <ul>
+                <% location[1].each do |city| %>
+                <li>
+                  <%= city[0] %>
+                </li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
         </div><!-- /.row -->
       </div>
     </section>
