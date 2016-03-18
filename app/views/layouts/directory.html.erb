@@ -131,14 +131,13 @@
         <br>
         <div class="row">
 
-        <% @states.each do |state| %>
-          <h3><%= state %></h3>
-            <% @cities.each do |city| %>
-              <uL>
+        <% @locations.each do |location| %>
+          <h3><%= location[:state] %></h3>
+              <ul>
                 <li>
-                  <h4><%= city %><h4>
+                  <h4><%= location[:state][:city] %><h4>
                     <li>
-                      <a></a>
+                      <a><%= location[:state][:city][:locations] %></a>
                     </li>
                 <li>
               </ul>

@@ -99,16 +99,18 @@ class LocationsController < ApplicationController
       if @brand
         @locations = @brand.locations.all
 
-        @states = []
-        @cities = []
+        @locations = Hash[@locations.group_by(&:state).map{|k,v| [k, v.group_by(&:city)]}]
 
-        @locations.each do |location|
-          @states << location.state
-          @cities << {}
-        end
+        # @states = []
+        # @cities = []
 
-        @states.uniq!
-        @cities.uniq!
+        # @locations.each do |location|
+        #   @states << location.state
+        #   @cities << {}
+        # end
+
+        # @states.uniq!
+        # @cities.uniq!
 
         render layout: "directory"
       end
