@@ -138,8 +138,10 @@
                 <%= city[0] %>
 
                 <li>
-                  <%= city[1].each do |location| %>
-                    <%= location[0] %>
+                  <%= city[1].each do |array| %>
+                    <%= array[0].each do |location| %>
+                      <%= location.business_name %>
+                    <% end %>
                   <% end %>
                 </li>
               </li>
