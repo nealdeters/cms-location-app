@@ -130,9 +130,20 @@
         <br>
         <br>
         <div class="row">
-
-        <%= @state_hsh %>
-        <%= @city_hsh %>
+        <%= @state_hsh.each do |state| %>
+        <h3><%= state[0] %></h3>
+          <ul>
+            <li>
+              <h4>
+                
+              <h4>
+                <li>
+                  
+                </li>
+                <% end %>
+            <li>
+          </ul>
+        <% end %>
 
         <% @locations.each do |location| %>
           <div class="col-lg-4">
