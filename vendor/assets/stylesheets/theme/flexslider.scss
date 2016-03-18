@@ -24,11 +24,11 @@
 /* Font-face Icons */
 @font-face {
 	font-family: 'flexslider-icon';
-	src:  font_url('fonts/flexslider-icon.eot');
-	src:  font_url('fonts/flexslider-icon.eot?#iefix') format('embedded-opentype'),
-		    font_url('fonts/flexslider-icon.woff') format('woff'),
-		    font_url('fonts/flexslider-icon.ttf') format('truetype'),
-		    font_url('fonts/flexslider-icon.svg#flexslider-icon') format('svg');
+	src:  font-url('fonts/flexslider-icon.eot');
+	src:  font-url('fonts/flexslider-icon.eot?#iefix') format('embedded-opentype'),
+		    font-url('fonts/flexslider-icon.woff') format('woff'),
+		    font-url('fonts/flexslider-icon.ttf') format('truetype'),
+		    font-url('fonts/flexslider-icon.svg#flexslider-icon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
