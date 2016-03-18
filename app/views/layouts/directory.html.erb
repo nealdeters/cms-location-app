@@ -132,13 +132,16 @@
         <div class="row">
 
         <% @locations.each do |location| %>
-          <h3><%= location[:state] %></h3>
+          <h3><%= location[0] %></h3>
               <ul>
                 <li>
-                  <h4><%= location[:state][:city] %><h4>
+                  <h4>
+                    <%= location[1].each do |city| %>
+                  <h4>
                     <li>
-                      <a><%= location[:state][:city][:locations] %></a>
+                      <a><%= city[0] %></a>
                     </li>
+                    <% end %>
                 <li>
               </ul>
             <% end %>
