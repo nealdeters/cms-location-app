@@ -400,7 +400,7 @@
     <a href="tel:<%= @location.phone_number %>">
       <ul id="mobile-phonecall">
         <li>
-          <span class="glyph-phone glyphicon glyphicon-earphone"></span>
+          <span><%= image_tag "phone.png", height: "50", width: "50" %></span>
           <br>
           <span class="mobile-span">Call Now</span>
         </li>
@@ -409,7 +409,7 @@
     <a href="http://maps.google.com/maps?f=d&source=s_d&saddr=&daddr=<%= @location.full_address %>">
       <ul id="mobile-directions">
         <li>
-          <span class="glyph-phone glyphicon glyphicon-map-marker"></span>
+          <span><%= image_tag "directions.png", height: "50", width: "50" %></span>
           <br>
           <span class="mobile-span">Directions</span>
         </li>
