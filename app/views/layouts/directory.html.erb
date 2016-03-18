@@ -134,7 +134,15 @@
         <h3><%= state[0] %></h3>
           <ul>
             <%= state[1].each do |city| %>
-              <li><%= city[0] %></li>
+              <li>
+                <%= city[0] %>
+
+                <li>
+                  <%= city[1].each do |location| %>
+                    <%= location[0] %>
+                  <% end %>
+                </li>
+              </li>
             <% end %>
           </ul>
         <% end %>
