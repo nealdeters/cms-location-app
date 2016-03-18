@@ -97,21 +97,22 @@ class LocationsController < ApplicationController
       @brand = Brand.find_by(brand_url: request.domain)
 
       if @brand
-        @locations = @brand.locations.all
+        # @locations = @brand.locations.all
 
-        @states = []
-        @cities = []
+        @locations = Hash.new([@brand.locations.all.group_by(&:state).map{|k,v| [k, v.group_by(&:city)]}])
 
-        @locations.each do |location|
-          @states << location.state
-          @cities << {}
-        end
+        # @states = []
+        # @cities = []
 
-        @states.uniq!
-        @cities.uniq!
+        # @locations.each do |location|
+        #   @states << location.state
+        #   @cities << {}
+        # end
+
+        # @states.uniq!
+        # @cities.uniq!
 
         render layout: "directory"
-      end
     else
       @location = Location.friendly.find(params[:id])
 
