@@ -137,7 +137,7 @@
                 <% state[1].each do |city| %>
                   <li>
                     <%= city[0] %>
-
+                  </li>
                     <%= city[1].each do |location| %>
                       <div class="col-lg-4">
                         <% if location.slug %>
@@ -147,7 +147,6 @@
                         <% end %>
                       </div><!-- /.col-lg-4 -->
                     <% end %>
-                  </li>
                 <% end %>
               </ul>
             <% end %>
