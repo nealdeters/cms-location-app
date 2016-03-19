@@ -87,7 +87,7 @@
                 </tr>
                 <tr>
                   <td><%= label_tag :hours_of_operation %></td>
-                  <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="Proper Hours Formatting:<br><br>List out your hours from Mon-Sun, seperating each day by semicolons.<br><br> 9:00am-5:00pm;9:00am-5:00pm;9:00am-5:00pm;9:00am-5:00pm;9:00am-5:00pm;Closed;Closed"><%= text_field_tag :hours_of_operation, @location.hours_of_operation, class: "form-control" %></td>
+                  <td data-toggle="tooltip" data-html="true" data-placement="bottom" title="Proper Hours Formatting:<br><br>List out your hours from Mon-Sun, seperating each day by semicolons.<br><br> 9:00am-5:00pm;9:00am-5:00pm;9:00am-5:00pm;9:00am-5:00pm;9:00am-5:00pm;Closed;Closed"><%= text_area_tag :hours_of_operation, @location.hours_of_operation, class: "form-control", size: "75x5" %></td>
                 </tr>
               </tbody>
             </table>

@@ -147,7 +147,7 @@
               <tr>
                 <td>
                   <td><%= label_tag :brand_meta_description, 'Brand Meta Description' %></td>
-                  <td data-toggle="tooltip" data-placement="bottom" title="Any description will be included within your brands directory page under it's meta description tag."><%= text_field_tag :brand_meta_description, @brand.brand_meta_description, class: "form-control" %></td>
+                  <td data-toggle="tooltip" data-placement="bottom" title="Any description will be included within your brands directory page under it's meta description tag."><%= text_area_tag :brand_meta_description, @brand.brand_meta_description, class: "form-control", size: "75x10" %></td>
                 </td>
               </tr>
               <tr>
