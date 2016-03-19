@@ -6,6 +6,7 @@ class Brand < ActiveRecord::Base
   has_many :locations
 
   validates :brand_name, :brand_address_1, :brand_city, :brand_state, :brand_zipcode, :brand_phone_number, :brand_url, :brand_subdomain, presence: true
+  validates_uniqueness_of :brand_name
 
   def self.search(search)
     if Rails.env.production?
