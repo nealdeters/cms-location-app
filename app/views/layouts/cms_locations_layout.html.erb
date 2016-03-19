@@ -118,14 +118,23 @@
                 
                 <% if current_page?(brand_locations_path(@brand.id)) %> 
                   <%= link_to "Add new location", new_brand_location_path, class: "btn btn-cta-cms btn-xs pull-right" %>
+
+                  <br>
+                  <br>
+                  <input class="form-control visible-xs visible-sm" placeholder="<%= @searchPlaceholder %>" ng-model="searchFilter">
                 <% elsif current_page?(brand_images_path(@brand.id)) %>
                   <%= link_to "Add new image", new_brand_image_path(@brand), class: "btn btn-cta-cms btn-xs pull-right" %>
+
+                  <br>
+                  <br>
+                  <input class="form-control visible-xs visible-sm" placeholder="<%= @searchPlaceholder %>" ng-model="searchFilter">
                 <% elsif current_page?(brand_contents_path(@brand.id)) %>
                   <%= link_to "Add new content", new_brand_content_path(@brand), class: "btn btn-cta-cms btn-xs pull-right" %>
+
+                  <br>
+                  <br>
+                  <input class="form-control visible-xs visible-sm" placeholder="<%= @searchPlaceholder %>" ng-model="searchFilter">
                 <% end %>
-                <br>
-                <br>
-                <input class="form-control visible-xs visible-sm" placeholder="<%= @searchPlaceholder %>" ng-model="searchFilter">
             </div>
           </div>
         </div>
