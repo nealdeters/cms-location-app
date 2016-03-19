@@ -125,40 +125,37 @@
   <% end %>
 
   <section class="content">
-      <div class="container">
-        <h1><%= @brand.brand_name %> Locations</h1>
-        <br>
-        <br>
+    <div class="container">
+      <h1><%= @brand.brand_name %> Locations</h1>
+      
+      <% @locations.each do |state| %>
+        <h2><%= state[0] %></h2>
         
-            <% @locations.each do |state| %>
-              <h3><%= state[0] %></h3>
-              
-              <% state[1].each do |city| %>
-              <div class="row">
-                <div class="container">
-                  <div class="col-md-12">
-                    <h5><%= city[0] %></h5>
-                  </div>
+        <% state[1].each do |city| %>
+        <div class="row">
+          <div class="container">
+            <div class="col-md-12">
+              <h4><%= city[0] %></h4>
+            </div>
 
-                  <% city[1].each do |location| %>
-                    <div class="col-md-4">
-                      <% if location.slug %>
-                        <p><a href="/<%= location.slug %>"><%= location.business_name %></a></p>
-                      <% else %>
-                        <p><a href="/<%= location.id %>"><%= location.business_name %></a></p>
-                      <% end %>
-                    </div><!-- /.col-lg-4 -->
-                  <% end %>
+            <% city[1].each do |location| %>
+              <div class="col-md-4">
+                <% if location.slug %>
+                  <p><a href="/<%= location.slug %>"><%= location.business_name %></a></p>
+                <% else %>
+                  <p><a href="/<%= location.id %>"><%= location.business_name %></a></p>
                 <% end %>
-                </div>
-              </div><!-- /.row -->
-              
+              </div><!-- /.col-lg-4 -->
             <% end %>
-          
-      </div>
-    </section>
-  <br>
-  <br>
+          <% end %>
+          </div>
+        </div><!-- /.row -->
+        
+      <% end %>
+        
+    </div>
+  </section>
+  
   <div class="container">
     <!-- FOOTER -->
     <footer>
