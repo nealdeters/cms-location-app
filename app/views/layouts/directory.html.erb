@@ -139,13 +139,17 @@
             </div>
 
             <% city[1].each do |location| %>
-              <div class="col-md-4">
-                <% if location.slug %>
-                  <p><a href="/<%= location.slug %>"><%= location.business_name %></a></p>
-                <% else %>
-                  <p><a href="/<%= location.id %>"><%= location.business_name %></a></p>
-                <% end %>
-              </div><!-- /.col-lg-4 -->
+            <div class="row">
+              <div class="container">
+                <div class="col-md-4">
+                  <% if location.slug %>
+                    <p><a href="/<%= location.slug %>"><%= location.business_name %></a></p>
+                  <% else %>
+                    <p><a href="/<%= location.id %>"><%= location.business_name %></a></p>
+                  <% end %>
+                </div><!-- /.col-lg-4 -->
+              </div>
+            </div>
             <% end %>
           <% end %>
           </div>
@@ -155,7 +159,7 @@
         
     </div>
   </section>
-  
+
   <div class="container">
     <!-- FOOTER -->
     <footer>
