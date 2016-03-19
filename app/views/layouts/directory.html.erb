@@ -135,20 +135,19 @@
               <h3><%= state[0] %></h3>
               
               <% state[1].each do |city| %>
-                <ul>   
-                    <li>
-                      <%= city[0] %>
-                    </li>
-                </ul>
-                  <% city[1].each do |location| %>
-                    <div class="col-lg-4">
-                      <% if location.slug %>
-                        <p><a href="/<%= location.slug %>"><%= location.business_name %></a></p>
-                      <% else %>
-                        <p><a href="/<%= location.id %>"><%= location.business_name %></a></p>
-                      <% end %>
-                    </div><!-- /.col-lg-4 -->
-                  <% end %>
+                <div class="col-md-12">
+                  <%= city[0] %>
+                </div>
+
+                <% city[1].each do |location| %>
+                  <div class="col-md-4">
+                    <% if location.slug %>
+                      <p><a href="/<%= location.slug %>"><%= location.business_name %></a></p>
+                    <% else %>
+                      <p><a href="/<%= location.id %>"><%= location.business_name %></a></p>
+                    <% end %>
+                  </div><!-- /.col-lg-4 -->
+                <% end %>
               <% end %>
               
             <% end %>
