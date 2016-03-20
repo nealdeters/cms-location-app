@@ -46,7 +46,7 @@ $(document).ready (function(){
       var filledFormsCount = $('input.form-control').filter(function () {
           return $(this).val() === "";
       }).length;
-      var width = Math.round(((1 / formCount) * (formCount - (filledFormsCount - 2))) * 100);
+      var width = Math.round(((1 / formCount) * (formCount - (filledFormsCount - 1))) * 100);
       var formPerfect = width + "%";
       $("#bar").css("width", formPerfect).text(formPerfect);
       if (width === 100) {
