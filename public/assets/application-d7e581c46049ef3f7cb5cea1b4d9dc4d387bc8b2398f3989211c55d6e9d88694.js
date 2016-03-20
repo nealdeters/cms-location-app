@@ -49259,8 +49259,6 @@ $(document).ready (function(){
       var filledFormsCount = $('input.form-control').filter(function () {
           return $(this).val() !== "";
       }).length;
-      console.log(formCount);
-      console.log(filledFormsCount);
       // var width = Math.round(((1 / formCount) * (formCount - (filledFormsCount - 1))) * 100);
       var width = Math.round((filledFormsCount/formCount) * 100);
       var formPerfect = width + "%";
@@ -49276,8 +49274,6 @@ $(document).ready (function(){
       var filledFormsCount = $('input.form-control').filter(function () {
           return $(this).val() !== "";
       }).length;
-      console.log(formCount);
-      console.log(filledFormsCount);
       // var width = Math.round(((1 / formCount) * (formCount - (filledFormsCount - 1))) * 100);
       var width = Math.round((filledFormsCount/formCount) * 100);
       var formPerfect = width + "%";
@@ -49430,6 +49426,9 @@ $(document).ready(function() {
     
   $(window).bind('scroll', function() {
 
+    if ($('.section').height() < 635) {
+
+    } else {
       if ($(window).scrollTop() > 0) {
           $('#header').addClass('navbar-fixed-top');
           $('#header-cms').addClass('navbar-fixed-top');
@@ -49445,6 +49444,9 @@ $(document).ready(function() {
         }
 
       }
+    }
+
+    console.log($(document).height())
       
   });
 
