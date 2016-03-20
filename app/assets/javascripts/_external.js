@@ -28,11 +28,12 @@ $(document).ready (function(){
   $(window).load(function() {
       var formCount = $('input.form-control').length;
       var filledFormsCount = $('input.form-control').filter(function () {
-          return $(this).val() === "";
+          return $(this).val() !== "";
       }).length;
-      // console.log(formCount);
-      // console.log(filledFormsCount);
-      var width = Math.round(((1 / formCount) * (formCount - (filledFormsCount - 1))) * 100);
+      console.log(formCount);
+      console.log(filledFormsCount);
+      // var width = Math.round(((1 / formCount) * (formCount - (filledFormsCount - 1))) * 100);
+      var width = Math.round((filledFormsCount/formCount) * 100);
       var formPerfect = width + "%";
       $("#bar").css("width", formPerfect).text(formPerfect);
       if (width === 100) {
@@ -44,9 +45,12 @@ $(document).ready (function(){
     $(".form-control").on('change paste', function () {
       var formCount = $('input.form-control').length;
       var filledFormsCount = $('input.form-control').filter(function () {
-          return $(this).val() === "";
+          return $(this).val() !== "";
       }).length;
-      var width = Math.round(((1 / formCount) * (formCount - (filledFormsCount - 1))) * 100);
+      console.log(formCount);
+      console.log(filledFormsCount);
+      // var width = Math.round(((1 / formCount) * (formCount - (filledFormsCount - 1))) * 100);
+      var width = Math.round((filledFormsCount/formCount) * 100);
       var formPerfect = width + "%";
       $("#bar").css("width", formPerfect).text(formPerfect);
       if (width === 100) {
