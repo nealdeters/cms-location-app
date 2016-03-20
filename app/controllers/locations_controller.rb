@@ -150,8 +150,8 @@ class LocationsController < ApplicationController
     # update location image
     if @location.images.first != nil
       @location.images.first.update( 
-        image_name: params[:image_name],
-        image_category: params[:image_category],
+        image_name: "Location",
+        image_category: "location",
         image: params[:image]
         # image_path: params[:image_path]
       )
