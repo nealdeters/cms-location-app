@@ -20,7 +20,8 @@ gem 'roo'
 gem 'seed_dump'
 # unirest for json
 gem 'unirest'
-
+#heroku api gem
+gem 'heroku-api'
 #for creating monochromatic color palettees. --- not currenlty using
 gem 'chroma'
 #gem for converting address to geo coordinates

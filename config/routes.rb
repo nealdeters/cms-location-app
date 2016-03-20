@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/brands' => 'brands#index'
+      get '/brands/all' => 'brands#all'
       get '/locations' => 'locations#index'
       get '/images' => 'images#index'
       get '/contents' => 'contents#index'
