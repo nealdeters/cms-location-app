@@ -56,7 +56,10 @@ task :push_new_domains_to_heroku => [:compare_domain, :get_database_domains, :ge
   puts "Posting new domains to heroku..."
   
   @new_domains.each do |domain|
-    heroku.post_domain("fierce-caverns-77919", "#{domain}")
+    heroku.post_domain("fierce-caverns-77919", domain)
+    # `heroku domains:add #{domain}`
   end
+
+  puts "DONE."
 
 end
