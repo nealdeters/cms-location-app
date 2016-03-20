@@ -18,6 +18,9 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'roo'
 #gem for copying database info
 gem 'seed_dump'
+# unirest for json
+gem 'unirest'
+
 #for creating monochromatic color palettees. --- not currenlty using
 gem 'chroma'
 #gem for converting address to geo coordinates
