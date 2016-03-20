@@ -8,7 +8,7 @@ desc "This task grabs new domain names from your database and adds them to herok
 task :get_database_domains do
   puts "Finding domains..."
 
-  database_domains = Unirest.get("http://www.lvh.me:3000/api/v1/brands/all.json").body
+  database_domains = Unirest.get("http://www.nearr.me/api/v1/brands/all.json").body
 
   @domains = []
 
