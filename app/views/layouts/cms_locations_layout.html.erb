@@ -49,8 +49,9 @@
                     <li class="nav-item"><a href="<%= brand_images_path(@brand.id) %>">Images</a></li>
                     <li class="nav-item"><a href="<%= brand_contents_path(@brand.id) %>">Content</a></li>
                     <li class="nav-item"><a href="<%= import_export_brand_locations_path %>">Import/Export</a></li>          
-
+                    <% if current_page?(brand_locations_path(@brand.id)) || current_page?(brand_images_path(@brand.id)) || current_page?(brand_contents_path(@brand.id)) %>
                     <li><input class="form-control hidden-xs hidden-sm" placeholder="<%= @searchPlaceholder %>" ng-model="searchFilter"></li>
+                    <% end %>
 
 
                     <li class="nav-item"><%= link_to "Sign Out", "/users/sign_out", method: :delete if user_signed_in? %></li>
