@@ -49275,7 +49275,7 @@ $(document).ready (function(){
       var filledFormsCount = $('input.form-control').filter(function () {
           return $(this).val() === "";
       }).length;
-      var width = Math.round(((1 / formCount) * (formCount - (filledFormsCount - 2))) * 100);
+      var width = Math.round(((1 / formCount) * (formCount - (filledFormsCount - 1))) * 100);
       var formPerfect = width + "%";
       $("#bar").css("width", formPerfect).text(formPerfect);
       if (width === 100) {
@@ -49423,23 +49423,27 @@ var MapManager = function ()  {
 $(document).ready(function() {
   
   /* ======= Fixed header when scrolled ======= */
+    
   $(window).bind('scroll', function() {
-       if ($(window).scrollTop() > 0) {
-           $('#header').addClass('navbar-fixed-top');
-           $('#header-cms').addClass('navbar-fixed-top');
 
+      if ($(window).scrollTop() > 0) {
+          $('#header').addClass('navbar-fixed-top');
+          $('#header-cms').addClass('navbar-fixed-top');
 
-       } else {
-          var loc = window.location.href; // returns the full URL
+      } else {
+        var loc = window.location.href; // returns the full URL
+        
+        if(/contact/.test(loc)) {
           
-          if(/contact/.test(loc)) {
-            
-          } else {
-            $('#header').removeClass('navbar-fixed-top');
-            $('#header-cms').removeClass('navbar-fixed-top');
-          }
-       }
+        } else {
+          $('#header').removeClass('navbar-fixed-top');
+          $('#header-cms').removeClass('navbar-fixed-top');
+        }
+
+      }
+      
   });
+
   /* ======= Fixed header end ======= */
 });
 // This is a manifest file that'll be compiled into application.js, which will include all the files

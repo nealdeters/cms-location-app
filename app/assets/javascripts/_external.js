@@ -32,7 +32,7 @@ $(document).ready (function(){
       }).length;
       // console.log(formCount);
       // console.log(filledFormsCount);
-      var width = Math.round(((1 / formCount) * (formCount - (filledFormsCount - 2))) * 100);
+      var width = Math.round(((1 / formCount) * (formCount - (filledFormsCount - 1))) * 100);
       var formPerfect = width + "%";
       $("#bar").css("width", formPerfect).text(formPerfect);
       if (width === 100) {
