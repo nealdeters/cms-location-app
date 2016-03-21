@@ -24,8 +24,8 @@ task :get_database_domains do
 end
 
 task :get_heroku_domains => [:get_database_domains] do
-  # heroku = Heroku::API.new(:username => ENV['HEROKU_USER'], :password => ENV['HEROKU_PASS'])
-  heroku = Heroku::API.new(:api_key => ENV['HEROKU_API_KEY'])      
+  heroku = Heroku::API.new(:username => ENV['HEROKU_USER'], :password => ENV['HEROKU_PASS'])
+  # heroku = Heroku::API.new(:api_key => ENV['HEROKU_API_KEY'])      
   puts "Finding heroku domains..."
   heroku_list = heroku.get_domains("fierce-caverns-77919").body
 
@@ -53,8 +53,8 @@ task :compare_domain => [:get_database_domains, :get_heroku_domains] do
 end
 
 task :push_new_domains_to_heroku => [:compare_domain, :get_database_domains, :get_heroku_domains] do
-  # heroku = Heroku::API.new(:username => ENV['HEROKU_USER'], :password => ENV['HEROKU_PASS'])
-  heroku = Heroku::API.new(:api_key => ENV['HEROKU_API_KEY']) 
+  heroku = Heroku::API.new(:username => ENV['HEROKU_USER'], :password => ENV['HEROKU_PASS'])
+  # heroku = Heroku::API.new(:api_key => ENV['HEROKU_API_KEY']) 
   puts "Posting new domains to heroku..."
   
   @new_domains.each do |domain|
