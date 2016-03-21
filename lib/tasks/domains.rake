@@ -53,7 +53,7 @@ task :compare_domain => [:get_database_domains, :get_heroku_domains] do
 end
 
 task :push_new_domains_to_heroku => [:compare_domain, :get_database_domains, :get_heroku_domains] do
-  heroku = Heroku::API.new(:username => ENV['HEROKU_USER'], :password => ENV['HEROKU_PASS'])
+  heroku = Heroku::API.new(username: ENV['HEROKU_USER'], password: ENV['HEROKU_PASS'])
   # heroku = Heroku::API.new(:api_key => ENV['HEROKU_API_KEY']) 
   puts "Posting new domains to heroku..."
   
