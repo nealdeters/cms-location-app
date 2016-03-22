@@ -14,7 +14,7 @@ $(document).ready (function(){
   }) 
 
   // $(window).load(function() {
-    $('.flexslider').flexslider();
+  //   $('.flexslider').flexslider();
   // });
 
   $(function() {
