@@ -24,8 +24,6 @@ task :get_database_domains do
 end
 
 task :get_heroku_domains => [:get_database_domains] do
-  p ENV['HEROKU_USER']
-  p ENV['HEROKU_PASS']
   heroku = Heroku::API.new(:username => ENV['HEROKU_USER'], :password => ENV['HEROKU_PASS'])
   # heroku = Heroku::API.new(:api_key => ENV['HEROKU_API_KEY'])      
   puts "Finding heroku domains..."
