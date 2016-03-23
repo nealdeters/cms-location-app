@@ -17,6 +17,10 @@ $(document).ready (function(){
   //   $('.flexslider').flexslider();
   // });
 
+  $('.carousel').carousel({
+    interval: 6000
+  })
+
   $(function() {
     var loc = window.location.href; // returns the full URL
     if(/contact/.test(loc)) {
