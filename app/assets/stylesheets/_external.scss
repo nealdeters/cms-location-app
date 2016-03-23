@@ -150,6 +150,10 @@ a.btn-cta-cms-search:hover,
   z-index: 1030;
 }
 
+.carousel {
+  position: absolute;
+}
+
 /* smartphones, iPhone, portrait 480x320 phones */
 @media (max-width:640px) {
   .navbar-fixed-top,
