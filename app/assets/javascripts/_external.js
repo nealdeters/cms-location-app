@@ -13,13 +13,9 @@ $(document).ready (function(){
     $('[data-toggle="tooltip"]').tooltip()
   }) 
 
-  // $(window).load(function() {
-  //   $('.flexslider').flexslider();
-  // });
-
-  $('.carousel').carousel({
-    interval: 6000
-  })
+  $(window).load(function() {
+    $('.flexslider').flexslider();
+  });
 
   $(function() {
     var loc = window.location.href; // returns the full URL

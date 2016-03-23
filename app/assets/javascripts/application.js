@@ -13,6 +13,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require theme/jquery.flexslider
 //= require angular
 //= require angular-animate
 //= require_tree .
