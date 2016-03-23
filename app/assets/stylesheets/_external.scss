@@ -154,6 +154,11 @@ a.btn-cta-cms-search:hover,
   position: absolute;
 }
 
+.carousel-inner>.item>img {
+  height: 550px;
+  width: 100%;
+}
+
 /* smartphones, iPhone, portrait 480x320 phones */
 @media (max-width:640px) {
   .navbar-fixed-top,
